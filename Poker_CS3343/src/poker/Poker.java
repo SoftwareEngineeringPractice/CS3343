@@ -19,8 +19,12 @@ public class Poker
 	 * @param n the n
 	 * @return true, if is full house
 	 */
+	/***
+	 * Changes made here
+	 */
 	// Precondition: A hand of n cards have been sorted by card number.
-	public boolean isFullHouse(String cards[], int n) {
+	public boolean isFullHouse(String cards[], int n)
+	{
 		return isThreeOfaKind(cards, n) && isTwoPairs(cards, n);
 	}
 
@@ -79,5 +83,9 @@ public class Poker
 		System.out.println(new Poker().isFullHouse(
 			new String[] {"C2", "D2", "H2", "S3", "S4"}, 5));
 	}
+	/**
+	 * Changes made here
+	 * 
+	 */
 }
 // end of Poker.java
