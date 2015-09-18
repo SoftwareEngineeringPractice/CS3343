@@ -13,10 +13,7 @@ public class PokerTest
      */
 	@Before
 	public void setUp() { poker = new Poker(); }
-    /**
-     * Tears down the test fixture.
-     * Called after every test case method.
-     */
+   
 	public void tearDown() {}
 	
 	// Test case 1: n = 0, cards = { }
