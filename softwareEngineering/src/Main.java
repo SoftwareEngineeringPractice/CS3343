@@ -1,11 +1,12 @@
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
 	public static void main(String [] args){
-		
+/*		
 		Person a = new Person("a");
 		Person b = new Person("b");
 		Person c = new Person("c");
@@ -16,6 +17,7 @@ public class Main {
 		ArrayList<Person> people= new ArrayList<>();
 		people.add(a);
 		people.add(b);
+		
 		people.add(c);
 		people.add(d);
 		people.add(e);
@@ -56,7 +58,7 @@ public class Main {
 		f.addPreference(d);
 		f.addPreference(c);
 		f.addPreference(e);
-
+*/
 /*		
 		Person a = new Person("a");
 		Person b = new Person("b");
@@ -87,17 +89,41 @@ public class Main {
 	
 */		
 		
+		Person a = new Person("a");
+		Person b = new Person("b");
+		Person c = new Person("c");
+		Person d = new Person("d");
+		
+		Person[] arrPeople = {a,b,c,d};
+		
+		ArrayList<Person> people= new ArrayList<>();
+		people.addAll(Arrays.asList(arrPeople));
+		
+		Person[] prefA = {b,c,d}; 
+		Person[] prefB = {a,d,c};
+		Person[] prefC = {d,a,b};
+		Person[] prefD = {c,b,a};
+		
+		a.addPreference(prefA);
+		b.addPreference(prefB);
+		c.addPreference(prefC);
+		d.addPreference(prefD);
+
+		
 		///////////////////////////////////////////////////////////////////////////////////
 
 		PreferenceMatrix p = new PreferenceMatrix(people);
 		
 		p.Stage1();
+		p.displayMatrix();
+		System.out.println("================================");
 		p.Stage2();
 		p.displayMatrix();
 		p.Stage3();
         System.out.println("================================");
 		p.displayMatrix();
-		
+		System.out.println("================================");
+		p.displayFinalResult();
 		
 		
 		

@@ -1,5 +1,5 @@
 
-public class Cell {
+public abstract class Cell {
 
 	private Person person;
 	private CState status = null;
@@ -16,17 +16,15 @@ public class Cell {
 		return this.person;
 	}
 	
-	public void reject(){
-		status = new CStateRejected();
-	}
-
-	public void accept(){
-		status = new CStateAccepted();
-	}
+    public void setStatus(CState state){
+    	this.status = state; 
+    }
 	
-	public void proposalMade(){
-		status = new CStateProposalMade();
-	}
+	public abstract void reject();
+
+	public abstract void accept();
+	
+	public abstract void proposalMade();
 
 	
     public CState getStatus(){
@@ -39,5 +37,8 @@ public class Cell {
     	else
     		return this.status.getString();
     }
+    
+
+    
 	
 }
