@@ -1,6 +1,12 @@
 
-public class CStateRejected implements CState {
-
+public class CStateRejected implements CState
+{
+	String state;
+	public CStateRejected()
+	{
+		state = "(R)";
+	}
+	
 	public CState getStatus()
 	{
 		return this;
@@ -8,10 +14,7 @@ public class CStateRejected implements CState {
 	
 	public String getString()
 	{
-		return "(R)";
+		return state;
 	}
-	
-
-
 	
 }

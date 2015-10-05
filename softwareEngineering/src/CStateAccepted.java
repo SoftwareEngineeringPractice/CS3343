@@ -1,7 +1,11 @@
 
-
-
-public class CStateAccepted implements CState {
+public class CStateAccepted implements CState
+{
+	String state;
+	public CStateAccepted()
+	{
+		state = "(A)";
+	}
 	
 	public CState getStatus()
 	{
@@ -10,7 +14,6 @@ public class CStateAccepted implements CState {
 
 	public String getString()
 	{
-		return "(A)";
+		return state;
 	}
-
 }

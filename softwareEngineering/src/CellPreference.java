@@ -1,19 +1,23 @@
 
-public class CellPreference extends Cell{
-
-	public CellPreference(Person person) {
+public class CellPreference extends Cell
+{
+	public CellPreference(Person person)
+	{
 		super(person);
 	}
 
-	public void reject(){
+	public void reject()
+	{
 		super.setStatus(new CStateRejected());
 	}
 	
-	public void accept(){
+	public void accept()
+	{
 		super.setStatus(new CStateAccepted());
 	}
 	
-	public void proposalMade(){
+	public void proposalMade()
+	{
 		super.setStatus(new CStateProposalMade());
 	}
 }

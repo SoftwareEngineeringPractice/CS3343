@@ -1,10 +1,10 @@
 
-public class CStateProposalMade implements CState
+public class CStateAvailable implements CState
 {
-	String state;
-	public CStateProposalMade()
+	String state = "(N)";
+	public CStateAvailable()
 	{
-		state = "(P)";
+		state = "(N)";
 	}
 	
 	public CState getStatus()
@@ -16,4 +16,5 @@ public class CStateProposalMade implements CState
 	{
 		return state;
 	}
+	
 }

@@ -3,10 +3,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main {
+public class Main
+{
 
-	public static void main(String [] args){
-/*		
+	public static void main(String [] args)
+	{
+		
 		Person a = new Person("a");
 		Person b = new Person("b");
 		Person c = new Person("c");
@@ -58,7 +60,7 @@ public class Main {
 		f.addPreference(d);
 		f.addPreference(c);
 		f.addPreference(e);
-*/
+
 /*		
 		Person a = new Person("a");
 		Person b = new Person("b");
@@ -87,7 +89,7 @@ public class Main {
 		m.addPreference(b);
 		m.addPreference(c);
 	
-*/		
+*/		/*
 		
 		Person a = new Person("a");
 		Person b = new Person("b");
@@ -110,7 +112,7 @@ public class Main {
 		d.addPreference(prefD);
 
 		
-		///////////////////////////////////////////////////////////////////////////////////
+		*///////////////////////////////////////////////////////////////////////////////////
 
 		PreferenceMatrix p = new PreferenceMatrix(people);
 		
@@ -124,8 +126,6 @@ public class Main {
 		p.displayMatrix();
 		System.out.println("================================");
 		p.displayFinalResult();
-		
-		
 		
     }
 	

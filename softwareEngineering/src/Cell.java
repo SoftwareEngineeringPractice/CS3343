@@ -1,22 +1,27 @@
 
-public abstract class Cell {
+public abstract class Cell
+{
 
 	private Person person;
-	private CState status = null;
+	private CState status = new CStateAvailable();
 	
-	public Cell(Person person){
+	public Cell(Person person)
+	{
 		this.person = person;
 	}
 	
-	public String getName(){
+	public String getName()
+	{
 		return this.person.getName();
 	}
 	
-	public Person getPerson(){
+	public Person getPerson()
+	{
 		return this.person;
 	}
 	
-    public void setStatus(CState state){
+    public void setStatus(CState state)
+    {
     	this.status = state; 
     }
 	
@@ -27,18 +32,13 @@ public abstract class Cell {
 	public abstract void proposalMade();
 
 	
-    public CState getStatus(){
+    public CState getStatus()
+    {
     	return this.status;
     }
     
-    public String getStatusString(){
-    	if(status == null)
-    		return "(N)";
-    	else
-    		return this.status.getString();
+    public String getStatusString()
+    {
+    	return this.status.getString();
     }
-    
-
-    
-	
 }
