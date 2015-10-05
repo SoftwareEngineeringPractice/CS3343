@@ -12,7 +12,10 @@ public class PokerTest
      * Called before every test case method.
      */
 	@Before
-	public void setUp() { poker = new Poker(); }
+	public void setUp()
+	{
+		poker = new Poker();
+	}
    
 	public void tearDown() {}
 	
