@@ -1,20 +1,21 @@
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Main
 {
 
 	public static void main(String [] args)
 	{
-		
-		Person a = new Person("a");
-		Person b = new Person("b");
-		Person c = new Person("c");
-		Person d = new Person("d");
-		Person e = new Person("e");
-		Person f = new Person("f");
+		Office officeInstance = Office.getOffice();
+		officeInstance.makePersons();
+		/*
+		Person a = new Person("a", "N,N");
+		Person b = new Person("b", "N,Y");
+		Person c = new Person("c", "Y,N");
+		Person d = new Person("d", "Y,Y");
+		Person e = new Person("e", "Y,N");
+		Person f = new Person("f", "N,Y");
 		
 		ArrayList<Person> people= new ArrayList<>();
 		people.add(a);
@@ -88,8 +89,8 @@ public class Main
 		m.addPreference(a);
 		m.addPreference(b);
 		m.addPreference(c);
-	
-*/		/*
+		*/
+		/*
 		
 		Person a = new Person("a");
 		Person b = new Person("b");
@@ -111,9 +112,10 @@ public class Main
 		c.addPreference(prefC);
 		d.addPreference(prefD);
 
+		*/
+		///////////////////////////////////////////////////////////////////////////////////
+		/*
 		
-		*///////////////////////////////////////////////////////////////////////////////////
-
 		PreferenceMatrix p = new PreferenceMatrix(people);
 		
 		p.Stage1();
@@ -126,7 +128,7 @@ public class Main
 		p.displayMatrix();
 		System.out.println("================================");
 		p.displayFinalResult();
-		
+		*/
     }
 	
 }
