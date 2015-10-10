@@ -10,6 +10,10 @@ public class Main
 		Office officeInstance = Office.getOffice();
 		officeInstance.makePersons();
 		/*
+		 * Office tested and works
+		 * 
+		 */
+		/*
 		Person a = new Person("a", "N,N");
 		Person b = new Person("b", "N,Y");
 		Person c = new Person("c", "Y,N");
