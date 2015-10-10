@@ -85,7 +85,6 @@ public class Person
 			ret += " - " + thisAtt.getName() + "\t - " + thisAtt.getValue();
 			ret += "\n\t\t\t";
 		}
-		ret += "\n";
 		return ret;
 	}
 }

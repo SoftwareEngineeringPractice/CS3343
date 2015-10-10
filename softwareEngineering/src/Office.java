@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 public class Office
 {
 	private static Office office = new Office();
-	ArrayList<Person> personList = new ArrayList<>();
+	ArrayList<Person> personList;
 	private Office()
 	{
-		
+		personList = new ArrayList<>();
 	}	
 	public static Office getOffice()
 	{
@@ -18,14 +18,15 @@ public class Office
 	public void makePersons()
 	{
 		Scanner in = new Scanner(System.in);
-		System.out.print("Please input the file pathname for all Persons and their Attributes: ");
+		System.out.println("Please input the file pathname for all Persons and their Attributes: ");
 		String filepathname = in.nextLine();
+		System.out.println();
 		Scanner inFile = null;
 		try
 		{
 			inFile = new Scanner(new File(filepathname));
 				
-			while (inFile.hasNext())		
+			while (inFile.hasNext())
 			{
 				String cmdLine = inFile.nextLine().trim();
 				//Blank lines exist in data file as separators.  Skip them.
