@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 public class Office
 {
 	private static Office office = new Office();
-	ArrayList<Person> personList;
+	private ArrayList<Person> personList;
 	private Office()
 	{
 		personList = new ArrayList<>();
@@ -58,4 +58,10 @@ public class Office
 		for(Person person: personList)
 			System.out.println(person.toString());
 	}
+	
+	public ArrayList<Person> getPersonList()
+	{
+		return personList;
+	}
+	
 }

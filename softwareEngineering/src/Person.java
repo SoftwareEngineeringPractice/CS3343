@@ -78,12 +78,13 @@ public class Person
 	@Override
 	public String toString()
 	{
-		String ret = name + "\t";
+		String ret = name + "\n";
 		ArrayList<Attribute> thisAttribute = this.attributes.getList();
 		for(Attribute thisAtt: thisAttribute)
 		{
-			ret += " - " + thisAtt.getName() + "\t - " + thisAtt.getValue();
-			ret += "\n\t\t\t";
+			ret += "\t - " + thisAtt.getName() + "\t - " + thisAtt.getValue();
+			ret += "\n";
+			
 		}
 		return ret;
 	}
