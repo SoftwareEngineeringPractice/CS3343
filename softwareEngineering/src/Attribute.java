@@ -1,6 +1,7 @@
 
 public class Attribute
 {
+	//every attribute has a name and value
 	private String name;
 	private boolean value;
 	public Attribute(String name, boolean value)

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 public class Office
 {
+	//singleton Office, full control over Person
 	private static Office office = new Office();
 	private ArrayList<Person> personList;
 	private Office()
@@ -14,7 +15,7 @@ public class Office
 	{
 		return office;
 	}
-	
+	//Function to make Persons, input can look like "FirstName LastName|Y,N,.." , Name | Attributes in the right order
 	public void makePersons()
 	{
 		Scanner in = new Scanner(System.in);
@@ -52,16 +53,21 @@ public class Office
 			in.close();
 		}
 	}
+	//print all people
 	private void printPersons()
 	{
 		System.out.println("List of all Persons:");
 		for(Person person: personList)
 			System.out.println(person.toString());
 	}
-	
+	//return list of Persons in the program
 	public ArrayList<Person> getPersonList()
 	{
 		return personList;
 	}
-	
+	//make the preference List for Person p
+	public void makePreferences(Person p)
+	{
+		p.makePreferenceList(personList);
+	}
 }
