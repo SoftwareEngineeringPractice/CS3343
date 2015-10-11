@@ -182,6 +182,9 @@ public class PreferenceMatrix
 	
 	public void Stage3()
 	{
+		
+		//TODO very important, check if any row has only one Person, if yes -> symmetrically remove both and consider them a pair
+		
 		for(int i = 0; i < noOfPeople; i++ )
 		{
 			//Has more than one choice in row
