@@ -1,90 +1,56 @@
-import java.util.*;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
-public class Office
-{
-	//singleton Office, full control over Person
+
+public class Office {
 	private static Office office = new Office();
-	private ArrayList<Person> personList;
+	private ArrayList<Person> residenceEligiblePersonList;
+	//Only for testing, will be changed to available rooms
+	public static int n = 4;
+	
+	private StudentOffice studentOffice = StudentOffice.getOffice();
+	
+	
 	private Office()
 	{
-		personList = new ArrayList<>();
+		residenceEligiblePersonList = new ArrayList<>();
 	}	
 	public static Office getOffice()
 	{
 		return office;
 	}
-	//Function to make Persons, input can look like "FirstName LastName|Student ID|Y,N,.." , Name | Student ID | Attributes in the right order
-	public void makePersons()
+	
+	public void setEligiblePeople()
 	{
-		Scanner in = new Scanner(System.in);
-		System.out.println("Please input the file pathname for all Persons and their Attributes: ");
-		String filepathname = in.nextLine();
-		System.out.println();
-		Scanner inFile = null;
-		try
-		{
-			inFile = new Scanner(new File(filepathname));
-				
-			while (inFile.hasNext())
-			{
-				String cmdLine = inFile.nextLine().trim();
-				//Blank lines exist in data file as separators.  Skip them.
-				if (cmdLine.equals("")) continue;  
-				
-				//split the words in actionLine => create an array of word strings
-				String[] cmdParts = cmdLine.split("\\|");
-				
-				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2]));
-			}
-			printPersons();
-			
-			
-			
-		}
-		catch (FileNotFoundException e)
-		{
-			System.out.println("Error! File not found!");
-		}
-		finally
-		{
-			if(inFile != null)
-			{
-				inFile.close();			
-			}
-			in.close();
-		}
-	}
-	//print all people
-	private void printPersons()
-	{
-		System.out.println("List of all Persons:");
-		for(Person person: personList)
-			System.out.println(person.toString());
-	}
-	//return list of Persons in the program
-	public ArrayList<Person> getPersonList()
-	{
-		return personList;
-	}
-	//make the preference List for Person p
-	public void makePreferences(Person p)
-	{
-		p.makePreferenceList(personList);
-	}
-	public void makePreferences()
-	{
-		for(Person p: personList)
-			p.makePreferenceList(personList);
-	}
-	//print preferences
-	public void printPreferenceList()
-	{
+		ArrayList<Person> personList = studentOffice.getPersonList();
 		for(Person p: personList)
 		{
-			System.out.println("Preference for " + p.getName() + " - ");
-			p.printPreference();
+			//Current rule: FCFS
+			if(personList.indexOf(p) < n)
+			{
+				residenceEligiblePersonList.add(p);
+			}
 		}
+	}
+	
+	public void setPreferenceList()
+	{
+		studentOffice.makePreferences(residenceEligiblePersonList);
+	}
+	//TODO naming has to be changed
+	public void pairStudents()
+	{
+		PreferenceMatrix p = new PreferenceMatrix(residenceEligiblePersonList);
+		
+		p.Stage1();
+		p.displayMatrix();
+		System.out.println("================================");
+		p.Stage2();
+		p.displayMatrix();
+		p.Stage3();
+        System.out.println("================================");
+		p.displayMatrix();
+		System.out.println("================================");
+		p.displayFinalResult();
+		
 	}
 }

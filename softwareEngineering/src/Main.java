@@ -7,10 +7,16 @@ public class Main
 
 	public static void main(String [] args)
 	{
-		Office officeInstance = Office.getOffice();
+		// TODO All this should be handled by Office
+		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons();
-		officeInstance.makePreferences();
-		officeInstance.printPreferenceList();
+		//officeInstance.makePreferences();
+		//officeInstance.printPreferenceList();
+		
+		Office office = Office.getOffice();
+		office.setEligiblePeople();
+		office.setPreferenceList();
+		office.pairStudents();
 		//System.out.println(officeInstance.getPersonList().get(0).distance(officeInstance.getPersonList().get(2)));
 		
 		/*

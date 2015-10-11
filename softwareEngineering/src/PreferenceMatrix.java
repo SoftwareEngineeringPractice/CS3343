@@ -45,7 +45,14 @@ public class PreferenceMatrix
 			//Left most column, their status can't be changed
 			
 			matrix[i][0] = new CellSubject(people.get(i));
-			ArrayList<Person> preferences = people.get(i).getPreferenceList();
+			ArrayList<ArrayList<Person>> preferenceSet = people.get(i).getPreferenceList();
+			//ArrayList<Person> preferences = people.get(i).getPreferenceList();
+			ArrayList<Person> preferences = new ArrayList<>();
+			
+			for (ArrayList<Person> set:preferenceSet )
+			{
+				preferences.addAll(set);
+			}
 			
 			//rest, if matrix, their status can be changed
 			//TODO Exception handler required, If n guys are eligible for residence, the preference list for P1 should contain (P2...PN) in any order and no repetition.
@@ -192,7 +199,7 @@ public class PreferenceMatrix
 		Person startPlayer = matrix[rowIndex][0].getPerson();
 		boolean cycleComplete = false;
 		Person currentPlayer = startPlayer; 
-		
+		System.out.println("---now the cycle starts---");
 		while(!cycleComplete)
 		{
 			Person secondPreference =  getSecondAvailablePreference(currentPlayer);
@@ -216,6 +223,7 @@ public class PreferenceMatrix
 	
 	public Person getSecondAvailablePreference(Person p)
 	{
+		System.out.print(p);
 		int row = getMatrixRowIndexForPerson(p);
 		int count = 0;
 		for(int j = 1; j < noOfPeople; j++)
@@ -234,6 +242,7 @@ public class PreferenceMatrix
 	
 	public Person getLastAvailablePreference(Person p)
 	{
+		System.out.println(p);
 		int row = getMatrixRowIndexForPerson(p);
 		for(int j = noOfPeople-1; j >= 0; j--)
 		{
