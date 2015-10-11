@@ -5,14 +5,16 @@ public class Person
 {
 	//name of Person
 	private String name;
+	private String studentID;
 	//order for this preference list matters.
 	private ArrayList<ArrayList<Person>> preferenceList= new ArrayList<>();
 	//Person's attribute list
 	private AttributeList attributes = new AttributeList();
 	
-	public Person(String name, String v)
+	public Person(String name, String studentID, String v)
 	{
 		this.name = name;
+		this.studentID = studentID;
 		//constructor calls a function to assign attributes to a person
 		setAttributes(v);
 	}
@@ -43,6 +45,10 @@ public class Person
 	{
 		return this.name;
 	}
+	private String getID() 
+	{
+		return studentID;
+	}
 	/*
 	public void addPreference(Person p)
 	{
@@ -59,30 +65,53 @@ public class Person
 	//Return preference list and make preference list
 	public ArrayList<ArrayList<Person>> makePreferenceList(ArrayList<Person> personList)
 	{
-		ArrayList<ArrayList<Person>> preferences = new ArrayList<>();
-		ArrayList<Person> preference0 = new ArrayList<>();
+		
+		//ArrayList<ArrayList<Person>> preferences = new ArrayList<>();
+		
+		/*ArrayList<Person> preference0 = new ArrayList<>();
 		ArrayList<Person> preference1 = new ArrayList<>();
 		ArrayList<Person> preference2 = new ArrayList<>();
+		*/
+		
+		int noOfPreferenceSets = attributes.getNoOfAttributes();
+		for(int i = 0; i < noOfPreferenceSets; i++)
+		{
+			ArrayList<Person> preferenceSet = new ArrayList<>();
+			preferenceList.add(preferenceSet);
+		}
+		
+		
+		
 		for(Person p: personList)
 		{
+			if(!this.equals(p))
+			{
+				int distance = this.distance(p);
+				preferenceList.get(distance).add(p);
+			}
+			/*
 			if(this.distance(p) == 0)
 			{
-				preference0.add(p);
+				//preference0.add(p);
+				preferences.get(0).add(p);
 			}
 			else if(this.distance(p) == 1)
 			{
-				preference1.add(p);
+				//preference1.add(p);
+				preferences.get(1).add(p);
 			}
 			else if(this.distance(p) == 2)
 			{
-				preference2.add(p);
+				//preference2.add(p);
+				preferences.get(2).add(p);
 			}
+			*/
 		}
-		preferences.add(preference0);
-		preferences.add(preference1);
-		preferences.add(preference2);
-		preferenceList = preferences;
-		return preferences;
+		//preferences.add(preference0);
+		//preferences.add(preference1);
+		//preferences.add(preference2);
+		//preferenceList = preferences;
+		return preferenceList;
 	}
 	//return prefrenceList
 	public ArrayList<ArrayList<Person>> getPreferenceList()
@@ -120,5 +149,32 @@ public class Person
 			
 		}
 		return ret;
+	}
+	//check if this equals to p
+	@Override
+	public boolean equals(Object p1)
+	{
+		Person p = (Person) p1;
+		if(p.getID().equals(this.studentID))
+			return true;
+		return false;
+	}
+	//printperferenceSet()
+	public void printPreferenceSet(int i)
+	{
+		System.out.print("Set " + i);
+		ArrayList<Person> preferenceSet = preferenceList.get(i);
+		for(Person p: preferenceSet)
+		{
+			System.out.print(" " + p.getName()); 
+		}
+		System.out.println();
+	}
+	public void printPreference()
+	{
+		for(int i = 0; i < attributes.getNoOfAttributes(); i++)
+		{
+			printPreferenceSet(i);
+		}
 	}
 }

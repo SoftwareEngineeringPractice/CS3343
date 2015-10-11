@@ -15,7 +15,7 @@ public class Office
 	{
 		return office;
 	}
-	//Function to make Persons, input can look like "FirstName LastName|Y,N,.." , Name | Attributes in the right order
+	//Function to make Persons, input can look like "FirstName LastName|Student ID|Y,N,.." , Name | Student ID | Attributes in the right order
 	public void makePersons()
 	{
 		Scanner in = new Scanner(System.in);
@@ -36,9 +36,12 @@ public class Office
 				//split the words in actionLine => create an array of word strings
 				String[] cmdParts = cmdLine.split("\\|");
 				
-				personList.add(new Person(cmdParts[0], cmdParts[1]));
+				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2]));
 			}
 			printPersons();
+			
+			
+			
 		}
 		catch (FileNotFoundException e)
 		{
@@ -69,5 +72,19 @@ public class Office
 	public void makePreferences(Person p)
 	{
 		p.makePreferenceList(personList);
+	}
+	public void makePreferences()
+	{
+		for(Person p: personList)
+			p.makePreferenceList(personList);
+	}
+	//print preferences
+	public void printPreferenceList()
+	{
+		for(Person p: personList)
+		{
+			System.out.println("Preference for " + p.getName() + " - ");
+			p.printPreference();
+		}
 	}
 }

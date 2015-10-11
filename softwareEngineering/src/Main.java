@@ -9,8 +9,9 @@ public class Main
 	{
 		Office officeInstance = Office.getOffice();
 		officeInstance.makePersons();
-		
-		System.out.println(officeInstance.getPersonList().get(0).distance(officeInstance.getPersonList().get(2)));
+		officeInstance.makePreferences();
+		officeInstance.printPreferenceList();
+		//System.out.println(officeInstance.getPersonList().get(0).distance(officeInstance.getPersonList().get(2)));
 		
 		/*
 		 * Office tested and works

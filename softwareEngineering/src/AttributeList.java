@@ -7,6 +7,7 @@ public class AttributeList
 		//more attributes to be added her, if needed
 		list.add(new Attribute("Smoker", false));
 		list.add(new Attribute("Alcoholic", false));
+		
 	}
 	//every Persons has his own attribute list
 	public ArrayList<Attribute> getList()
@@ -18,5 +19,10 @@ public class AttributeList
 	{
 		list.get(number).setValue(value);
 		return;
+	}
+	
+	public int getNoOfAttributes()
+	{
+		return list.size()+1;
 	}
 }
