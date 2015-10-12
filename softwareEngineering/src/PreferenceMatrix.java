@@ -84,6 +84,7 @@ public class PreferenceMatrix
 	{
 		for(int i=0; i<noOfPeople; i++)
 		{
+			//TODO: Error
 			System.out.println(matrix[i][0].getName() + " - " + getFirstNonRejectedPerson(matrix[i][0].getPerson()).getName());
 		}
 	}

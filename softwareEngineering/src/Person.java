@@ -79,9 +79,6 @@ public class Person
 			ArrayList<Person> preferenceSet = new ArrayList<>();
 			preferenceList.add(preferenceSet);
 		}
-		
-		
-		
 		for(Person p: personList)
 		{
 			if(!this.equals(p))
