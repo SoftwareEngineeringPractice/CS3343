@@ -25,6 +25,8 @@ After completing all 3 stages we'll have a matrix with each row having only 1 no
 */
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class PreferenceMatrix
 {
@@ -51,6 +53,9 @@ public class PreferenceMatrix
 			
 			for (ArrayList<Person> set:preferenceSet )
 			{
+				//long seed = System.nanoTime();
+				//Collections.shuffle(set, new Random(seed));
+				Collections.shuffle(set, new Random());
 				preferences.addAll(set);
 			}
 			
@@ -185,6 +190,7 @@ public class PreferenceMatrix
 	{
 		
 		//TODO very important, check if any row has only one Person, if yes -> symmetrically remove both and consider them a pair
+		
 		
 		for(int i = 0; i < noOfPeople; i++ )
 		{

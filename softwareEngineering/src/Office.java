@@ -6,7 +6,7 @@ public class Office
 	private static Office office = new Office();
 	private ArrayList<Person> residenceEligiblePersonList;
 	//Only for testing, will be changed to available rooms
-	public static int n = 4;
+	public static int n = 6;
 	
 	private StudentOffice studentOffice = StudentOffice.getOffice();
 	
