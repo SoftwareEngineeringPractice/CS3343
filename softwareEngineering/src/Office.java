@@ -45,13 +45,13 @@ public class Office
 		//p.displayMatrix();
 		//System.out.println("================================");
 		p.Stage2();
-		System.out.println("Post Stage 2================================");
-		p.displayMatrix();
+		//System.out.println("Post Stage 2================================");
+		//p.displayMatrix();
 		p.Stage3();
         System.out.println("Post Stage 3================================");
 		p.displayMatrix();
 		System.out.println("================================");
-		p.displayFinalResult();
+		//p.displayFinalResult();
 		
 	}
 }

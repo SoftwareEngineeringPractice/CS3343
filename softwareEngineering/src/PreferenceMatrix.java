@@ -55,7 +55,7 @@ public class PreferenceMatrix
 			{
 				//long seed = System.nanoTime();
 				//Collections.shuffle(set, new Random(seed));
-				Collections.shuffle(set, new Random());
+				Collections.shuffle(set);
 				preferences.addAll(set);
 			}
 			
@@ -192,6 +192,10 @@ public class PreferenceMatrix
 		
 		//TODO very important, check if any row has only one Person, if yes -> symmetrically remove both and consider them a pair
 		
+		
+		
+		
+		
 		/*
 		for(int i = 0; i < noOfPeople; i++ )
 		{
@@ -213,7 +217,7 @@ public class PreferenceMatrix
 		*/
 		
 		
-		
+	
 		
 		
 		for(int i = 0; i < noOfPeople; i++ )
@@ -229,15 +233,57 @@ public class PreferenceMatrix
 	public void formCycle(int rowIndex)
 	{
 		//cycle doesn't contain first player
-		ArrayList<Person> cycle = new ArrayList<>();
+		//ArrayList<Person> cycle = new ArrayList<>();
 		Person startPlayer = matrix[rowIndex][0].getPerson();
 		boolean cycleComplete = false;
 		Person currentPlayer = startPlayer; 
 		System.out.println("---now the cycle starts---");
 		System.out.println(rowIndex);
+		displayMatrix();
+		
+		
+		ArrayList<Person> firstRow  = new ArrayList<Person>();
+		ArrayList<Person> secondRow = new ArrayList<Person>();
+		
+		firstRow.add(startPlayer);
+		
 		
 		while(!cycleComplete)
 		{
+			
+			Person secondPreference;
+			if( availableChoicesInRow(getMatrixRowIndexForPerson(currentPlayer)) > 1)
+			{
+				secondPreference = getSecondAvailablePreference(currentPlayer);
+			}
+			else
+			{
+				secondPreference = getFirstNonRejectedPerson(currentPlayer);
+			}
+			// If a row has more than one copy of the same person - stop operation, start rejecting
+			if(secondRow.contains(secondPreference))
+			{
+				secondRow.add(secondPreference);
+				break;
+			}
+			else
+			{
+				secondRow.add(secondPreference);
+			}
+			
+			currentPlayer = getLastAvailablePreference(secondPreference);
+			
+			if(firstRow.contains(currentPlayer))
+			{
+				firstRow.add(currentPlayer);
+				break;
+			}
+			else
+			{
+				firstRow.add(currentPlayer);
+			}
+					
+			/*
 			Person secondPreference =  getSecondAvailablePreference(currentPlayer);
 			currentPlayer           =  getLastAvailablePreference(secondPreference);
 			
@@ -255,6 +301,19 @@ public class PreferenceMatrix
 		{
 			removeSymmetrically(cycle.get(i),cycle.get(i+1));
 		}
+		
+		*/
+		}
+		
+		for(int j = 0 ; j < secondRow.size(); j++)
+		{
+			int i = j + 1;
+			if(i < firstRow.size())
+			{
+				removeSymmetrically(firstRow.get(i),secondRow.get(j));
+			}
+		}
+		
 	}
 	
 	public Person getSecondAvailablePreference(Person p)
