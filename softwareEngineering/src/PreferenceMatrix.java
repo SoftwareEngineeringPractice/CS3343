@@ -78,8 +78,9 @@ public class PreferenceMatrix
 			System.out.print(matrix[i][0].getName()+": ");
 			for(int j = 1; j < noOfPeople; j++)
 			{
-				//display rest of the row. (preference list along with status string)
-				System.out.print(matrix[i][j].getName()+matrix[i][j].getStatusString() + ", ");
+				if(!(matrix[i][j].getStatus() instanceof CStateRejected) )
+					//display rest of the row. (preference list along with status string)
+					System.out.print(matrix[i][j].getName()+matrix[i][j].getStatusString() + ", ");
 			}
 			System.out.println();
 		}
@@ -191,6 +192,29 @@ public class PreferenceMatrix
 		
 		//TODO very important, check if any row has only one Person, if yes -> symmetrically remove both and consider them a pair
 		
+		/*
+		for(int i = 0; i < noOfPeople; i++ )
+		{
+			if(availableChoicesInRow(i) == 1)
+			{
+				Person p1 = matrix[i][0].getPerson();
+				Person p2 = getFirstNonRejectedPerson(p1);
+				for(int j = 0; j < noOfPeople; j++ )
+				{
+					if(j != i)
+					{
+						removeSymmetrically(p2,matrix[j][0].getPerson());
+						
+					}
+					
+				}
+			}
+		}
+		*/
+		
+		
+		
+		
 		
 		for(int i = 0; i < noOfPeople; i++ )
 		{
@@ -210,6 +234,8 @@ public class PreferenceMatrix
 		boolean cycleComplete = false;
 		Person currentPlayer = startPlayer; 
 		System.out.println("---now the cycle starts---");
+		System.out.println(rowIndex);
+		
 		while(!cycleComplete)
 		{
 			Person secondPreference =  getSecondAvailablePreference(currentPlayer);
@@ -233,7 +259,7 @@ public class PreferenceMatrix
 	
 	public Person getSecondAvailablePreference(Person p)
 	{
-		System.out.print(p);
+		//System.out.print(p);
 		int row = getMatrixRowIndexForPerson(p);
 		int count = 0;
 		for(int j = 1; j < noOfPeople; j++)
@@ -252,7 +278,7 @@ public class PreferenceMatrix
 	
 	public Person getLastAvailablePreference(Person p)
 	{
-		System.out.println(p);
+		//System.out.println(p);
 		int row = getMatrixRowIndexForPerson(p);
 		for(int j = noOfPeople-1; j >= 0; j--)
 		{
