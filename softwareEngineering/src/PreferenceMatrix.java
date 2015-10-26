@@ -25,6 +25,8 @@ After completing all 3 stages we'll have a matrix with each row having only 1 no
 */
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class PreferenceMatrix
 {
@@ -51,6 +53,9 @@ public class PreferenceMatrix
 			
 			for (ArrayList<Person> set:preferenceSet )
 			{
+				//long seed = System.nanoTime();
+				//Collections.shuffle(set, new Random(seed));
+				Collections.shuffle(set);
 				preferences.addAll(set);
 			}
 			
@@ -73,8 +78,9 @@ public class PreferenceMatrix
 			System.out.print(matrix[i][0].getName()+": ");
 			for(int j = 1; j < noOfPeople; j++)
 			{
-				//display rest of the row. (preference list along with status string)
-				System.out.print(matrix[i][j].getName()+matrix[i][j].getStatusString() + ", ");
+				if(!(matrix[i][j].getStatus() instanceof CStateRejected) )
+					//display rest of the row. (preference list along with status string)
+					System.out.print(matrix[i][j].getName()+matrix[i][j].getStatusString() + ", ");
 			}
 			System.out.println();
 		}
@@ -186,6 +192,34 @@ public class PreferenceMatrix
 		
 		//TODO very important, check if any row has only one Person, if yes -> symmetrically remove both and consider them a pair
 		
+		
+		
+		
+		
+		/*
+		for(int i = 0; i < noOfPeople; i++ )
+		{
+			if(availableChoicesInRow(i) == 1)
+			{
+				Person p1 = matrix[i][0].getPerson();
+				Person p2 = getFirstNonRejectedPerson(p1);
+				for(int j = 0; j < noOfPeople; j++ )
+				{
+					if(j != i)
+					{
+						removeSymmetrically(p2,matrix[j][0].getPerson());
+						
+					}
+					
+				}
+			}
+		}
+		*/
+		
+		
+	
+		
+		
 		for(int i = 0; i < noOfPeople; i++ )
 		{
 			//Has more than one choice in row
@@ -199,13 +233,57 @@ public class PreferenceMatrix
 	public void formCycle(int rowIndex)
 	{
 		//cycle doesn't contain first player
-		ArrayList<Person> cycle = new ArrayList<>();
+		//ArrayList<Person> cycle = new ArrayList<>();
 		Person startPlayer = matrix[rowIndex][0].getPerson();
 		boolean cycleComplete = false;
 		Person currentPlayer = startPlayer; 
 		System.out.println("---now the cycle starts---");
+		System.out.println(rowIndex);
+		displayMatrix();
+		
+		
+		ArrayList<Person> firstRow  = new ArrayList<Person>();
+		ArrayList<Person> secondRow = new ArrayList<Person>();
+		
+		firstRow.add(startPlayer);
+		
+		
 		while(!cycleComplete)
 		{
+			
+			Person secondPreference;
+			if( availableChoicesInRow(getMatrixRowIndexForPerson(currentPlayer)) > 1)
+			{
+				secondPreference = getSecondAvailablePreference(currentPlayer);
+			}
+			else
+			{
+				secondPreference = getFirstNonRejectedPerson(currentPlayer);
+			}
+			// If a row has more than one copy of the same person - stop operation, start rejecting
+			if(secondRow.contains(secondPreference))
+			{
+				secondRow.add(secondPreference);
+				break;
+			}
+			else
+			{
+				secondRow.add(secondPreference);
+			}
+			
+			currentPlayer = getLastAvailablePreference(secondPreference);
+			
+			if(firstRow.contains(currentPlayer))
+			{
+				firstRow.add(currentPlayer);
+				break;
+			}
+			else
+			{
+				firstRow.add(currentPlayer);
+			}
+					
+			/*
 			Person secondPreference =  getSecondAvailablePreference(currentPlayer);
 			currentPlayer           =  getLastAvailablePreference(secondPreference);
 			
@@ -223,11 +301,24 @@ public class PreferenceMatrix
 		{
 			removeSymmetrically(cycle.get(i),cycle.get(i+1));
 		}
+		
+		*/
+		}
+		
+		for(int j = 0 ; j < secondRow.size(); j++)
+		{
+			int i = j + 1;
+			if(i < firstRow.size())
+			{
+				removeSymmetrically(firstRow.get(i),secondRow.get(j));
+			}
+		}
+		
 	}
 	
 	public Person getSecondAvailablePreference(Person p)
 	{
-		System.out.print(p);
+		//System.out.print(p);
 		int row = getMatrixRowIndexForPerson(p);
 		int count = 0;
 		for(int j = 1; j < noOfPeople; j++)
@@ -246,7 +337,7 @@ public class PreferenceMatrix
 	
 	public Person getLastAvailablePreference(Person p)
 	{
-		System.out.println(p);
+		//System.out.println(p);
 		int row = getMatrixRowIndexForPerson(p);
 		for(int j = noOfPeople-1; j >= 0; j--)
 		{

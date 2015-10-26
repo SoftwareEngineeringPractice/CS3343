@@ -6,7 +6,7 @@ public class Office
 	private static Office office = new Office();
 	private ArrayList<Person> residenceEligiblePersonList;
 	//Only for testing, will be changed to available rooms
-	public static int n = 4;
+	public static int n = 30;
 	
 	private StudentOffice studentOffice = StudentOffice.getOffice();
 	
@@ -42,15 +42,16 @@ public class Office
 		PreferenceMatrix p = new PreferenceMatrix(residenceEligiblePersonList);
 		
 		p.Stage1();
-		p.displayMatrix();
-		System.out.println("================================");
+		//p.displayMatrix();
+		//System.out.println("================================");
 		p.Stage2();
-		p.displayMatrix();
+		//System.out.println("Post Stage 2================================");
+		//p.displayMatrix();
 		p.Stage3();
-        System.out.println("================================");
+        System.out.println("Post Stage 3================================");
 		p.displayMatrix();
 		System.out.println("================================");
-		p.displayFinalResult();
+		//p.displayFinalResult();
 		
 	}
 }
