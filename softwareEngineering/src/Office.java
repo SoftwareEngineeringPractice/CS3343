@@ -6,9 +6,12 @@ public class Office
 	private static Office office = new Office();
 	private ArrayList<Person> residenceEligiblePersonList;
 	//Only for testing, will be changed to available rooms
-	public static int n = 30;
 	
 	private StudentOffice studentOffice = StudentOffice.getOffice();
+	private SRO sro = SRO.getInstance();
+	
+	
+	
 	
 	private Office()
 	{
@@ -22,6 +25,7 @@ public class Office
 	public void setEligiblePeople()
 	{
 		ArrayList<Person> personList = studentOffice.getPersonList();
+		int n = sro.getAvailableNoOfRooms();
 		for(Person p: personList)
 		{
 			//Current rule: FCFS
