@@ -1,9 +1,7 @@
 import java.util.*;
 
-
 public class Hall
 {
-	
 	private String hallID;
 	private ArrayList<Room>rooms=new ArrayList<>();
 	
