@@ -24,6 +24,7 @@ After completing all 3 stages we'll have a matrix with each row having only 1 no
 
 */
 
+import java.awt.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -37,6 +38,19 @@ public class PreferenceMatrix
 	//noOfPeople = Number of people accepted in the residence
 	private int noOfPeople;
 	
+	private ArrayList<Pair> pair = new ArrayList<>();
+	private ArrayList<Person> single = new ArrayList<>(); 
+	
+	
+	public ArrayList<Pair> getPaired()
+	{
+		return this.pair;
+	}
+	
+	public ArrayList<Person> getUnPaired()
+	{
+		return this.single;
+	}
 	
 	public PreferenceMatrix(ArrayList<Person> people)
 	{
@@ -228,6 +242,33 @@ public class PreferenceMatrix
 				formCycle(i);
 			}
 		}
+		
+		
+		// Create object that stores the pairs
+		for(int i = 0; i < noOfPeople; i++)
+		{
+			// For Double room
+			if(availableChoicesInRow(i) == 1)
+			{
+				Person left  = matrix[i][0].getPerson();
+				Person right = getFirstNonRejectedPerson(left);
+				Pair roomates = new Pair(left,right);
+				// check if this pair is already not in the list
+				if(!pair.contains(roomates))
+				{
+					pair.add(roomates);
+				}
+			}
+			else if(availableChoicesInRow(i) == 0)
+			{
+				Person singlePeople = matrix[i][0].getPerson();
+				single.add(singlePeople);
+			}
+			
+			
+		}
+		
+		
 	}
 	
 	public void formCycle(int rowIndex)
