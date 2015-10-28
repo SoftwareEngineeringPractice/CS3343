@@ -7,7 +7,7 @@ public class AttributeList
 		//more attributes to be added her, if needed
 		list.add(new Attribute("Smoker", false));
 		list.add(new Attribute("Alcoholic", false));
-		
+		list.add(new Attribute("Night Owl", false));
 	}
 	//every Persons has his own attribute list
 	public ArrayList<Attribute> getList()

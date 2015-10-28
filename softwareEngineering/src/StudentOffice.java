@@ -15,7 +15,7 @@ public class StudentOffice
 	{
 		return office;
 	}
-	//Function to make Persons, input can look like "FirstName LastName|Student ID|Y,N,.." , Name | Student ID | Attributes in the right order
+	//Function to make Persons, input can look like "FirstName LastName|Student ID|Y,N,Y.." , Name | Student ID | Attributes in the right order
 	public void makePersons()
 	{
 		Scanner in = new Scanner(System.in);
@@ -39,8 +39,6 @@ public class StudentOffice
 				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2]));
 			}
 			printPersons();
-			
-			
 			
 		}
 		catch (FileNotFoundException e)

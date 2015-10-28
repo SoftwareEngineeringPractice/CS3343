@@ -10,9 +10,6 @@ public class Office
 	private StudentOffice studentOffice = StudentOffice.getOffice();
 	private SRO sro = SRO.getInstance();
 	
-	
-	
-	
 	private Office()
 	{
 		residenceEligiblePersonList = new ArrayList<>();
