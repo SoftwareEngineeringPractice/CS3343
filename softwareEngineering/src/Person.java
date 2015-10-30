@@ -49,36 +49,19 @@ public class Person
 	{
 		return studentID;
 	}
-	/*
-	public void addPreference(Person p)
-	{
-		//TODO exception handler required. the arg p:Person shouldn't be found in the ArrayList 'preferenceList' & shoudn't also equal itself (this:Person)    
-		preferenceList.add(p);
-	}
-	
-	public void addPreference(Person[] myPreference)
-	{
-		preferenceList.addAll(Arrays.asList(myPreference));
-	}
-	*/
 	//ArrayList of ArrayList of Person, this Person's Preference List based on the distance between him and someone else
 	//Return preference list and make preference list
 	public ArrayList<ArrayList<Person>> makePreferenceList(ArrayList<Person> personList)
 	{
-		
-		//ArrayList<ArrayList<Person>> preferences = new ArrayList<>();
-		
-		/*ArrayList<Person> preference0 = new ArrayList<>();
-		ArrayList<Person> preference1 = new ArrayList<>();
-		ArrayList<Person> preference2 = new ArrayList<>();
-		*/
-		
+		preferenceList.clear();
 		int noOfPreferenceSets = attributes.getNoOfAttributes();
+		
 		for(int i = 0; i < noOfPreferenceSets; i++)
 		{
 			ArrayList<Person> preferenceSet = new ArrayList<>();
 			preferenceList.add(preferenceSet);
 		}
+		
 		for(Person p: personList)
 		{
 			if(!this.equals(p))
@@ -86,28 +69,9 @@ public class Person
 				int distance = this.distance(p);
 				preferenceList.get(distance).add(p);
 			}
-			/*
-			if(this.distance(p) == 0)
-			{
-				//preference0.add(p);
-				preferences.get(0).add(p);
-			}
-			else if(this.distance(p) == 1)
-			{
-				//preference1.add(p);
-				preferences.get(1).add(p);
-			}
-			else if(this.distance(p) == 2)
-			{
-				//preference2.add(p);
-				preferences.get(2).add(p);
-			}
-			*/
+			
 		}
-		//preferences.add(preference0);
-		//preferences.add(preference1);
-		//preferences.add(preference2);
-		//preferenceList = preferences;
+		
 		return preferenceList;
 	}
 	//return prefrenceList

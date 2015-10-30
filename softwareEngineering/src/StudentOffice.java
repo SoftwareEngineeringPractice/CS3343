@@ -38,7 +38,7 @@ public class StudentOffice
 				
 				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2]));
 			}
-			printPersons();
+			
 			
 		}
 		catch (FileNotFoundException e)

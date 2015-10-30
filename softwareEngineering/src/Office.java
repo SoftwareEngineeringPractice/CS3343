@@ -22,7 +22,7 @@ public class Office
 	public void setEligiblePeople()
 	{
 		ArrayList<Person> personList = studentOffice.getPersonList();
-		//int n = sro.getAvailableNoOfRooms();
+
 		int n = 20;
 		for(Person p: personList)
 		{
@@ -44,15 +44,9 @@ public class Office
 		PreferenceMatrix p = new PreferenceMatrix(residenceEligiblePersonList);
 		
 		p.Stage1();
-		p.displayMatrix();
-		System.out.println("================================");
 		p.Stage2();
-		System.out.println("Post Stage 2================================");
-		p.displayMatrix();
 		p.Stage3();
-        System.out.println("Post Stage 3================================");
-		p.displayMatrix();
-		System.out.println("================================");
+        System.out.println("================================");
 		
 		ArrayList<Pair> pairs =  p.getPaired();
 		for(Pair pa : pairs)
@@ -66,9 +60,24 @@ public class Office
 		{
 			System.out.println(pa1.getName());
 		}
+		System.out.println("`````````````````````");
+		studentOffice.makePreferences(ppl);
+		PreferenceMatrix p2 = new PreferenceMatrix(ppl);
+		p2.Stage1();
+		p2.Stage2();
+		p2.Stage3();
+        ArrayList<Pair> pairs2 =  p2.getPaired();
+		for(Pair pa : pairs2)
+		{
+			System.out.println(pa);
+		}
+		System.out.println("~~~~~~~~~~~~~~");
 		
-		
-		//p.displayFinalResult();
+		ArrayList<Person> ppl2 =  p2.getUnPaired();
+		for(Person pa1 : ppl2)
+		{
+			System.out.println(pa1.getName());
+		}
 		
 	}
 }

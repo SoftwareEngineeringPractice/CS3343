@@ -207,33 +207,6 @@ public class PreferenceMatrix
 		//TODO very important, check if any row has only one Person, if yes -> symmetrically remove both and consider them a pair
 		
 		
-		
-		
-		
-		/*
-		for(int i = 0; i < noOfPeople; i++ )
-		{
-			if(availableChoicesInRow(i) == 1)
-			{
-				Person p1 = matrix[i][0].getPerson();
-				Person p2 = getFirstNonRejectedPerson(p1);
-				for(int j = 0; j < noOfPeople; j++ )
-				{
-					if(j != i)
-					{
-						removeSymmetrically(p2,matrix[j][0].getPerson());
-						
-					}
-					
-				}
-			}
-		}
-		*/
-		
-		
-	
-		
-		
 		for(int i = 0; i < noOfPeople; i++ )
 		{
 			//Has more than one choice in row
@@ -254,8 +227,9 @@ public class PreferenceMatrix
 				Person right = getFirstNonRejectedPerson(left);
 				Pair roomates = new Pair(left,right);
 				// check if this pair is already not in the list
-				if(!pair.contains(roomates))
+				if(!contains(new Pair(right,left)))
 				{
+					System.out.println(roomates.getLeft() + "" + roomates.getRight());
 					pair.add(roomates);
 				}
 			}
@@ -278,9 +252,8 @@ public class PreferenceMatrix
 		Person startPlayer = matrix[rowIndex][0].getPerson();
 		boolean cycleComplete = false;
 		Person currentPlayer = startPlayer; 
-		System.out.println("---now the cycle starts---");
-		System.out.println(rowIndex);
-		displayMatrix();
+		
+		
 		
 		
 		ArrayList<Person> firstRow  = new ArrayList<Person>();
@@ -324,26 +297,7 @@ public class PreferenceMatrix
 				firstRow.add(currentPlayer);
 			}
 					
-			/*
-			Person secondPreference =  getSecondAvailablePreference(currentPlayer);
-			currentPlayer           =  getLastAvailablePreference(secondPreference);
 			
-			cycle.add(secondPreference);
-			cycle.add(currentPlayer);
-			
-			
-			if(currentPlayer.equals(startPlayer))
-			{
-				cycleComplete = true;
-			}
-		}
-		
-		for(int i = 0; i < cycle.size(); i=i+2)
-		{
-			removeSymmetrically(cycle.get(i),cycle.get(i+1));
-		}
-		
-		*/
 		}
 		
 		for(int j = 0 ; j < secondRow.size(); j++)
@@ -458,6 +412,15 @@ public class PreferenceMatrix
 				proposeToFav(proposerIndex);
 			}
 		}
+	}
+	public boolean contains(Pair check)
+	{
+		for(Pair checkWith: pair)
+		{
+			if((check.getRight().equals(checkWith.getRight())) && (check.getLeft().equals(checkWith.getLeft())))
+				return true;
+		}
+    	return false;
 	}
 	
 }
