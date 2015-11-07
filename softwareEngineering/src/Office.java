@@ -23,7 +23,7 @@ public class Office
 	{
 		ArrayList<Person> personList = studentOffice.getPersonList();
 
-		int n = 20;
+		int n = 70;
 		for(Person p: personList)
 		{
 			//Current rule: FCFS
@@ -41,6 +41,39 @@ public class Office
 	//TODO naming has to be changed
 	public void pairStudents()
 	{
+		PreferenceMatrix p;
+		int limit = 20;
+		ArrayList<Person> unPaired = residenceEligiblePersonList; 
+		
+		int i = 0;
+		
+		do
+		{
+			studentOffice.makePreferences(unPaired);
+			p = new PreferenceMatrix(unPaired);
+			p.Stage1();
+			p.Stage2();
+			p.Stage3();
+	        System.out.println("================================");
+			
+			ArrayList<Pair> pairs =  p.getPaired();
+			for(Pair pa : pairs)
+			{
+				System.out.println(pa);
+			}
+			System.out.println("~~~~~~~~~~~~~~");
+			
+			unPaired =  p.getUnPaired();
+			for(Person pa1 : unPaired)
+			{
+				System.out.println(pa1.getName());
+			}
+			System.out.println("`````````````````````");
+			
+			i++;
+		}while(i<limit && unPaired.size()>0);
+		
+		/*
 		PreferenceMatrix p = new PreferenceMatrix(residenceEligiblePersonList);
 		
 		p.Stage1();
@@ -78,6 +111,8 @@ public class Office
 		{
 			System.out.println(pa1.getName());
 		}
+		
+		*/
 		
 	}
 }

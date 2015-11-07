@@ -229,7 +229,7 @@ public class PreferenceMatrix
 				// check if this pair is already not in the list
 				if(!contains(new Pair(right,left)))
 				{
-					System.out.println(roomates.getLeft() + "" + roomates.getRight());
+					//System.out.println(roomates.getLeft() + "" + roomates.getRight());
 					pair.add(roomates);
 				}
 			}
