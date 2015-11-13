@@ -45,7 +45,7 @@ public class Person
 	{
 		return this.name;
 	}
-	private String getID() 
+	public String getID() 
 	{
 		return studentID;
 	}

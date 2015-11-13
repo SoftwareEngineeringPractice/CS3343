@@ -5,10 +5,10 @@ public class Room
 {
 
 	private RState roomStatus;
-	private int roomID;
+	private String roomID;
 	private ArrayList<Person>roomMates=new ArrayList<>();
 	
-	public Room(int roomID,RState roomStatus)
+	public Room(String roomID,RState roomStatus)
 	{
 		this.roomID=roomID;
 		this.roomStatus=roomStatus;
@@ -31,7 +31,7 @@ public class Room
 	
 	public void setState(RState newRoomStatus)
 	{
-		roomStatus=newRoomStatus;
+		roomStatus = newRoomStatus;
 	}
 	
 	//public String getRoomMates(){

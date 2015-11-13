@@ -1,7 +1,5 @@
 
 public interface RState
 {
-
-	public String getState();
-	
+	public String getState();	
 }
