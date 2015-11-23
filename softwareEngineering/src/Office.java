@@ -73,46 +73,19 @@ public class Office
 			i++;
 		}while(i<limit && unPaired.size()>0);
 		
-		/*
-		PreferenceMatrix p = new PreferenceMatrix(residenceEligiblePersonList);
 		
-		p.Stage1();
-		p.Stage2();
-		p.Stage3();
-        System.out.println("================================");
-		
-		ArrayList<Pair> pairs =  p.getPaired();
-		for(Pair pa : pairs)
+		// Only if after executing the preference Matrix for a given limit, we still have unPaired students (last resort)
+		if(i >= limit && unPaired.size() > 0 )
 		{
-			System.out.println(pa);
-		}
-		System.out.println("~~~~~~~~~~~~~~");
-		
-		ArrayList<Person> ppl =  p.getUnPaired();
-		for(Person pa1 : ppl)
-		{
-			System.out.println(pa1.getName());
-		}
-		System.out.println("`````````````````````");
-		studentOffice.makePreferences(ppl);
-		PreferenceMatrix p2 = new PreferenceMatrix(ppl);
-		p2.Stage1();
-		p2.Stage2();
-		p2.Stage3();
-        ArrayList<Pair> pairs2 =  p2.getPaired();
-		for(Pair pa : pairs2)
-		{
-			System.out.println(pa);
-		}
-		System.out.println("~~~~~~~~~~~~~~");
-		
-		ArrayList<Person> ppl2 =  p2.getUnPaired();
-		for(Person pa1 : ppl2)
-		{
-			System.out.println(pa1.getName());
+			ArrayList<Pair> unresolvedPairs = new ArrayList<>();
+			for(int j = 0; j < unPaired.size(); j = j + 2)
+			{
+				unresolvedPairs.add(new Pair(unPaired.get(j),unPaired.get(j+1)));
+			}
+			
 		}
 		
-		*/
+		
 		
 	}
 }
