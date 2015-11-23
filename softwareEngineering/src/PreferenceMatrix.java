@@ -52,6 +52,14 @@ public class PreferenceMatrix
 		return this.single;
 	}
 	
+	
+	
+	//added for testing purposes
+	public PreferenceMatrix(Cell[][] c)
+	{
+		matrix = c;
+	}
+	
 	public PreferenceMatrix(ArrayList<Person> people)
 	{
 		this.noOfPeople = people.size();

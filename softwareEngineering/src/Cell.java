@@ -10,6 +10,12 @@ public abstract class Cell
 		this.person = person;
 	}
 	
+	public Cell(Person person, CState status)
+	{
+		this.person = person;
+		this.status = status;
+	}
+	
 	public String getName()
 	{
 		return this.person.getName();
