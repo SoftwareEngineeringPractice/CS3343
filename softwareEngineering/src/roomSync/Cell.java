@@ -1,3 +1,4 @@
+package roomSync;
 
 public abstract class Cell
 {

@@ -1,3 +1,4 @@
+package roomSync;
 
 public class CStateProposalMade implements CState
 {

@@ -1,20 +1,20 @@
+package roomSync;
 
-public class CStateRejected implements CState
+public class CStateAccepted implements CState
 {
 	String state;
-	public CStateRejected()
+	public CStateAccepted()
 	{
-		state = "(R)";
+		state = "(A)";
 	}
 	
 	public CState getStatus()
 	{
 		return this;
 	}
-	
+
 	public String getString()
 	{
 		return state;
 	}
-	
 }

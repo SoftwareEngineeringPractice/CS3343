@@ -1,10 +1,11 @@
+package roomSync;
 
-public class CStateAvailable implements CState
+public class CStateRejected implements CState
 {
-	String state = "(N)";
-	public CStateAvailable()
+	String state;
+	public CStateRejected()
 	{
-		state = "(N)";
+		state = "(R)";
 	}
 	
 	public CState getStatus()

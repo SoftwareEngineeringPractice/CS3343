@@ -1,3 +1,4 @@
+package roomSync;
 
 public class CellSubject extends Cell{
 

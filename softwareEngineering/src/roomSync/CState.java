@@ -1,3 +1,4 @@
+package roomSync;
 interface CState
 {
 	public CState getStatus();
