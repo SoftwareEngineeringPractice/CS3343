@@ -31,6 +31,14 @@ public abstract class Cell
     {
     	this.status = state; 
     }
+    
+    public boolean equals(Object c1)
+	{
+		Cell c = (Cell) c1;
+		if(c.getPerson().equals(this.getPerson()) && c.getStatusString().equals(this.getStatusString()))
+			return true;
+		return false;
+	}
 	
 	public abstract void reject();
 

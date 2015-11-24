@@ -1,5 +1,5 @@
 package roomSync;
-interface CState
+public interface CState
 {
 	public CState getStatus();
 	public String getString();

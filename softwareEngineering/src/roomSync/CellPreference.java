@@ -6,6 +6,11 @@ public class CellPreference extends Cell
 	{
 		super(person);
 	}
+	
+	public CellPreference(Person person, CState status)
+	{
+		super(person,status);
+	}
 
 	public void reject()
 	{

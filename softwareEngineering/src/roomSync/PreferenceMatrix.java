@@ -58,8 +58,10 @@ public class PreferenceMatrix
 	//added for testing purposes
 	public PreferenceMatrix(Cell[][] c)
 	{
+		noOfPeople = c[0].length;
 		matrix = c;
 	}
+	
 	
 	public PreferenceMatrix(ArrayList<Person> people)
 	{
@@ -101,7 +103,7 @@ public class PreferenceMatrix
 			System.out.print(matrix[i][0].getName()+": ");
 			for(int j = 1; j < noOfPeople; j++)
 			{
-				if(!(matrix[i][j].getStatus() instanceof CStateRejected) )
+				//if(!(matrix[i][j].getStatus() instanceof CStateRejected) )
 					//display rest of the row. (preference list along with status string)
 					System.out.print(matrix[i][j].getName()+matrix[i][j].getStatusString() + ", ");
 			}
@@ -172,6 +174,7 @@ public class PreferenceMatrix
 	{
 		for(int i = 0; i<noOfPeople; i++)
 		{
+			System.out.println(i);
 			if(p1.equals(matrix[i][0].getPerson()))
 			{
 				return i;
