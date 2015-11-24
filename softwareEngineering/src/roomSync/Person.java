@@ -7,15 +7,17 @@ public class Person
 	//name of Person
 	private String name;
 	private String studentID;
+	private char sex;
 	//order for this preference list matters.
 	private ArrayList<ArrayList<Person>> preferenceList= new ArrayList<>();
 	//Person's attribute list
 	private AttributeList attributes = new AttributeList();
 	
-	public Person(String name, String studentID, String v)
+	public Person(String name, String studentID, String sex , String v)
 	{
 		this.name = name;
 		this.studentID = studentID;
+		this.sex = sex.charAt(0);
 		//constructor calls a function to assign attributes to a person
 		setAttributes(v);
 	}
@@ -49,6 +51,10 @@ public class Person
 	public String getID() 
 	{
 		return studentID;
+	}
+	public char getSex()
+	{
+		return sex;
 	}
 	//ArrayList of ArrayList of Person, this Person's Preference List based on the distance between him and someone else
 	//Return preference list and make preference list

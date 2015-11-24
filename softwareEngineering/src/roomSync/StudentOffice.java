@@ -16,7 +16,7 @@ public class StudentOffice
 	{
 		return office;
 	}
-	//Function to make Persons, input can look like "FirstName LastName|Student ID|Y,N,Y.." , Name | Student ID | Attributes in the right order
+	//Function to make Persons, input can look like "FirstName LastName|Student ID|Sex|Y,N,Y.." , Name | Student ID | Sex | Attributes in the right order
 	public void makePersons()
 	{
 		Scanner in = new Scanner(System.in);
@@ -37,7 +37,7 @@ public class StudentOffice
 				//split the words in actionLine => create an array of word strings
 				String[] cmdParts = cmdLine.split("\\|");
 				
-				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2]));
+				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2], cmdParts[3]));
 			}
 			
 			
