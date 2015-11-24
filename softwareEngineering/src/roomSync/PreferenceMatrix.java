@@ -432,4 +432,9 @@ public class PreferenceMatrix
     	return false;
 	}
 	
+	public Cell[][] getMatrix()
+	{
+		return matrix;
+	}
+	
 }

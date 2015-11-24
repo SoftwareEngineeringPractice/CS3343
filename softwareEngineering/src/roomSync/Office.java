@@ -24,6 +24,11 @@ public class Office
 		return office;
 	}
 	
+	public ArrayList<Person> getEligiblePeople()
+	{
+		return residenceEligiblePersonList;
+	}
+	
 	public void setEligiblePeople()
 	{
 		//34 Males and 34 Females
