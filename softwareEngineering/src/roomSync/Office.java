@@ -20,6 +20,11 @@ public class Office
 		return office;
 	}
 	
+	public ArrayList<Person> getEligiblePeople()
+	{
+		return residenceEligiblePersonList;
+	}
+	
 	public void setEligiblePeople()
 	{
 		ArrayList<Person> personList = studentOffice.getPersonList();

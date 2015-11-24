@@ -55,6 +55,44 @@ public class StudentOffice
 			in.close();
 		}
 	}
+	
+	public void makePersons(String filepathname)
+	{
+		Scanner in = new Scanner(System.in);
+		Scanner inFile = null;
+		try
+		{
+			inFile = new Scanner(new File(filepathname));
+				
+			while (inFile.hasNext())
+			{
+				String cmdLine = inFile.nextLine().trim();
+				//Blank lines exist in data file as separators.  Skip them.
+				if (cmdLine.equals("")) continue;  
+				
+				//split the words in actionLine => create an array of word strings
+				String[] cmdParts = cmdLine.split("\\|");
+				
+				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2]));
+			}
+			
+			
+		}
+		catch (FileNotFoundException e)
+		{
+			System.out.println("Error! File not found!");
+		}
+		finally
+		{
+			if(inFile != null)
+			{
+				inFile.close();			
+			}
+			in.close();
+		}
+	}
+	
+	
 	//print all people
 	private void printPersons()
 	{
