@@ -174,7 +174,7 @@ public class PreferenceMatrix
 	{
 		for(int i = 0; i<noOfPeople; i++)
 		{
-			System.out.println(i);
+			
 			if(p1.equals(matrix[i][0].getPerson()))
 			{
 				return i;
@@ -219,16 +219,22 @@ public class PreferenceMatrix
 		//TODO very important, check if any row has only one Person, if yes -> symmetrically remove both and consider them a pair
 		
 		
-		for(int i = 0; i < noOfPeople; i++ )
-		{
-			//Has more than one choice in row
-			while(availableChoicesInRow(i) > 1)
+		try{
+			for(int i = 0; i < noOfPeople; i++ )
 			{
-				formCycle(i);
+				//Has more than one choice in row
+				while(availableChoicesInRow(i) > 1)
+				{
+					//Added new
+					formCycle(i);
+					
+					
+				}
 			}
+		}catch(NullPointerException e){
+			displayMatrix();
 		}
-		
-		
+			
 		// Create object that stores the pairs
 		for(int i = 0; i < noOfPeople; i++)
 		{

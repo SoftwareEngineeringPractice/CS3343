@@ -143,7 +143,7 @@ public class test1 {
 		//PreferenceMatrix e = new PreferenceMatrix(expected);
 		//e.displayMatrix();
 		
-		//assertArrayEquals(p.getMatrix(),expected);
+		assertArrayEquals(p.getMatrix(),expected);
 		
 	}
 	
