@@ -5,8 +5,8 @@ public class SRO
 {
 	
 	private static int tot_avai;	
-	private static SRO sro= new SRO();
-	private ArrayList<Hall>hall;
+	private static SRO sro = new SRO();
+	private ArrayList<Hall> hall;
 	
 	private SRO()
 	{
@@ -32,10 +32,11 @@ public class SRO
 		this.addHall(h);
 	}
 	
-	public void setRoomOccupants(Person a,Person b,Hall h)
-	{	//Setting occupants to a room sequentially in a specified hall
-		ArrayList<Room>r=h.getRoom();
-		boolean isAvailable=false;
+	public void setRoomOccupants(Person a, Person b, Hall h)
+	{
+		//Setting occupants to a room sequentially in a specified hall
+		ArrayList<Room> r = h.getRoom();
+		boolean isAvailable = false;
 		if(hall.contains(h))
 		{ 
 			for(int i = 0; i < r.size(); i++)
@@ -45,7 +46,7 @@ public class SRO
 					r.get(i).addRoomMate(a);
 					r.get(i).addRoomMate(b);
 					r.get(i).setState(new ROccupied());
-					isAvailable=true;
+					isAvailable = true;
 					break;
 				}
 			}
@@ -58,24 +59,23 @@ public class SRO
 	}
 	
 	public void setRoomOccupants(Person a, Person b)
-	{	//Setting occupants to all SRO halls sequentially
+	{
+		//Setting occupants to a SRO halls sequentially
 		boolean roomsAvailable = false;
 		
-		for(Hall h:hall)
+		for(Hall h: hall)
 		{
-			for(Room r:h.getRoom())
+			for(Room r: h.getRoom())
 			{
 				if(r.getState() instanceof RAvailable)
 				{
 					r.addRoomMate(a);
 					r.addRoomMate(b);
 					r.setState(new ROccupied());
-					roomsAvailable=true;
+					roomsAvailable = true;
 					break;
 				}
 			}
-			if(roomsAvailable)
-				break;
 		}
 		
 		if(!roomsAvailable)
@@ -112,5 +112,4 @@ public class SRO
 			}
 		}
 	}
-
 }

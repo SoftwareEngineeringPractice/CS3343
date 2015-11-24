@@ -7,15 +7,17 @@ public class Room
 
 	private RState roomStatus;
 	private String roomID;
-	private ArrayList<Person>roomMates=new ArrayList<>();
+	private char roomGender;
+	private ArrayList<Person> roomMates=new ArrayList<>();
 	
-	public Room(String roomID,RState roomStatus)
+	public Room(String roomID, char roomGender , RState roomStatus)
 	{
-		this.roomID=roomID;
-		this.roomStatus=roomStatus;
+		this.roomID = roomID;
+		this.roomGender = roomGender;
+		this.roomStatus = roomStatus;
 	}
 	
-	public ArrayList<Person>getRoomMates()
+	public ArrayList<Person> getRoomMates()
 	{
 		return roomMates;
 	}
@@ -25,6 +27,16 @@ public class Room
 		roomMates.add(p);
 	}
 	
+	public String getRoomID()
+	{
+		return roomID;
+	}
+	
+	public char getRoomGender()
+	{
+		return roomGender;
+	}
+
 	public RState getState()
 	{
 		return roomStatus;

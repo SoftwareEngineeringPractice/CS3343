@@ -13,15 +13,16 @@ public class Hall
 		return rooms;
 	}
 	
-	public Hall(String hallID,int noOfDoubleRooms)
+	public Hall(String hallID, int noOfDoubleRooms)
 	{
-		this.hallID=hallID;
-		this.noOfDoubleRooms=noOfDoubleRooms;
+		this.hallID = hallID;
+		this.noOfDoubleRooms = noOfDoubleRooms;
 		
-		for(int i=1;i<=noOfDoubleRooms;i++)
+		for(int i = 1; i <= noOfDoubleRooms; i += 2)
 		{
-			String roomSequence = String.format("%03d",i);
-			this.addRoom(new Room(roomSequence,new ROccupied()));
+			String roomSequence = String.format("%03d", i);
+			this.addRoom(new Room(roomSequence, 'M' , new ROccupied()));
+			this.addRoom(new Room(roomSequence, 'F' , new ROccupied()));
 		}
 	}
 	
