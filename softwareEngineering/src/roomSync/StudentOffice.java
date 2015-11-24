@@ -73,7 +73,7 @@ public class StudentOffice
 				//split the words in actionLine => create an array of word strings
 				String[] cmdParts = cmdLine.split("\\|");
 				
-				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2]));
+				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2], cmdParts[3]));
 			}
 			
 			

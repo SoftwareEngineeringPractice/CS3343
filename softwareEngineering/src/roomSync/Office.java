@@ -24,9 +24,14 @@ public class Office
 		return office;
 	}
 	
-	public ArrayList<Person> getEligiblePeople()
+	public ArrayList<Person> getEligibleMaleList()
 	{
-		return residenceEligiblePersonList;
+		return residenceEligiblePersonListMale;
+	}
+	
+	public ArrayList<Person> getEligibleFemaleList()
+	{
+		return residenceEligiblePersonListFemale;
 	}
 	
 	public void setEligiblePeople()
