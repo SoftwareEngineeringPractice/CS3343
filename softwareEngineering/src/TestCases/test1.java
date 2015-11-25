@@ -16,8 +16,8 @@ public class test1 {
 	
 	
 	
-	@Test
-	public void getresult(){
+	//@Test
+	public void getresultPANDA(){
 		studentOfficeInstance = StudentOffice.getOffice();
 		studentOfficeInstance.makePersons("./Student Test Cases/test1.txt");
 		
@@ -130,8 +130,8 @@ public class test1 {
 	}
 	
 	
-	//@Test
-	public void testStage1_1() {
+	@Test
+	public void testStage1_1PANDA() {
 		
 		
 		//Define a few Person
@@ -147,12 +147,12 @@ public class test1 {
 		
 		//imital array
 		Cell[][] preferenceList = new Cell[][]{
-				  { new CellSubject(A), new CellPreference(B), new CellPreference(E), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
-				  { new CellSubject(B), new CellPreference(A), new CellPreference(A), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
-				  { new CellSubject(C), new CellPreference(F), new CellPreference(F), new CellPreference(A), new CellPreference(E), new CellPreference(B) },
-				  { new CellSubject(D), new CellPreference(C), new CellPreference(A), new CellPreference(B), new CellPreference(C), new CellPreference(F) },
-				  { new CellSubject(E), new CellPreference(B), new CellPreference(B), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
-				  { new CellSubject(F), new CellPreference(B), new CellPreference(C), new CellPreference(A), new CellPreference(E), new CellPreference(D) },
+				  { new CellSubject(A), new CellPreference(E), new CellPreference(B), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
+				  { new CellSubject(B), new CellPreference(E), new CellPreference(A), new CellPreference(F), new CellPreference(D), new CellPreference(C) },
+				  { new CellSubject(C), new CellPreference(D), new CellPreference(F), new CellPreference(A), new CellPreference(E), new CellPreference(B) },
+				  { new CellSubject(D), new CellPreference(A), new CellPreference(C), new CellPreference(E), new CellPreference(B), new CellPreference(F) },
+				  { new CellSubject(E), new CellPreference(A), new CellPreference(B), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
+				  { new CellSubject(F), new CellPreference(A), new CellPreference(B), new CellPreference(E), new CellPreference(C), new CellPreference(D) },
 		};
 		
 		//Declare the 3 additional states required -- Remains unchanged
@@ -174,27 +174,28 @@ public class test1 {
 		 *accepted, proposalMade and rejected are define above
 		 */
 		Cell[][] expected = new Cell[][]{
-				  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(D,rejected), new CellPreference(F,accepted), new CellPreference(C,rejected), new CellPreference(E,rejected) },
-				  { new CellSubject(B), new CellPreference(D,rejected), new CellPreference(E,proposalMade), new CellPreference(F,rejected), new CellPreference(A,accepted), new CellPreference(C,rejected) },
-				  { new CellSubject(C), new CellPreference(D,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(A,accepted), new CellPreference(B,rejected) },
-				  { new CellSubject(D), new CellPreference(F,rejected), new CellPreference(C,accepted), new CellPreference(A,accepted), new CellPreference(E,rejected), new CellPreference(B,rejected) },
-				  { new CellSubject(E), new CellPreference(F,rejected), new CellPreference(C,proposalMade), new CellPreference(D,rejected), new CellPreference(B,accepted), new CellPreference(A,proposalMade) },
-				  { new CellSubject(F), new CellPreference(A,proposalMade), new CellPreference(B), new CellPreference(D), new CellPreference(C), new CellPreference(E) },
-		  
+				  { new CellSubject(A), new CellPreference(E,rejected), new CellPreference(B,rejected), new CellPreference(D,rejected), new CellPreference(F,accepted), new CellPreference(C,rejected) },
+				  { new CellSubject(B), new CellPreference(E,proposalMade), new CellPreference(A,rejected), new CellPreference(F,accepted), new CellPreference(D,rejected), new CellPreference(C,rejected) },
+				  { new CellSubject(C), new CellPreference(D,accepted), new CellPreference(F,rejected), new CellPreference(A,proposalMade), new CellPreference(E,rejected), new CellPreference(B,rejected) },
+				  { new CellSubject(D), new CellPreference(A,rejected), new CellPreference(C,proposalMade), new CellPreference(E,rejected), new CellPreference(B,rejected), new CellPreference(F,accepted) },
+				  { new CellSubject(E), new CellPreference(A,rejected), new CellPreference(B,accepted), new CellPreference(D,rejected), new CellPreference(F,accepted), new CellPreference(C,rejected) },
+				  { new CellSubject(F), new CellPreference(A,proposalMade), new CellPreference(B), new CellPreference(E), new CellPreference(C), new CellPreference(D) },
+		
 				
 		};
-		
+		System.out.println("======\nThis is PANDA's test [Stage1_1]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
 		PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 		
-		//p.Stage1();
-		p.displayMatrix();
-		System.out.println("----");
+		p.Stage1();
+		System.out.println("PANDA Actual result state check");
+		p.displayMatrix();//[1]
+		System.out.println("PANDA Expected result state check:");
 		
 		//Once you have the made the expected out put you could de-comment the below 2 lines to check that the expected output is exactlyy the same
-		//PreferenceMatrix e = new PreferenceMatrix(expected);
-		//e.displayMatrix();
-		
-		//assertArrayEquals(p.getMatrix(),expected);
+		PreferenceMatrix e = new PreferenceMatrix(expected);
+		e.displayMatrix();//[2]
+		System.out.println("They have to be the same\n========");
+		assertArrayEquals(p.getMatrix(),expected);
 		
 	}
 
