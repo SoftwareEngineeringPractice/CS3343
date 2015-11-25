@@ -1,6 +1,6 @@
-Student0|1000|M|N,Y,N
-Student1|1001|M|N,Y,N
-Student2|1002|M|Y,N,N
-Student3|1003|M|Y,Y,N
-Student4|1004|M|N,Y,N
-Student5|1005|M|N,N,N
+A|1000|M|N,Y,N
+B|1001|M|N,Y,N
+C|1002|M|Y,N,N
+D|1003|M|Y,Y,N
+E|1004|M|N,Y,N
+F|1005|M|N,N,N

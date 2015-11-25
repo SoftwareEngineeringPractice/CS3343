@@ -15,7 +15,46 @@ public class test1 {
 	ArrayList<Person> eligibleList;
 	
 	
+	
 	@Test
+	public void getresult(){
+		studentOfficeInstance = StudentOffice.getOffice();
+		studentOfficeInstance.makePersons("./Student Test Cases/test1.txt");
+		
+		Office office = Office.getOffice();
+		office.setEligiblePeople();
+		office.setPreferenceList();
+		
+		//check - works properly?
+		
+		//---------------
+		///office.pairMale();
+		//---------------
+		
+		
+		//----
+		studentOfficeInstance.makePreferences(office.getEligibleMaleList());
+		p = new PreferenceMatrix(office.getEligibleMaleList());
+		System.out.println("Input ");
+		p.displayMatrix();
+		
+		System.out.println("Stage1");
+		p.Stage1();
+		p.displayMatrix();
+		
+		
+		/*p.Stage1();
+		p.Stage2();
+		p.Stage3();*/
+		//without stage 1,2,3 --> p.displayMatrix() --> initial Input (test ops on this)
+		
+		//+ p.stage1() --> expected resut (Stage1 testing)
+		//------
+		
+	}
+	
+	
+	//@Test
 	public void testStage1_1() {
 		
 		
@@ -29,13 +68,15 @@ public class test1 {
 		
 		
 		//Make the 2D array, first column: CellSubject rest: CellPreference, fill in the People according to preference 
+		
+		//imital array
 		Cell[][] preferenceList = new Cell[][]{
-				  { new CellSubject(A), new CellPreference(B), new CellPreference(D), new CellPreference(F), new CellPreference(C), new CellPreference(E) },
-				  { new CellSubject(B), new CellPreference(D), new CellPreference(E), new CellPreference(F), new CellPreference(A), new CellPreference(C) },
-				  { new CellSubject(C), new CellPreference(D), new CellPreference(E), new CellPreference(F), new CellPreference(A), new CellPreference(B) },
-				  { new CellSubject(D), new CellPreference(F), new CellPreference(C), new CellPreference(A), new CellPreference(E), new CellPreference(B) },
-				  { new CellSubject(E), new CellPreference(F), new CellPreference(C), new CellPreference(D), new CellPreference(B), new CellPreference(A) },
-				  { new CellSubject(F), new CellPreference(A), new CellPreference(B), new CellPreference(D), new CellPreference(C), new CellPreference(E) },
+				  { new CellSubject(A), new CellPreference(B), new CellPreference(E), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
+				  { new CellSubject(B), new CellPreference(A), new CellPreference(A), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
+				  { new CellSubject(C), new CellPreference(F), new CellPreference(F), new CellPreference(A), new CellPreference(E), new CellPreference(B) },
+				  { new CellSubject(D), new CellPreference(C), new CellPreference(A), new CellPreference(B), new CellPreference(C), new CellPreference(F) },
+				  { new CellSubject(E), new CellPreference(B), new CellPreference(B), new CellPreference(D), new CellPreference(F), new CellPreference(C) },
+				  { new CellSubject(F), new CellPreference(B), new CellPreference(C), new CellPreference(A), new CellPreference(E), new CellPreference(D) },
 		};
 		
 		//Declare the 3 additional states required -- Remains unchanged
@@ -68,20 +109,21 @@ public class test1 {
 		};
 		
 		PreferenceMatrix p = new PreferenceMatrix(preferenceList);
-		p.Stage1();
-		//p.displayMatrix();
-		//System.out.println("----");
+		
+		//p.Stage1();
+		p.displayMatrix();
+		System.out.println("----");
 		
 		//Once you have the made the expected out put you could de-comment the below 2 lines to check that the expected output is exactlyy the same
 		//PreferenceMatrix e = new PreferenceMatrix(expected);
 		//e.displayMatrix();
 		
-		assertArrayEquals(p.getMatrix(),expected);
+		//assertArrayEquals(p.getMatrix(),expected);
 		
 	}
 
 	
-	@Test
+	
 	public void testStage2_1() {
 		
 		
@@ -147,7 +189,7 @@ public class test1 {
 		
 	}
 	
-	@Test
+	
 	public void testStage3_1() {
 		
 		

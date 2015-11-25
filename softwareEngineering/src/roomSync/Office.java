@@ -18,7 +18,9 @@ public class Office
 	{
 		residenceEligiblePersonListMale = new ArrayList<>();
 		residenceEligiblePersonListFemale = new ArrayList<>();
-	}	
+	}
+	
+	
 	public static Office getOffice()
 	{
 		return office;
@@ -37,7 +39,7 @@ public class Office
 	public void setEligiblePeople()
 	{
 		//34 Males and 34 Females
-		setEligibleMale(34);
+		setEligibleMale(10);
 		setEligibleFemale(34);
 	}
 	
@@ -50,13 +52,17 @@ public class Office
 		for(Person p: personList)
 		{
 			//Current rule: FCFS
-			if(p.getSex() == 'M' && n <= cap)
+			if(p.getSex() == 'M' && n < cap)
 			{
 				n++;
 				residenceEligiblePersonListMale.add(p);
 			}
 		}
 	}
+	
+	
+	
+	
 	
 	public void setEligibleFemale(int cap)
 	{
@@ -67,7 +73,7 @@ public class Office
 		for(Person p: personList)
 		{
 			//Current rule: FCFS
-			if(p.getSex() == 'F' && n <= cap)
+			if(p.getSex() == 'F' && n < cap)
 			{
 				n++;
 				residenceEligiblePersonListFemale.add(p);
