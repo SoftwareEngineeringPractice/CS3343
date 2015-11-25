@@ -316,7 +316,7 @@ public class test1PANDA {
 		 *accepted, proposalMade and rejected are define above
 		 */
 		Cell[][] expected = new Cell[][]{
-				  { new CellSubject(A), new CellPreference(E,rejected), new CellPreference(B,rejected), new CellPreference(D,rejected), new CellPreference(F,accepted), new CellPreference(C,rejected) },
+				  { new CellSubject(A), new CellPreference(E,rejected), new CellPreference(B,rejected), new CellPreference(D,rejected), new CellPreference(F,rejected), new CellPreference(C,rejected) },
 				  { new CellSubject(B), new CellPreference(E,proposalMade), new CellPreference(A,rejected), new CellPreference(F,accepted), new CellPreference(D,rejected), new CellPreference(C,rejected) },
 				  { new CellSubject(C), new CellPreference(D,accepted), new CellPreference(F,rejected), new CellPreference(A,proposalMade), new CellPreference(E,rejected), new CellPreference(B,rejected) },
 				  { new CellSubject(D), new CellPreference(A,rejected), new CellPreference(C,proposalMade), new CellPreference(E,rejected), new CellPreference(B,rejected), new CellPreference(F,accepted) },
