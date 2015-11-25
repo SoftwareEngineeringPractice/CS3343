@@ -15,8 +15,9 @@ public class test1PANDA {
 	ArrayList<Person> eligibleList;
 	
 	
+	//Assitor: No need to be in the actual testing
 	
-	@Test
+	//@Test
 	public void getresultPANDA(){
 		studentOfficeInstance = StudentOffice.getOffice();
 		studentOfficeInstance.makePersons("./Student Test Cases/test1.txt");
@@ -55,80 +56,6 @@ public class test1PANDA {
 	}
 	
 	
-	@Test
-	public void getresultSharankhla(){
-		studentOfficeInstance = StudentOffice.getOffice();
-		studentOfficeInstance.makePersons("./Student Test Cases/test1.txt");
-		
-		Office office = Office.getOffice();
-		office.setEligiblePeople();
-		office.setPreferenceList();
-		
-		//check - works properly?
-		
-		//---------------
-		///office.pairMale();
-		//---------------
-		
-		
-		//----
-		studentOfficeInstance.makePreferences(office.getEligibleMaleList());
-		p = new PreferenceMatrix(office.getEligibleMaleList());
-		System.out.println("Input ");
-		p.displayMatrix();
-		
-		System.out.println("Stage1");
-		p.Stage1();
-		p.displayMatrix();
-		
-		
-		/*p.Stage1();
-		p.Stage2();
-		p.Stage3();*/
-		//without stage 1,2,3 --> p.displayMatrix() --> initial Input (test ops on this)
-		
-		//+ p.stage1() --> expected resut (Stage1 testing)
-		//------
-		
-	}
-	
-	
-	@Test
-	public void getresultAman(){
-		studentOfficeInstance = StudentOffice.getOffice();
-		studentOfficeInstance.makePersons("./Student Test Cases/test1.txt");
-		
-		Office office = Office.getOffice();
-		office.setEligiblePeople();
-		office.setPreferenceList();
-		
-		//check - works properly?
-		
-		//---------------
-		///office.pairMale();
-		//---------------
-		
-		
-		//----
-		studentOfficeInstance.makePreferences(office.getEligibleMaleList());
-		p = new PreferenceMatrix(office.getEligibleMaleList());
-		System.out.println("Input ");
-		p.displayMatrix();
-		
-		System.out.println("Stage1");
-		p.Stage1();
-		p.displayMatrix();
-		
-		
-		/*p.Stage1();
-		p.Stage2();
-		p.Stage3();*/
-		//without stage 1,2,3 --> p.displayMatrix() --> initial Input (test ops on this)
-		
-		//+ p.stage1() --> expected resut (Stage1 testing)
-		//------
-		
-	}
 	
 	
 	@Test
@@ -343,6 +270,7 @@ public class test1PANDA {
 		
 	}
 
+	
 	
 
 	
