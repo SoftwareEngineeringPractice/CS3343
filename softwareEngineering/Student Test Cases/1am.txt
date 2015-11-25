@@ -1,0 +1,13 @@
+Student38|1038|M|N,N,Y
+Student39|1039|M|Y,N,N
+Student40|1040|M|Y,N,Y
+Student41|1041|M|N,Y,N
+Student42|1042|M|N,Y,N
+Student43|1043|M|Y,Y,N
+Student44|1044|M|Y,N,Y
+Student45|1045|M|N,N,Y
+Student46|1046|M|Y,Y,Y
+Student47|1047|M|Y,N,Y
+Student48|1048|M|N,Y,N
+Student49|1049|M|N,Y,Y
+
