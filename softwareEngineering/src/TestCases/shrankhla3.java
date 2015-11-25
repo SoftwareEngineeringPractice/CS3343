@@ -6,7 +6,8 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class test1Shrankhla {
+
+public class shrankhla3 {
 
 	StudentOffice studentOfficeInstance;
 	Office office;
@@ -18,7 +19,7 @@ public class test1Shrankhla {
 	
 	
 	
-	//@Test
+	@Test
 	public void getresultSharankhla(){
 		studentOfficeInstance = StudentOffice.getOffice();
 		studentOfficeInstance.makePersons("./Student Test Cases/1sh.txt");
@@ -113,6 +114,7 @@ public class test1Shrankhla {
 		
 		//you will make this matrix once you see the output from p.displayMatrix() <-- actual output (cheating) [de-comment p.displayMatrix()]
 		//Don't make the matrix yet. Look at the actual output!
+		
 		/*
 		 * Interpreting the actual output that's displayed on the console
 		 * 
@@ -122,8 +124,8 @@ public class test1Shrankhla {
 		 * 4) (R) --> CStateRejected (I have done constructor overloading [look below], when you make the expected array[the one below] add "rejected" as the second argument)
 		 *
 		 *
-		 *accepted, proposalMade and rejected are define above
-		 */
+		 *accepted, proposalMade and rejected are define above*/
+		 
 		Cell[][] expected = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
 				  { new CellSubject(B), new CellPreference(E,proposalMade), new CellPreference(A,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected),new CellPreference(I,rejected) },
@@ -201,8 +203,8 @@ public class test1Shrankhla {
 		
 		//you will make this matrix once you see the output from p.displayMatrix() <-- actual output (cheating) [de-comment p.displayMatrix()]
 		//Don't make the matrix yet. Look at the actual output!
-		/*
-		 * Interpreting the actual output that's displayed on the console
+		
+		 /** Interpreting the actual output that's displayed on the console
 		 * 
 		 * 1) (N) --> CStateAvailable (No changes required)
 		 * 2) (A) --> CStateAccepted  (I have done constructor overloading [look below], when you make the expected array[the one below] add "accepted" as the second argument)
@@ -210,8 +212,8 @@ public class test1Shrankhla {
 		 * 4) (R) --> CStateRejected (I have done constructor overloading [look below], when you make the expected array[the one below] add "rejected" as the second argument)
 		 *
 		 *
-		 *accepted, proposalMade and rejected are define above
-		 */
+		 *accepted, proposalMade and rejected are define above*/
+		 
 		Cell[][] expected = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
 				  { new CellSubject(B), new CellPreference(E,proposalMade), new CellPreference(A,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected),new CellPreference(I,rejected) },
@@ -292,8 +294,8 @@ public class test1Shrankhla {
 		
 		//you will make this matrix once you see the output from p.displayMatrix() <-- actual output (cheating) [de-comment p.displayMatrix()]
 		//Don't make the matrix yet. Look at the actual output!
-		/*
-		 * Interpreting the actual output that's displayed on the console
+		
+		/* * Interpreting the actual output that's displayed on the console
 		 * 
 		 * 1) (N) --> CStateAvailable (No changes required)
 		 * 2) (A) --> CStateAccepted  (I have done constructor overloading [look below], when you make the expected array[the one below] add "accepted" as the second argument)
@@ -301,8 +303,8 @@ public class test1Shrankhla {
 		 * 4) (R) --> CStateRejected (I have done constructor overloading [look below], when you make the expected array[the one below] add "rejected" as the second argument)
 		 *
 		 *
-		 *accepted, proposalMade and rejected are define above
-		 */
+		 *accepted, proposalMade and rejected are define above*/
+		 
 		Cell[][] expected = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
 				  { new CellSubject(B), new CellPreference(E,rejected), new CellPreference(A,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected),new CellPreference(I,rejected) },
