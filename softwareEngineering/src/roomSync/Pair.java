@@ -20,7 +20,14 @@ public class Pair
     	return left.getName() + " -- " + right.getName();
     }
     
-    
+    @Override
+	public boolean equals(Object p1)
+	{
+		Pair p = (Pair) p1;
+		if(p.getLeft().equals(this.left) && p.getRight().equals(this.right))
+			return true;
+		return false;
+	}
     
 
 }

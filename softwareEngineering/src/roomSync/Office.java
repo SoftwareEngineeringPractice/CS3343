@@ -89,13 +89,15 @@ public class Office
 	
 	public void pairStudents()
 	{
-		pairMale();
-		pairFemale();
+		ArrayList<Pair> malePairs   = pairMale();
+		ArrayList<Pair> femalePairs = pairFemale();;
+		
 	}
 	
 	//TODO naming has to be changed
-	public void pairMale()
+	public ArrayList<Pair> pairMale()
 	{
+		ArrayList<Pair> finalPairs = new ArrayList<Pair>();
 		PreferenceMatrix p;
 		int limit = 20;
 		ArrayList<Person> unPaired = residenceEligiblePersonListMale; 
@@ -114,6 +116,7 @@ public class Office
 			ArrayList<Pair> pairs =  p.getPaired();
 			for(Pair pa : pairs)
 			{
+				finalPairs.add(pa);
 				System.out.println(pa);
 			}
 			System.out.println("~~~~~~~~~~~~~~");
@@ -135,14 +138,19 @@ public class Office
 			ArrayList<Pair> unresolvedPairs = new ArrayList<>();
 			for(int j = 0; j < unPaired.size(); j = j + 2)
 			{
-				unresolvedPairs.add(new Pair(unPaired.get(j),unPaired.get(j+1)));
+				Pair up = new Pair(unPaired.get(j),unPaired.get(j+1));
+				unresolvedPairs.add(up);
+				finalPairs.add(up);
 			}
 		}
+		
+		return finalPairs;
 	}
 	
 	//TODO naming has to be changed
-	public void pairFemale()
+	public ArrayList<Pair> pairFemale()
 	{
+		ArrayList<Pair> finalPairs = new ArrayList<Pair>();
 		PreferenceMatrix p;
 		int limit = 20;
 		ArrayList<Person> unPaired = residenceEligiblePersonListFemale; 
@@ -161,6 +169,7 @@ public class Office
 			ArrayList<Pair> pairs =  p.getPaired();
 			for(Pair pa : pairs)
 			{
+				finalPairs.add(pa);
 				System.out.println(pa);
 			}
 			System.out.println("~~~~~~~~~~~~~~");
@@ -182,8 +191,12 @@ public class Office
 			ArrayList<Pair> unresolvedPairs = new ArrayList<>();
 			for(int j = 0; j < unPaired.size(); j = j + 2)
 			{
-				unresolvedPairs.add(new Pair(unPaired.get(j),unPaired.get(j+1)));
+				Pair up = new Pair(unPaired.get(j),unPaired.get(j+1));
+				unresolvedPairs.add(up);
+				finalPairs.add(up);
 			}
 		}
+		
+		return finalPairs;
 	}
 }

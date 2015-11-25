@@ -17,7 +17,7 @@ public class test1PANDA {
 	
 	//Assitor: No need to be in the actual testing
 	
-	//@Test
+	@Test
 	public void getresultPANDA(){
 		studentOfficeInstance = StudentOffice.getOffice();
 		studentOfficeInstance.makePersons("./Student Test Cases/test1.txt");
@@ -29,12 +29,16 @@ public class test1PANDA {
 		//check - works properly?
 		
 		//---------------
-		///office.pairMale();
+		ArrayList<Pair> pairs = office.pairMale();
+		for(Pair pa : pairs)
+		{
+			System.out.println(pa);
+		}
 		//---------------
 		
 		
 		//----
-		studentOfficeInstance.makePreferences(office.getEligibleMaleList());
+		/*studentOfficeInstance.makePreferences(office.getEligibleMaleList());
 		p = new PreferenceMatrix(office.getEligibleMaleList());
 		System.out.println("Input ");
 		p.displayMatrix();
@@ -45,14 +49,14 @@ public class test1PANDA {
 		p.displayMatrix();
 		
 		
-		/*p.Stage1();
+		p.Stage1();
 		p.Stage2();
-		p.Stage3();*/
+		p.Stage3();
 		//without stage 1,2,3 --> p.displayMatrix() --> initial Input (test ops on this)
 		
 		//+ p.stage1() --> expected resut (Stage1 testing)
 		//------
-		
+*/		
 	}
 	
 	
@@ -269,6 +273,7 @@ public class test1PANDA {
 		assertArrayEquals(p.getMatrix(),expected);
 		
 	}
+
 
 	
 	
