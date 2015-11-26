@@ -33,13 +33,14 @@ public class Hall
 	
 	public void getHallResidents()
 	{
-		System.out.print(hallID + " has the following occupants: ");
+		System.out.println(hallID + " has the following occupants: ");
 		for(Room r:rooms)
 		{
 			if(r.getState() instanceof ROccupied)
 			{
 				for(Person p:r.getRoomMates())
-					System.out.print(p.getName() + "(" + p.getID() + ")" + " ");
+					System.out.print(p.getName() + "(" + r.getRoomID() + ")" + " ");
+				System.out.println();
 			}		
 		}
 		System.out.println();

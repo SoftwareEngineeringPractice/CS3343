@@ -108,12 +108,12 @@ public class Office
 		ArrayList<Pair> malePairs     = pair('M');
 		ArrayList<Pair> femalePairs   = pair('F');
 		for(Pair m: malePairs){
-			sro.setRoomOccupants(m.getLeft(),m.getLeft());
+			sro.setRoomOccupants(m.getLeft(),m.getRight());
 			residenceEligiblePersonListMale.remove(m.getLeft());
 			residenceEligiblePersonListMale.remove(m.getRight());
 		}
 		for(Pair fm: femalePairs){
-			sro.setRoomOccupants(fm.getLeft(),fm.getLeft());
+			sro.setRoomOccupants(fm.getLeft(),fm.getRight());
 			residenceEligiblePersonListFemale.remove(fm.getLeft());
 			residenceEligiblePersonListFemale.remove(fm.getRight());
 		
@@ -121,6 +121,7 @@ public class Office
 		
 		
 		System.out.println("remaining"+sro.getAvailableNoOfRooms());
+		sro.getallStudents();
 	}
 	
 	//TODO naming has to be changed
@@ -230,6 +231,9 @@ public class Office
 					PreferenceMatrix p;
 					ArrayList<Person> unPaired = batch;
 					
+					if(unPaired.size()%2==1){
+						unPaired.remove(unPaired.get(unPaired.size()-1));
+					}
 					
 					do
 					{

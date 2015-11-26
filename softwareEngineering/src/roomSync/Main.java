@@ -14,7 +14,7 @@ public class Main
 		officeInstance.makePersons();
 		
 		SRO sro = SRO.getInstance();
-		sro.createHall("Hall1",100);
+		sro.createHall("Hall1",40);
 		sro.createHall("Hall2",50);
 		System.out.println(sro.getAvailableNoOfRooms());
 		

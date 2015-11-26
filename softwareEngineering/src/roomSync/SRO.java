@@ -67,16 +67,24 @@ public class SRO
 		
 		for(Hall h: hall)
 		{
+			boolean emptyRoomFound = false;
+			
 			for(Room r: h.getRoom())
 			{
+				
 				if(r.getState() instanceof RAvailable)
 				{
 					r.addRoomMate(a);
 					r.addRoomMate(b);
 					r.setState(new ROccupied());
 					roomsAvailable = true;
+					emptyRoomFound = true;
 					break;
 				}
+				
+			}
+			if(emptyRoomFound){
+				break;
 			}
 		}
 		
@@ -102,17 +110,10 @@ public class SRO
 	{
 		for(Hall h:hall)
 		{
-			for(Room r: h.getRoom())
-			{
-				for(Person p:r.getRoomMates())
-				{
-					System.out.print(p.getName() + " ");
-				}		
-				if (r.getState() instanceof ROccupied)
-				{
-				    System.out.println();
-				}
-			}
+			
+			h.getHallResidents();
+			
+
 		}
 	}
 }
