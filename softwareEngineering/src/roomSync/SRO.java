@@ -33,8 +33,11 @@ public class SRO
 		this.addHall(h);
 	}
 	
+	public void removeHall(Hall h){
+		hall.remove(h);
+	}
 	
-	public void setRoomOccupants(Person a, Person b, Hall h)
+/*	public void setRoomOccupants(Person a, Person b, Hall h)
 	{
 		//Setting occupants to a room sequentially in a specified hall
 		ArrayList<Room> r = h.getRoom();
@@ -59,7 +62,7 @@ public class SRO
 	   if(!isAvailable)
 		   System.out.println("Sorry, Hall is occupied");
 	}
-	
+*/	
 	public void setRoomOccupants(Person a, Person b)
 	{
 		//Setting occupants to a SRO halls sequentially
@@ -106,6 +109,7 @@ public class SRO
 		return tot_avai;
 	}
 	
+	//Print result
 	public void getallStudents()
 	{
 		for(Hall h:hall)

@@ -5,7 +5,7 @@ public class CmdEditHall extends RecordedCommand {
 	@Override
 	public void execute(String[] cmdParts) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
