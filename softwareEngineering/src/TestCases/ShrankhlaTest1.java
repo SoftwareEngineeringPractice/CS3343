@@ -117,8 +117,6 @@ public class ShrankhlaTest1 {
 				  { new CellSubject(G), new CellPreference(D), new CellPreference(F), new CellPreference(C), new CellPreference(B), new CellPreference(A),new CellPreference(E)},
 				 
 		
-		
-		
 		};
 		
 		//Declare the 3 additional states required -- Remains unchanged

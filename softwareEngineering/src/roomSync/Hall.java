@@ -21,8 +21,8 @@ public class Hall
 		for(int i = 1; i <= noOfDoubleRooms; i += 2)
 		{
 			String roomSequence = String.format("%03d", i);
-			this.addRoom(new Room(roomSequence, 'M' , new ROccupied()));
-			this.addRoom(new Room(roomSequence, 'F' , new ROccupied()));
+			this.addRoom(new Room(roomSequence, 'M' , new RAvailable()));
+			this.addRoom(new Room(roomSequence, 'F' , new RAvailable()));
 		}
 	}
 	

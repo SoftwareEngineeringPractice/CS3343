@@ -39,8 +39,12 @@ public class Office
 	public void setEligiblePeople()
 	{
 		//34 Males and 34 Females
-		setEligibleMale(10);
-		setEligibleFemale(34);
+		int totalRooms  = sro.getAvailableNoOfRooms();
+		int maleRooms   = totalRooms/2;
+		int femaleRooms = totalRooms - maleRooms;
+		System.out.println("M"+maleRooms+" " +"F"+femaleRooms);
+		setEligibleMale(maleRooms);
+		setEligibleFemale(femaleRooms);
 	}
 	
 	public void setEligibleMale(int cap)
@@ -59,6 +63,7 @@ public class Office
 			}
 		}
 	}
+	
 	
 	
 	

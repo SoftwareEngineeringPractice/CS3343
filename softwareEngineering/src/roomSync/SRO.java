@@ -4,7 +4,8 @@ import java.util.*;
 public class SRO
 {
 	
-	private static int tot_avai;	
+	//private static int tot_avai;	
+	
 	private static SRO sro = new SRO();
 	private ArrayList<Hall> hall;
 	
@@ -31,6 +32,7 @@ public class SRO
 		Hall h = new Hall(id, capacity);
 		this.addHall(h);
 	}
+	
 	
 	public void setRoomOccupants(Person a, Person b, Hall h)
 	{
@@ -84,6 +86,7 @@ public class SRO
 	
 	public int getAvailableNoOfRooms()
 	{
+		int tot_avai = 0;
 		for(Hall h: hall)
 		{
 			for(Room r: h.getRoom())
