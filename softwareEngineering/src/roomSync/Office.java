@@ -99,6 +99,8 @@ public class Office
 		//studentOffice.makePreferences(residenceEligiblePersonListFemale);
 	}
 	
+	
+	// Get the final paired male and females
 	public void pairStudents()
 	{
 		/*ArrayList<Pair> malePairs   = pairMale();
@@ -108,23 +110,31 @@ public class Office
 		ArrayList<Pair> malePairs     = pair('M');
 		ArrayList<Pair> femalePairs   = pair('F');
 		for(Pair m: malePairs){
+			
 			sro.setRoomOccupants(m.getLeft(),m.getRight());
 			residenceEligiblePersonListMale.remove(m.getLeft());
 			residenceEligiblePersonListMale.remove(m.getRight());
+			studentOffice.removeHallOccupants(m.getLeft());
+			studentOffice.removeHallOccupants(m.getRight());
+			
 		}
 		for(Pair fm: femalePairs){
 			sro.setRoomOccupants(fm.getLeft(),fm.getRight());
 			residenceEligiblePersonListFemale.remove(fm.getLeft());
 			residenceEligiblePersonListFemale.remove(fm.getRight());
-		
+			studentOffice.removeHallOccupants(fm.getLeft());
+			studentOffice.removeHallOccupants(fm.getRight());
+			
 		}
 		
 		
 		System.out.println("remaining"+sro.getAvailableNoOfRooms());
 		sro.getallStudents();
+		studentOffice.printPersons();
+		
 	}
 	
-	//TODO naming has to be changed
+	/*//TODO naming has to be changed
 	public ArrayList<Pair> pairMale()
 	{
 		ArrayList<Pair> finalPairs = new ArrayList<Pair>();
@@ -297,7 +307,7 @@ public class Office
 		return finalPairs;
 	}
 	
-	
+	*/
 	
 	public ArrayList<Pair> pair(char gender)
 	{

@@ -31,6 +31,22 @@ public class Hall
 		rooms.add(r);	
 	}
 	
+	public String getHallID()
+	{
+		return hallID;
+	}
+	
+	
+	@Override
+	public boolean equals(Object h1)
+	{
+		Hall h = (Hall) h1;
+		if(h.getHallID().equals(this.hallID))
+			return true;
+		return false;
+	}
+	
+	
 	public void getHallResidents()
 	{
 		System.out.println(hallID + " has the following occupants: ");

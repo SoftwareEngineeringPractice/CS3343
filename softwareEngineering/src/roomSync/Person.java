@@ -108,7 +108,7 @@ public class Person
 	@Override
 	public String toString()
 	{
-		String ret = name + "\n";
+		String ret = name + "\n"+sex + "\n";
 		ArrayList<Attribute> thisAttribute = this.attributes.getList();
 		for(Attribute thisAtt: thisAttribute)
 		{

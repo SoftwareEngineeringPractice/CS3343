@@ -16,6 +16,13 @@ public class StudentOffice
 	{
 		return office;
 	}
+	
+	
+	public void removeHallOccupants(Person p){
+		personList.remove(p);
+	}
+	
+	
 	//Function to make Persons, input can look like "FirstName LastName|Student ID|Sex|Y,N,Y.." , Name | Student ID | Sex | Attributes in the right order
 	public void makePersons()
 	{
@@ -94,7 +101,7 @@ public class StudentOffice
 	
 	
 	//print all people
-	private void printPersons()
+	public void printPersons()
 	{
 		System.out.println("List of all Persons:");
 		for(Person person: personList)
