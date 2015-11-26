@@ -69,7 +69,7 @@ public class GenerateStudents {
 			}
 			
 			
-			testInstance = name + "|" + SID + "|"+ attributes;
+			testInstance = name + "|" + SID + "|M|"+ attributes;
 			writer.write(testInstance);
 			writer.newLine();
 		}
