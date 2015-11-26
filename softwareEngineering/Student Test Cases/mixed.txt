@@ -8,7 +8,7 @@ Student6|106|F|N,N,N
 Student7|107|M|Y,N,Y
 Student8|108|F|Y,N,Y
 Student9|109|M|N,Y,Y
-Student10|110|F|Y,N,N
+Student10|110|F|Y,Y,Y
 Student11|111|F|Y,Y,N
 Student12|112|F|N,Y,Y
 Student13|113|F|N,Y,N

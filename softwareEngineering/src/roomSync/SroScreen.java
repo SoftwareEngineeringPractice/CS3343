@@ -9,6 +9,7 @@ public class SroScreen implements DisplayScreen {
 			Scanner input = new Scanner(System.in);
 			System.out.print("1.Create Building \n 2.Edit Building \n 3.Assign \n 4.Print Result \n 5.Return the number of available rooms \n 6.undo \n 7.redo \n 8. Back to Main Screen \n input: ");
 			int i = input.nextInt();
+			input.nextLine();
 			String[] cmdInput;
 			System.out.println("SRO Screen");
 			
@@ -21,7 +22,7 @@ public class SroScreen implements DisplayScreen {
 					(new SroScreen()).screenDisplay();
 					break;
 				case 2: 
-					System.out.print("Enter details in the following order Hall name|capacity"); 
+					System.out.print("Enter details in the following order HallID|New capacity"); 
 					cmdInput = (input.nextLine()).split("|");
 					(new CmdEditHall()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();

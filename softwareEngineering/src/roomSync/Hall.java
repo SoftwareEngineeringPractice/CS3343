@@ -13,6 +13,17 @@ public class Hall
 		return rooms;
 	}
 	
+	
+	public int getNoOfDoubleRooms() {
+		return noOfDoubleRooms;
+	}
+
+
+	public void setNoOfDoubleRooms(int noOfDoubleRooms) {
+		this.noOfDoubleRooms = noOfDoubleRooms;
+	}
+
+
 	public Hall(String hallID, int noOfDoubleRooms)
 	{
 		this.hallID = hallID;

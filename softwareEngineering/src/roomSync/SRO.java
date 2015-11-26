@@ -26,6 +26,21 @@ public class SRO
 		else
 			hall.add(h);
 	}
+	public int editHall(Hall h)
+	{
+		if(hall.contains(h))
+		{
+			int rooms= hall.get(hall.indexOf(h)).getNoOfDoubleRooms();
+			hall.remove(h);
+			hall.add(h);
+			return rooms;
+		}
+			
+		else
+			hall.add(h);
+		return h.getNoOfDoubleRooms();
+	}
+	
 	
 	public void createHall(String id, int capacity)
 	{

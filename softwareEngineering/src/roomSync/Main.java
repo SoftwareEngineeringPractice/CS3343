@@ -9,7 +9,7 @@ public class Main
 	{
 		
 		
-		// TODO All this should be handled by Office
+		/*// TODO All this should be handled by Office
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		//To get data from the txt file
 		officeInstance.makePersons();
@@ -27,7 +27,9 @@ public class Main
 		office.pairStudents();
 		
 		//TODO implement sro.setRoomOccupants(Person a, Person b) or sro.setRoomOccupants(Person a, Person b, Hall h)
-		
+*/	
+		DisplayScreen screen = new MainScreen();
+		screen.screenDisplay();
 		
 		
     }

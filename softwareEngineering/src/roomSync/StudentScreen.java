@@ -10,17 +10,20 @@ public class StudentScreen implements DisplayScreen{
 	public void screenDisplay() {
 		
 		try {
+			System.out.println("Student Screen");
 			Scanner input = new Scanner(System.in);
 			System.out.print("1.Enter details \n 2.Edit details \n 3.Undo \n 4.Redo \n 5.Back to Main screen \n input: ");
 			int i = input.nextInt();
+			input.nextLine();
 			String[] cmdInput;
-			System.out.println("Student Screen");
+			Scanner input2 = new Scanner(System.in);
 			
 			switch(i)
 			{
 				case 1:  
 					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)");
-					cmdInput = (input.nextLine()).split("|");
+					String s= input.nextLine();
+					cmdInput = s.split("|");
 					(new CmdAddPerson()).execute(cmdInput);
 					(new StudentScreen()).screenDisplay();
 					break;

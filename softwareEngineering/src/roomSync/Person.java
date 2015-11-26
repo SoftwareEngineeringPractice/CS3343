@@ -8,6 +8,7 @@ public class Person
 	private String name;
 	private String studentID;
 	private char sex;
+	private String attri;
 	//order for this preference list matters.
 	private ArrayList<ArrayList<Person>> preferenceList= new ArrayList<>();
 	//Person's attribute list
@@ -18,6 +19,7 @@ public class Person
 		this.name = name;
 		this.studentID = studentID;
 		this.sex = sex.charAt(0);
+		this.attri = v;
 		//constructor calls a function to assign attributes to a person
 		setAttributes(v);
 	}
@@ -39,6 +41,13 @@ public class Person
 				}
 			}
 
+	}
+	
+	public String getAttri() {
+		return attri;
+	}
+	public void setAttri(String attri) {
+		this.attri = attri;
 	}
 	//returns the attribute list when needed
 	public AttributeList getAttributes()

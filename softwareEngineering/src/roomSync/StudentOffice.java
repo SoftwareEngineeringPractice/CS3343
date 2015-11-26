@@ -143,4 +143,19 @@ public class StudentOffice
 			p.printPreference();
 		}
 	}
+	
+	public void addPerson(Person p)
+	{
+		personList.add(p);
+	}
+	
+	public void removePerson(Person p)
+	{
+		personList.remove(p);
+	}
+	
+	public String getAttri(Person p)
+	{
+		return personList.get(personList.indexOf(p)).getAttri();
+	}
 }
