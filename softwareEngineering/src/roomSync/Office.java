@@ -38,10 +38,18 @@ public class Office
 	
 	public void setEligiblePeople()
 	{
-		//34 Males and 34 Females
 		int totalRooms  = sro.getAvailableNoOfRooms();
 		int maleRooms   = totalRooms/2;
 		int femaleRooms = totalRooms - maleRooms;
+		
+		if(maleRooms%2==1){
+			maleRooms++;
+			femaleRooms--;
+		}
+		
+		//just to generate error
+		maleRooms = 100;
+		femaleRooms = 100;
 		System.out.println("M"+maleRooms+" " +"F"+femaleRooms);
 		setEligibleMale(maleRooms);
 		setEligibleFemale(femaleRooms);
@@ -95,8 +103,16 @@ public class Office
 	public void pairStudents()
 	{
 		ArrayList<Pair> malePairs   = pairMale();
-		ArrayList<Pair> femalePairs = pairFemale();;
+		ArrayList<Pair> femalePairs = pairFemale();
 		
+		for(Pair m: malePairs){
+			//sro.setRoomOccupants(m.getLeft(),m.getLeft());
+		}
+		for(Pair fm: femalePairs){
+			//sro.setRoomOccupants(fm.getLeft(),fm.getLeft());
+		}
+		
+		System.out.println("remaining"+sro.getAvailableNoOfRooms());
 	}
 	
 	//TODO naming has to be changed
