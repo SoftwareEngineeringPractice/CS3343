@@ -68,8 +68,16 @@ public class GenerateStudents {
 				
 			}
 			
+			String gender;
+			if(rand.nextFloat()<0.5){
+				gender="|M|";
+			}
+			else{
+				gender="|F|";
+			}
+				
 			
-			testInstance = name + "|" + SID + "|M|"+ attributes;
+			testInstance = name + "|" + SID + gender+ attributes;
 			writer.write(testInstance);
 			writer.newLine();
 		}
