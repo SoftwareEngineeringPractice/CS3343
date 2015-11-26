@@ -33,16 +33,22 @@ public class test2Shrankhla {
 		///office.pairMale();
 		//---------------
 		
+		ArrayList<Pair> pairs = office.pairMale();
+		for(Pair pa : pairs)
+		{
+			System.out.println(pa);
+		}
+		
 		
 		//----
-		studentOfficeInstance.makePreferences(office.getEligibleMaleList());
+		/*studentOfficeInstance.makePreferences(office.getEligibleMaleList());
 		p = new PreferenceMatrix(office.getEligibleMaleList());
 		System.out.println("Input ");
 		p.displayMatrix();
 		
 		System.out.println("Stage1");
 		p.Stage1();
-		p.displayMatrix();
+		p.displayMatrix();*/
 		
 		/*System.out.println("Stage2");
 		p.Stage1();

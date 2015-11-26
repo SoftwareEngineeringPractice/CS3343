@@ -28,6 +28,13 @@ public class shrankhla3 {
 		office.setEligiblePeople();
 		office.setPreferenceList();
 		
+		
+		ArrayList<Pair> pairs = office.pairMale();
+		for(Pair pa : pairs)
+		{
+			System.out.println(pa);
+		}
+		
 		//check - works properly?
 		
 		//---------------
@@ -36,7 +43,7 @@ public class shrankhla3 {
 		
 		
 		//----
-		studentOfficeInstance.makePreferences(office.getEligibleMaleList());
+		/*studentOfficeInstance.makePreferences(office.getEligibleMaleList());
 		p = new PreferenceMatrix(office.getEligibleMaleList());
 		System.out.println("Input ");
 		p.displayMatrix();
@@ -54,7 +61,7 @@ public class shrankhla3 {
 		p.Stage1();
 		p.Stage2();
 		p.Stage3();
-		p.displayMatrix();
+		p.displayMatrix();*/
 		
 		
 		
@@ -229,7 +236,7 @@ public class shrankhla3 {
 		
 		
 		};
-		System.out.println("======\nThis is SHRANKHLA's test [Stage1_1]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
+		System.out.println("======\nThis is SHRANKHLA's test [Stage2_1]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
 		PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 		
 		p.Stage1();
@@ -320,7 +327,7 @@ public class shrankhla3 {
 		
 		
 		};
-		System.out.println("======\nThis is SHRANKHLA's test [Stage1_1]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
+		System.out.println("======\nThis is SHRANKHLA's test [Stage3_1]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
 		PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 		
 		p.Stage1();
