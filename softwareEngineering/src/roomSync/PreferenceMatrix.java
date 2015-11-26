@@ -80,7 +80,7 @@ public class PreferenceMatrix
 			{
 				//long seed = System.nanoTime();
 				//Collections.shuffle(set, new Random(seed));
-				Collections.shuffle(set);
+				//Collections.shuffle(set);
 				preferences.addAll(set);
 			}
 			
