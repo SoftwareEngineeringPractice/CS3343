@@ -25,18 +25,20 @@ public class Person
 	//in the order of attributes
 	public void setAttributes(String v)
 	{
-		String [] values = v.split(",");
-		for(int i = 0; i < values.length; i++)
-		{
-			if(values[i].equalsIgnoreCase("Y"))
+	
+			String [] values = v.split(",");
+			for(int i = 0; i < values.length; i++)
 			{
-				attributes.setAttributeValue(i , true);
+				if(values[i].equalsIgnoreCase("Y"))
+				{
+					attributes.setAttributeValue(i , true);
+				}
+				else
+				{
+					attributes.setAttributeValue(i , false);
+				}
 			}
-			else
-			{
-				attributes.setAttributeValue(i , false);
-			}
-		}
+
 	}
 	//returns the attribute list when needed
 	public AttributeList getAttributes()
