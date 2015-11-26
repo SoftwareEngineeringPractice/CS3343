@@ -77,7 +77,7 @@ public class Shrankhla_4 {
 	
 	
 	@Test
-	public void testStage1_4SHRANKHLA() {
+	public void testStage1_4SHRA() {
 		
 		
 		//Define a few Person
