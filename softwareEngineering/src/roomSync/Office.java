@@ -26,7 +26,7 @@ public class Office
 		return office;
 	}
 	
-	public ArrayList<Person> getEligibleMaleList()
+/*	public ArrayList<Person> getEligibleMaleList()
 	{
 		return residenceEligiblePersonListMale;
 	}
@@ -35,7 +35,7 @@ public class Office
 	{
 		return residenceEligiblePersonListFemale;
 	}
-	
+	*/
 	public void setEligiblePeople()
 	{
 		int totalRooms  = sro.getAvailableNoOfRooms();
@@ -93,12 +93,12 @@ public class Office
 		}
 	}
 	
-	public void setPreferenceList(ArrayList<Person> batch)
+/*	public void setPreferenceList(ArrayList<Person> batch)
 	{
 		studentOffice.makePreferences(batch);
 		//studentOffice.makePreferences(residenceEligiblePersonListFemale);
 	}
-	
+	*/
 	
 	// Get the final paired male and females
 	public void pairStudents()
@@ -371,7 +371,7 @@ public class Office
 					
 					
 					// Only if after executing the preference Matrix for a given limit, we still have unPaired students (last resort)
-					if(k >= limit && unPaired.size() > 0 )
+					/*if(k >= limit && unPaired.size() > 0 )
 					{
 						ArrayList<Pair> unresolvedPairs = new ArrayList<>();
 						for(int l = 0; l < unPaired.size(); l = l + 2)
@@ -380,7 +380,7 @@ public class Office
 							unresolvedPairs.add(up);
 							finalPairs.add(up);
 						}
-					}
+					}*/
 				
 			}
 			

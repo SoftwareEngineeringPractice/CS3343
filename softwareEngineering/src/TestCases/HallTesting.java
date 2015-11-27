@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class overallTesting {
+public class HallTesting {
 
 	@Test
 	public void hallCreationTest() {

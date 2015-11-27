@@ -111,14 +111,14 @@ public class PreferenceMatrix
 		}
 	}
 	
-	public void displayFinalResult()
+/*	public void displayFinalResult()
 	{
 		for(int i=0; i<noOfPeople; i++)
 		{
 			//TODO: Error
 			System.out.println(matrix[i][0].getName() + " - " + getFirstNonRejectedPerson(matrix[i][0].getPerson()).getName());
 		}
-	}
+	}*/
 	//Suppose a's preference list is b, d, c, f - findCell(a,c) would return the third cell.
 	//TODO: Exception handler required, at least for this algorithm, this function should never return null. If it does, it means there's someone who is eligible for residence but is missing in the subject's preference list 
 	public Cell findCell(Person subject,Person preferred)
