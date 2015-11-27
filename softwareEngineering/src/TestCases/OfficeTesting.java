@@ -60,4 +60,6 @@ public class OfficeTesting {
 		sro.removeHall(new Hall("Hall1",10));
 		
 	}
+	
+
 }

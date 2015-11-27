@@ -1,0 +1,10 @@
+Student0|1000|F|N,N,Y
+Student1|1001|F|N,Y,N
+Student2|1002|F|N,Y,N
+Student3|1003|M|N,N,N
+Student4|1004|M|Y,Y,Y
+Student5|1005|F|Y,N,Y
+Student6|1006|F|N,Y,Y
+Student7|1007|M|Y,N,N
+Student8|1008|M|Y,N,N
+Student9|1009|F|N,N,Y
