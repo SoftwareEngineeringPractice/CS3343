@@ -26,7 +26,7 @@ public class Office
 		return office;
 	}
 	
-/*	public ArrayList<Person> getEligibleMaleList()
+	public ArrayList<Person> getEligibleMaleList()
 	{
 		return residenceEligiblePersonListMale;
 	}
@@ -35,7 +35,7 @@ public class Office
 	{
 		return residenceEligiblePersonListFemale;
 	}
-	*/
+	
 	public void setEligiblePeople()
 	{
 		int totalRooms  = sro.getAvailableNoOfRooms();

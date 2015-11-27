@@ -144,6 +144,10 @@ public class StudentOffice
 		}
 	}
 	
+	public void clearPersonList(){
+		personList.clear();
+	}
+	
 	public void addPerson(Person p)
 	{
 		personList.add(p);
