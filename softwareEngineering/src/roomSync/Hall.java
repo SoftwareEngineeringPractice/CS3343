@@ -18,11 +18,11 @@ public class Hall
 		return noOfDoubleRooms;
 	}
 
-
+/*
 	public void setNoOfDoubleRooms(int noOfDoubleRooms) {
 		this.noOfDoubleRooms = noOfDoubleRooms;
 	}
-
+*/
 
 	public Hall(String hallID, int noOfDoubleRooms)
 	{

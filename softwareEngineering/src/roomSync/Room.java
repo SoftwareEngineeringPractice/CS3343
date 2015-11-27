@@ -32,10 +32,10 @@ public class Room
 		return roomID;
 	}
 	
-	public char getRoomGender()
+	/*public char getRoomGender()
 	{
 		return roomGender;
-	}
+	}*/
 
 	public RState getState()
 	{

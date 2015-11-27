@@ -19,7 +19,7 @@ public class Shrankhla_4 {
 	
 	
 	
-	@Test
+	//@Test
 	public void getresultSharankhla(){
 		studentOfficeInstance = StudentOffice.getOffice();
 		studentOfficeInstance.makePersons("./Student Test Cases/4sh.txt");

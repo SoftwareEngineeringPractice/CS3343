@@ -19,7 +19,7 @@ public class shrankhla3 {
 	
 	
 	
-	@Test
+	//@Test
 	public void getresultSharankhla(){
 		studentOfficeInstance = StudentOffice.getOffice();
 		studentOfficeInstance.makePersons("./Student Test Cases/1sh.txt");

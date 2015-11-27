@@ -17,7 +17,7 @@ public class test1PANDA {
 	
 	//Assitor: No need to be in the actual testing
 	
-	@Test
+	//@Test
 	public void getresultPANDA(){
 		studentOfficeInstance = StudentOffice.getOffice();
 		studentOfficeInstance.makePersons("./Student Test Cases/test1.txt");
