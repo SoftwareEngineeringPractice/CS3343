@@ -4,12 +4,22 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import roomSync.*;
 
 public class OfficeTesting {
 
+	SRO sro;
+	
+	@Before
+	public void setup(){
+		sro = SRO.getInstance();
+		
+	}
+	
 	
 	@Test
 	public void testPreferences(){
@@ -17,14 +27,12 @@ public class OfficeTesting {
 		officeInstance.clearPersonList();
 		officeInstance.makePersons("./Student Test Cases/1am.txt");
 		
-		SRO sro = SRO.getInstance();
 		sro.createHall("Hall1",20);
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
 		p.displayMatrix();
-		sro.removeHall(new Hall("Hall1",10));
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -65,7 +73,6 @@ public class OfficeTesting {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.clearPersonList();
 		officeInstance.makePersons("./Student Test Cases/1am.txt");
-		SRO sro = SRO.getInstance();
 		sro.createHall("Hall1",8);
 		System.out.println(sro.getAvailableNoOfRooms());
 		Office office = Office.getOffice();
@@ -74,7 +81,7 @@ public class OfficeTesting {
 		for(Person p: eligible){
 			System.out.println(p);
 		}
-		sro.removeHall(new Hall("Hall1",10));
+		
 	}
 	@Test
 	public void test() {
@@ -82,15 +89,13 @@ public class OfficeTesting {
 		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
 		officeInstance.printPersons();
 		officeInstance.makePreferences();
-		SRO sro = SRO.getInstance();
 		sro.createHall("Hall1",40);
 		System.out.println(sro.getAvailableNoOfRooms());
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		
 		office.pairStudents();
-		sro.removeHall(new Hall("Hall1",10));
-		
+			
 	}
 
 	@Test
@@ -100,15 +105,13 @@ public class OfficeTesting {
 		officeInstance.printPersons();
 		officeInstance.makePreferences();
 		officeInstance.printPreferenceList();
-		SRO sro = SRO.getInstance();
 		sro.createHall("Hall1",233);
 		System.out.println(sro.getAvailableNoOfRooms());
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		
 		office.pairStudents();
-		sro.removeHall(new Hall("Hall1",10));
-		
+			
 	}
 
 	@Test
@@ -125,9 +128,14 @@ public class OfficeTesting {
 		
 		office.pairStudents();
 		
-		sro.removeHall(new Hall("Hall1",10));
-		
+			
 	}
 	
+	@After
+	public void TearDown()
+	{
+		sro.clearHallList();
+		
+	}
 
 }

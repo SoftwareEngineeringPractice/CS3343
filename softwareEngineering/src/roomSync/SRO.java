@@ -111,7 +111,8 @@ public class SRO
 		}
 	}
 	
-	public void removeAllHalls()
+	
+	public void clearHallList()
 	{
 		hall.clear();
 	}
