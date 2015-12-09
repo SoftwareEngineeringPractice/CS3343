@@ -17,19 +17,20 @@ public class StudentScreen implements DisplayScreen{
 			input.nextLine();
 			String[] cmdInput;
 			Scanner input2 = new Scanner(System.in);
-			
 			switch(i)
 			{
 				case 1:  
 					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)");
 					String s= input.nextLine();
-					cmdInput = s.split("|");
+					cmdInput = s.split("\\|");
+					input.close();
 					(new CmdAddPerson()).execute(cmdInput);
 					(new StudentScreen()).screenDisplay();
 					break;
 				case 2: 
 					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)"); 
-					cmdInput = (input.nextLine()).split("|");
+					cmdInput = (input.nextLine()).split("\\|");
+					input.close();
 					(new CmdEditPerson()).execute(cmdInput);
 					(new StudentScreen()).screenDisplay();
 					break;
@@ -38,13 +39,15 @@ public class StudentScreen implements DisplayScreen{
 					(new StudentScreen()).screenDisplay();
 					break;
 				case 4 :
+					input.close();
 					RecordedCommand.redoOneCommand();
 					(new StudentScreen()).screenDisplay();
 					break;
 				case 5 :
+					input.close();
 					(new MainScreen()).screenDisplay();
 					break;
-				default : throw new ExWrongCommand();
+				default : input.close(); throw new ExWrongCommand();
 			}
 		} catch (ExWrongCommand e) {
 			System.out.println("Wrong input.. program restarted");

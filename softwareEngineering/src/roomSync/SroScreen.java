@@ -17,44 +17,54 @@ public class SroScreen implements DisplayScreen {
 			{
 				case 1:  
 					System.out.print("Enter details in the following order Hall name|capacity");
-					cmdInput = (input.nextLine()).split("|");
+					cmdInput = (input.nextLine()).split("\\|");
+					input.close();
 					(new CmdAddHall()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 2: 
 					System.out.print("Enter details in the following order HallID|New capacity"); 
-					cmdInput = (input.nextLine()).split("|");
+					cmdInput = (input.nextLine()).split("\\|");
+					input.close();
 					(new CmdEditHall()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 3:
-					cmdInput = " | ".split("|");
+					cmdInput = " | ".split("\\|");
+					input.close();
 					(new CmdAssignRoom()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 4 :
-					cmdInput = " | ".split("|");
+					cmdInput = " | ".split("\\|");
+					input.close();
 					(new CmdPrintResult()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 5 :
-					cmdInput = " | ".split("|");
+					cmdInput = " | ".split("\\|");
+					input.close();
 					(new CmdPrintNumberOfRoomsLeft()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 6 :
+					input.close();
 					RecordedCommand.undoOneCommand();
 					(new SroScreen()).screenDisplay();
 					break;
 				case 7 :
+					input.close();
 					RecordedCommand.redoOneCommand();
 					(new SroScreen()).screenDisplay();
 					break;
 				case 8 :
+					input.close();
 					(new MainScreen()).screenDisplay();
 					break;
 					
-				default : throw new ExWrongCommand();
+				default : 
+					input.close();
+					throw new ExWrongCommand();
 			}
 		} catch (ExWrongCommand e) {
 			System.out.println("Wrong input.. program restarted");

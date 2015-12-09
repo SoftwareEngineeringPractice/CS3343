@@ -52,32 +52,7 @@ public class SRO
 		hall.remove(h);
 	}
 	
-/*	public void setRoomOccupants(Person a, Person b, Hall h)
-	{
-		//Setting occupants to a room sequentially in a specified hall
-		ArrayList<Room> r = h.getRoom();
-		boolean isAvailable = false;
-		if(hall.contains(h))
-		{ 
-			for(int i = 0; i < r.size(); i++)
-			{
-				if(r.get(i).getState() instanceof RAvailable)
-				{
-					r.get(i).addRoomMate(a);
-					r.get(i).addRoomMate(b);
-					r.get(i).setState(new ROccupied());
-					isAvailable = true;
-					break;
-				}
-			}
-		}
-		else
-			System.out.println("Sorry, Hall does not exist");
-		
-	   if(!isAvailable)
-		   System.out.println("Sorry, Hall is occupied");
-	}
-*/	
+
 	public void setRoomOccupants(Person a, Person b)
 	{
 		//Setting occupants to a SRO halls sequentially
@@ -134,5 +109,10 @@ public class SRO
 			
 
 		}
+	}
+	
+	public void removeAllHalls()
+	{
+		hall.clear();
 	}
 }

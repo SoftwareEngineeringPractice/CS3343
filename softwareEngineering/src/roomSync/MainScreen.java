@@ -14,9 +14,12 @@ public class MainScreen implements DisplayScreen {
 			
 				switch(i)
 				{
-							case 1:  
+							case 1:
+							{
+								input.close();
 								(new StudentScreen()).screenDisplay(); 
 								break;
+							}
 							case 2: 
 								(new SroScreen()).screenDisplay(); 
 								break;

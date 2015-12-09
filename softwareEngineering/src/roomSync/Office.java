@@ -349,23 +349,21 @@ public class Office
 						p.Stage1();
 						p.Stage2();
 						p.Stage3();
-				        System.out.println("================================");
+				        
 						
 						ArrayList<Pair> pairs =  p.getPaired();
 						for(Pair pa : pairs)
 						{
 							finalPairs.add(pa);
-							System.out.println(pa);
+							//System.out.println(pa);
 						}
-						System.out.println("~~~~~~~~~~~~~~");
 						
 						unPaired =  p.getUnPaired();
-						for(Person pa1 : unPaired)
+						/*for(Person pa1 : unPaired)
 						{
 							System.out.println(pa1.getName());
 						}
-						System.out.println("`````````````````````");
-						
+						*/
 						k++;
 					}while(k<limit && unPaired.size()>0);
 					

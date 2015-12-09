@@ -6,7 +6,7 @@ public class CmdInputFromTextFile implements Command {
 	public void execute(String[] cmdParts) {
 		StudentOffice studentOffice = StudentOffice.getOffice();
 		studentOffice.makePersons();
-
+		System.out.println("input succesful");
 	}
 
 }

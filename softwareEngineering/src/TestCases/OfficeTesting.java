@@ -60,7 +60,7 @@ public class OfficeTesting {
 	}
 	
 	
-	@Test
+	//@Test
 	public void testPersonCreation(){
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.clearPersonList();
@@ -76,7 +76,7 @@ public class OfficeTesting {
 		}
 		sro.removeHall(new Hall("Hall1",10));
 	}
-	//@Test
+	@Test
 	public void test() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
@@ -93,7 +93,7 @@ public class OfficeTesting {
 		
 	}
 
-	//@Test
+	@Test
 	public void test2() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed.txt");
@@ -111,7 +111,7 @@ public class OfficeTesting {
 		
 	}
 
-	//@Test
+	@Test
 	public void test3() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed1.txt");
