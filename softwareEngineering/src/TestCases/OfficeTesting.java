@@ -3,6 +3,8 @@ package TestCases;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -117,15 +119,30 @@ public class OfficeTesting {
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		
-		ArrayList<Person> 
+		HashMap<Person,Person> expectedResult = new HashMap<>();
+		expectedResult.put(new Person("Student7","1007","M","YYY"),new Person("Student8","1008","M","YYY"));
+		expectedResult.put(new Person("Student3","1003","M","YYY"),new Person("Student4","1004","M","YYY"));
+		expectedResult.put(new Person("Student0","1000","F","YYY"),new Person("Student9","1009","F","YYY"));
+		expectedResult.put(new Person("Student1","1001","F","YYY"),new Person("Student2","1002","F","YYY"));
+		expectedResult.put(new Person("Student5","1005","F","YYY"),new Person("Student6","1006","F","YYY"));
 		
 		office.pairStudents();
+		HashMap<Person,Person> actualResult = new HashMap<>();
+		
 		ArrayList<Hall> hall  = sro.getHalls();
 		for(Hall h:hall){
-			h.getRoom();
+			ArrayList<Room> rooms = h.getRoom();
+			for(Room r:rooms){
+				ArrayList<Person> p = r.getRoomMates();
+				if(r.getState() instanceof ROccupied){
+					actualResult.put(p.get(0),p.get(1));
+					System.out.println("PANDA"+p.get(0).getName() + "," + p.get(1).getName());
+				}
+			}
+
 		}
-		
-		
+		assertEquals(expectedResult,actualResult);
+
 	}
 
 	//@Test
