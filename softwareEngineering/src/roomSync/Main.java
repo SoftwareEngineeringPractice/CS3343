@@ -1,14 +1,15 @@
 package roomSync;
+import java.io.IOException;
 import java.util.*;
 
 @SuppressWarnings("unused")
 public class Main
 {
 
-	public static void main(String [] args)
+	public static void main(String [] args) throws NumberFormatException, IOException
 	{
 		
-		
+		/*
 		// TODO All this should be handled by Office
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		//To get data from the txt file
@@ -27,11 +28,9 @@ public class Main
 		office.pairStudents();
 		
 		//TODO implement sro.setRoomOccupants(Person a, Person b) or sro.setRoomOccupants(Person a, Person b, Hall h)
-
-		/*DisplayScreen screen = new MainScreen();
-		screen.screenDisplay();*/
-		
+		*/
+		DisplayScreen screen = new MainScreen();
+		screen.screenDisplay();
 		
     }
-	
 }

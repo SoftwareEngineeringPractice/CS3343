@@ -6,8 +6,6 @@ public class CmdAddHall extends RecordedCommand {
 	
 	@Override
 	public void execute(String[] cmdParts) {
-		
-		// TODO Auto-generated method stub
 		try {
 			
 			if(cmdParts.length < 2)
@@ -20,38 +18,45 @@ public class CmdAddHall extends RecordedCommand {
 			clearRedoList();
 			System.out.println("Hall added Successfully");
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Wrong Format");
-		} catch (ExInsufficientCommandArgument e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			try {
+				throw new ExNumberFormat();
+			} catch (ExNumberFormat e1) {
+				System.out.println(e1.getMessage());
+			}
+		}
+		catch (ExInsufficientCommandArgument e) {
+			System.out.println(e.getMessage());
 		}
 	}
 
 	@Override
 	public void undoMe() {
-		// TODO Auto-generated method stub
 		try {
 			SRO sro = SRO.getInstance();
 			Hall h = new Hall( hall[0],Integer.parseInt(hall[1]) );
 			sro.removeHall(h);
 			addRedoCommand(this);
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Wrong Format");
+			try {
+				throw new ExNumberFormat();
+			} catch (ExNumberFormat e1) {
+				System.out.println(e1.getMessage());
+			}
 		}
 	}
 
 	@Override
 	public void redoMe() {
-		// TODO Auto-generated method stub
 		try {
 			SRO sro = SRO.getInstance();
 			sro.createHall(hall[0],Integer.parseInt(hall[1]));
 			addUndoCommand(this);
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Wrong Format");
+			try {
+				throw new ExNumberFormat();
+			} catch (ExNumberFormat e1) {
+				System.out.println(e1.getMessage());
+			}
 		}
 	}
 

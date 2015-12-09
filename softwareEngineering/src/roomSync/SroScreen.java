@@ -1,78 +1,72 @@
 package roomSync;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class SroScreen implements DisplayScreen {
+public class SroScreen implements DisplayScreen
+{
 	@Override
-	public void screenDisplay() {
-		try {
-			Scanner input = new Scanner(System.in);
-			System.out.print("1.Create Building \n 2.Edit Building \n 3.Assign \n 4.Print Result \n 5.Return the number of available rooms \n 6.undo \n 7.redo \n 8. Back to Main Screen \n input: ");
-			int i = input.nextInt();
-			input.nextLine();
+	public void screenDisplay() throws NumberFormatException, IOException
+	{
+		try
+		{
+			System.out.println();
+			System.out.print("1.Create Building \n2.Edit Building \n3.Assign \n4.Print Result \n5.Return the number of available rooms "
+					+ "\n6.Undo \n7.Redo \n8.Back to Main Screen \nInput: ");
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			int i = Integer.parseInt(input.readLine());
 			String[] cmdInput;
 			System.out.println("SRO Screen");
-			
 			switch(i)
 			{
 				case 1:  
 					System.out.print("Enter details in the following order Hall name|capacity");
-					cmdInput = (input.nextLine()).split("\\|");
-					input.close();
+					cmdInput = (input.readLine()).split("\\|");
 					(new CmdAddHall()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 2: 
 					System.out.print("Enter details in the following order HallID|New capacity"); 
-					cmdInput = (input.nextLine()).split("\\|");
-					input.close();
+					cmdInput = (input.readLine()).split("\\|");
 					(new CmdEditHall()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 3:
 					cmdInput = " | ".split("\\|");
-					input.close();
 					(new CmdAssignRoom()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 4 :
 					cmdInput = " | ".split("\\|");
-					input.close();
 					(new CmdPrintResult()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 5 :
 					cmdInput = " | ".split("\\|");
-					input.close();
 					(new CmdPrintNumberOfRoomsLeft()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 6 :
-					input.close();
 					RecordedCommand.undoOneCommand();
 					(new SroScreen()).screenDisplay();
 					break;
 				case 7 :
-					input.close();
 					RecordedCommand.redoOneCommand();
 					(new SroScreen()).screenDisplay();
 					break;
 				case 8 :
-					input.close();
 					(new MainScreen()).screenDisplay();
 					break;
-					
-				default : 
-					input.close();
+				default :
 					throw new ExWrongCommand();
 			}
-		} catch (ExWrongCommand e) {
-			System.out.println("Wrong input.. program restarted");
-			(new MainScreen()).screenDisplay();
-			
 		}
-		
-		
+		catch (ExWrongCommand e)
+		{
+			System.out.println(e.getMessage() + " Program restarted");
+			(new MainScreen()).screenDisplay();
+		}
 	}
-
 }

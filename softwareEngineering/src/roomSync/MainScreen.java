@@ -1,38 +1,52 @@
 package roomSync;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class MainScreen implements DisplayScreen {
-
+public class MainScreen implements DisplayScreen
+{
 	@Override
-	public void screenDisplay() {
+	public void screenDisplay()
+	{
 		try {
-			Scanner input = new Scanner(System.in);
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			System.out.print("Main Screen \n1.Student \n2.SRO \n3.Backend \n4.Exit \nInput: ");
+			int i = Integer.parseInt(input.readLine());
 			
-			System.out.print("1.Student \n 2.SRO \n 3.Backend \n 4.Exit \n input: ");
-			int i = input.nextInt();
-			
-				switch(i)
-				{
-							case 1:
-							{
-								input.close();
-								(new StudentScreen()).screenDisplay(); 
-								break;
-							}
-							case 2: 
-								(new SroScreen()).screenDisplay(); 
-								break;
-							case 3: 
-								(new BackendScreen()).screenDisplay(); 
-								break;
-							case 4: 
-								System.exit(-1);
-								break;
-							default : throw new ExWrongCommand();
-				}
-		} catch (ExWrongCommand e) {
-			System.out.println("Wrong input.. program terminated");
+			switch(i)
+			{
+				case 1:
+					(new StudentScreen()).screenDisplay(); 
+					break;
+				case 2: 
+					(new SroScreen()).screenDisplay(); 
+					break;
+				case 3: 
+					(new BackendScreen()).screenDisplay(); 
+					break;
+				case 4: 
+					System.exit(-1);
+					break;
+				default :
+					throw new ExWrongCommand();
+			}
+		}
+		catch (ExWrongCommand e)
+		{
+			System.out.println(e.getMessage() + " Program Terminated");
+		}
+		catch (NumberFormatException e) {
+			try {
+				throw new ExNumberFormat();
+			} catch (ExNumberFormat e1) {
+				System.out.println(e1.getMessage());
+			}
+		}
+		catch (IOException e)
+		{
+			System.out.println("Wrong input.. Program Terminated");
 		}
 
 	}

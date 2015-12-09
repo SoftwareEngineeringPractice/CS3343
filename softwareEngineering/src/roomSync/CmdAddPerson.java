@@ -18,8 +18,7 @@ public class CmdAddPerson extends RecordedCommand {
 			clearRedoList();
 			System.out.println("Person added Successfully");
 		} catch (ExInsufficientCommandArgument e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 	}
@@ -27,12 +26,10 @@ public class CmdAddPerson extends RecordedCommand {
 	@Override
 	public void undoMe() {
 		try {
-			// TODO Auto-generated method stub
 			StudentOffice studentOffice = StudentOffice.getOffice();
 			studentOffice.removePerson(new Person(person[0], person[1], person[2], person[3]));
 			addRedoCommand(this);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error adding person");
 		}
 		
@@ -45,7 +42,6 @@ public class CmdAddPerson extends RecordedCommand {
 			studentOffice.addPerson(new Person(person[0], person[1], person[2], person[3]));
 			addUndoCommand(this);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error adding person");
 		}
 		

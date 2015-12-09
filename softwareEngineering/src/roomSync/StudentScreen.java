@@ -1,36 +1,35 @@
 package roomSync;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-
-import java.util.Scanner;
-
-public class StudentScreen implements DisplayScreen{
-
+public class StudentScreen implements DisplayScreen
+{
 	@Override
-	public void screenDisplay() {
-		
-		try {
+	public void screenDisplay() throws NumberFormatException, IOException
+	{
+		try
+		{
+			System.out.println();
 			System.out.println("Student Screen");
-			Scanner input = new Scanner(System.in);
-			System.out.print("1.Enter details \n 2.Edit details \n 3.Undo \n 4.Redo \n 5.Back to Main screen \n input: ");
-			int i = input.nextInt();
-			input.nextLine();
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			System.out.print("1.Enter details \n2.Edit details \n3.Undo \n4.Redo \n5.Back to Main screen \nInput: ");
+			int i = Integer.parseInt(input.readLine());
 			String[] cmdInput;
-			Scanner input2 = new Scanner(System.in);
 			switch(i)
 			{
 				case 1:  
 					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)");
-					String s= input.nextLine();
+					String s= input.readLine();
 					cmdInput = s.split("\\|");
-					input.close();
 					(new CmdAddPerson()).execute(cmdInput);
 					(new StudentScreen()).screenDisplay();
 					break;
 				case 2: 
 					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)"); 
-					cmdInput = (input.nextLine()).split("\\|");
-					input.close();
+					cmdInput = (input.readLine()).split("\\|");
 					(new CmdEditPerson()).execute(cmdInput);
 					(new StudentScreen()).screenDisplay();
 					break;
@@ -39,24 +38,20 @@ public class StudentScreen implements DisplayScreen{
 					(new StudentScreen()).screenDisplay();
 					break;
 				case 4 :
-					input.close();
 					RecordedCommand.redoOneCommand();
 					(new StudentScreen()).screenDisplay();
 					break;
 				case 5 :
-					input.close();
 					(new MainScreen()).screenDisplay();
 					break;
-				default : input.close(); throw new ExWrongCommand();
+				default : 
+					throw new ExWrongCommand();
 			}
-		} catch (ExWrongCommand e) {
-			System.out.println("Wrong input.. program restarted");
-			(new MainScreen()).screenDisplay();
-			
 		}
-		
-		
-		
+		catch (ExWrongCommand e)
+		{
+			System.out.println(e.getMessage() + " Program restarted");
+			(new MainScreen()).screenDisplay();
+		}
 	}
-
 }

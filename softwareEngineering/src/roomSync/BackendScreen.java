@@ -3,33 +3,32 @@ package roomSync;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
-public class BackendScreen implements DisplayScreen {
-
+public class BackendScreen implements DisplayScreen
+{
 	@Override
-	public void screenDisplay() {
-		try {
-			Scanner input = new Scanner(System.in);
-			System.out.print("1.Create Building \n 2.Edit Building \n 3.Assign \n 4.Print Result \n 5.Return the number of available rooms \n 6.Input from text file \n 7.undo \n 8.redo \n 9. Back to Main Screen \n input: ");
-			
+	public void screenDisplay() throws NumberFormatException, IOException
+	{
+		try
+		{
+			System.out.println();
+			System.out.print("1.Create Building \n2.Edit Building \n3.Assign \n4.Print Result \n5.Return the number of available rooms "
+					+ "\n6.Input from text file \n7.undo \n8.redo \n9. Back to Main Screen \nInput: ");
 			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader br = new BufferedReader(isr);
-			int i = Integer.parseInt(br.readLine());
-			/*input.nextLine(); // If you're expecting the user to hit enter when done.
-*/			String[] cmdInput;
+			BufferedReader input = new BufferedReader(isr);
+			int i = Integer.parseInt(input.readLine());
+			String[] cmdInput;
 			System.out.println("Backend Screen");
-			
 			switch(i)
 			{
 				case 1:  
 					System.out.print("Enter details in the following order Hall name|capacity");
-					cmdInput = (input.nextLine()).split("\\|");
+					cmdInput = (input.readLine()).split("\\|");
 					(new CmdAddHall()).execute(cmdInput);
 					break;
 				case 2: 
 					System.out.print("Enter details in the following order Hall name|capacity"); 
-					cmdInput = (input.nextLine()).split("\\|");
+					cmdInput = (input.readLine()).split("\\|");
 					(new CmdEditHall()).execute(cmdInput);
 					break;
 				case 3:
@@ -58,22 +57,16 @@ public class BackendScreen implements DisplayScreen {
 				case 9 :
 					break;
 					
-				default : throw new ExWrongCommand();
+				default :
+					throw new ExWrongCommand();
 			}
 			input.close();
 			(new MainScreen()).screenDisplay();
-		} catch (ExWrongCommand e) {
-			System.out.println("Wrong input.. program restarted");
-			(new MainScreen()).screenDisplay();
-			
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		
-		
+		catch (ExWrongCommand e)
+		{
+			System.out.println(e.getMessage() + " Program restarted");
+			(new MainScreen()).screenDisplay();
+		}
 	}
 }
