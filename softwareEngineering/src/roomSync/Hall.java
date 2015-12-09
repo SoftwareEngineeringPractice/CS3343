@@ -29,6 +29,8 @@ public class Hall
 		{
 			String roomSequence = String.format("%03d", i);
 			this.addRoom(new Room(roomSequence, 'M' , new RAvailable()));
+			roomSequence = String.format("%03d", i+1);
+			
 			this.addRoom(new Room(roomSequence, 'F' , new RAvailable()));
 		}
 	}

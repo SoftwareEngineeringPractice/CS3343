@@ -21,7 +21,7 @@ public class OfficeTesting {
 	}
 	
 	
-	@Test
+	//@Test
 	public void testPreferences(){
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.clearPersonList();
@@ -84,12 +84,12 @@ public class OfficeTesting {
 		
 	}
 	@Test
-	public void test() {
+	public void testEligibleStudents() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
 		officeInstance.printPersons();
 		officeInstance.makePreferences();
-		sro.createHall("Hall1",40);
+		sro.createHall("Hall1",6);
 		System.out.println(sro.getAvailableNoOfRooms());
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
@@ -98,7 +98,7 @@ public class OfficeTesting {
 			
 	}
 
-	@Test
+	//@Test
 	public void test2() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed.txt");
@@ -114,7 +114,7 @@ public class OfficeTesting {
 			
 	}
 
-	@Test
+	//@Test
 	public void test3() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed1.txt");
