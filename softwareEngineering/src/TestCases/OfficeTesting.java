@@ -13,26 +13,28 @@ import roomSync.*;
 public class OfficeTesting {
 
 	SRO sro;
+	StudentOffice officeInstance;
+	Office office;
 	
 	@Before
 	public void setup(){
 		sro = SRO.getInstance();
+		officeInstance = StudentOffice.getOffice();
+		office = Office.getOffice();
 		
 	}
 	
 	
-	//@Test
+	@Test
 	public void testPreferences(){
-		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.clearPersonList();
 		officeInstance.makePersons("./Student Test Cases/1am.txt");
 		
 		sro.createHall("Hall1",20);
-		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		p.displayMatrix();
+		//p.displayMatrix();
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -60,7 +62,7 @@ public class OfficeTesting {
 		};
 		System.out.println("---");
 		PreferenceMatrix e = new PreferenceMatrix(expected);
-		e.displayMatrix();//[2]	   
+		//e.displayMatrix();//[2]	   
 
 		
 		assertArrayEquals(p.getMatrix(),expected);
@@ -68,50 +70,62 @@ public class OfficeTesting {
 	}
 	
 	
-	//@Test
-	public void testPersonCreation(){
-		StudentOffice officeInstance = StudentOffice.getOffice();
-		officeInstance.clearPersonList();
-		officeInstance.makePersons("./Student Test Cases/1am.txt");
-		sro.createHall("Hall1",8);
-		System.out.println(sro.getAvailableNoOfRooms());
-		Office office = Office.getOffice();
-		office.setEligiblePeople();
-		ArrayList<Person> eligible = office.getEligibleMaleList();
-		for(Person p: eligible){
-			System.out.println(p);
-		}
-		
-	}
 	@Test
-	public void testEligibleStudents() {
+	public void testEligibleStudentsMale() {
+		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
+		officeInstance.makePreferences();
+		sro.createHall("Hall1",4);
+		office.setEligiblePeople();
+		
+		//office.pairStudents();
+		ArrayList<Person> eligibleMale = office.getEligibleMaleList();
+		
+		ArrayList<Person> expectedMaleEligibleList = new ArrayList<>();
+		expectedMaleEligibleList.add(new Person("Student3","1003","M","YYY")); 
+		expectedMaleEligibleList.add(new Person("Student4","1004","M","YYY"));
+		assertEquals(expectedMaleEligibleList,eligibleMale);
+}
+
+	
+	@Test
+	public void testEligibleStudentsFemale() {
+		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
+		officeInstance.printPersons();
+		officeInstance.makePreferences();
+		sro.createHall("Hall1",4);
+		office.setEligiblePeople();
+		
+		//office.pairStudents();
+		ArrayList<Person> eligibleMale = office.getEligibleFemaleList();
+		
+		ArrayList<Person> expectedMaleEligibleList = new ArrayList<>();
+		expectedMaleEligibleList.add(new Person("Student0","1000","F","YYY")); 
+		expectedMaleEligibleList.add(new Person("Student1","1001","F","YYY"));
+		assertEquals(expectedMaleEligibleList,eligibleMale);
+}
+
+	@Test
+	public void test2() {
+		System.out.println("test2");
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
 		officeInstance.printPersons();
 		officeInstance.makePreferences();
-		sro.createHall("Hall1",6);
-		System.out.println(sro.getAvailableNoOfRooms());
-		Office office = Office.getOffice();
-		office.setEligiblePeople();
-		
-		office.pairStudents();
-			
-	}
-
-	//@Test
-	public void test2() {
-		StudentOffice officeInstance = StudentOffice.getOffice();
-		officeInstance.makePersons("./Student Test Cases/mixed.txt");
-		officeInstance.printPersons();
-		officeInstance.makePreferences();
 		officeInstance.printPreferenceList();
-		sro.createHall("Hall1",233);
+		sro.createHall("Hall1",20);
 		System.out.println(sro.getAvailableNoOfRooms());
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		
+		ArrayList<Person> 
+		
 		office.pairStudents();
-			
+		ArrayList<Hall> hall  = sro.getHalls();
+		for(Hall h:hall){
+			h.getRoom();
+		}
+		
+		
 	}
 
 	//@Test
@@ -135,6 +149,9 @@ public class OfficeTesting {
 	public void TearDown()
 	{
 		sro.clearHallList();
+		officeInstance.clearPersonList();
+		office.clearStudentEligibleList();;
+		
 		
 	}
 

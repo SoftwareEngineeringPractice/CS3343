@@ -20,6 +20,12 @@ public class Office
 		residenceEligiblePersonListFemale = new ArrayList<>();
 	}
 	
+	public void clearStudentEligibleList(){
+		residenceEligiblePersonListMale.clear();
+		residenceEligiblePersonListFemale.clear(); 
+		
+	}
+	
 	
 	public static Office getOffice()
 	{

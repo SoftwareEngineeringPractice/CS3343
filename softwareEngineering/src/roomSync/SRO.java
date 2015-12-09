@@ -116,4 +116,8 @@ public class SRO
 	{
 		hall.clear();
 	}
+	
+	public ArrayList<Hall> getHalls(){
+		return hall;
+	}
 }

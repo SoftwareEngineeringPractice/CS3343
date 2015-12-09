@@ -47,7 +47,6 @@ public class Room
 		roomStatus = newRoomStatus;
 	}
 	
-	//public String getRoomMates(){
 	
 		
 }
