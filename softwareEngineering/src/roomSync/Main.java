@@ -29,8 +29,7 @@ public class Main
 		
 		//TODO implement sro.setRoomOccupants(Person a, Person b) or sro.setRoomOccupants(Person a, Person b, Hall h)
 		*/
-		DisplayScreen screen = new MainScreen();
-		screen.screenDisplay();
+		MainScreen.screenDisplay();
 		
     }
 }

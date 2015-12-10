@@ -68,7 +68,6 @@ public class StudentOffice
 			{
 				inFile.close();			
 			}
-			in.close();
 		}
 	}
 	

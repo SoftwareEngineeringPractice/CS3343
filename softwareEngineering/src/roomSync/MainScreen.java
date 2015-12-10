@@ -1,13 +1,13 @@
 package roomSync;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
-public class MainScreen implements DisplayScreen
+import java.io.IOException;
+
+
+public class MainScreen extends DisplayScreen
 {
-	@Override
-	public void screenDisplay()
+	
+	public static void screenDisplay()
 	{
 		try
 		{
@@ -17,15 +17,16 @@ public class MainScreen implements DisplayScreen
 			switch(i)
 			{
 				case 1:
-					(new StudentScreen()).screenDisplay(); 
+					StudentScreen.screenDisplay(); 
 					break;
 				case 2: 
-					(new SroScreen()).screenDisplay(); 
+					SroScreen.screenDisplay(); 
 					break;
 				case 3: 
-					(new BackendScreen()).screenDisplay(); 
+					BackendScreen.screenDisplay(); 
 					break;
 				case 4: 
+					System.out.print("Program Terminated");
 					System.exit(-1);
 					break;
 				default :
@@ -52,30 +53,5 @@ public class MainScreen implements DisplayScreen
 			System.out.print("Wrong input.. Program Terminated");
 		}
 	}
-	public int getInt()
-	{
-		int i = 0;
-		try
-		{
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader input = new BufferedReader(isr);
-			i = Integer.parseInt(input.readLine());
-		}
-		catch (NumberFormatException e)
-		{
-			try
-			{
-				throw new ExNumberFormat();
-			}
-			catch (ExNumberFormat e1)
-			{
-				System.out.print(e1.getMessage());
-			}
-		}
-		catch (IOException e)
-		{
-			System.out.print("Wrong input.. Program Terminated");
-		}
-		return i;
-	}
+	
 }
