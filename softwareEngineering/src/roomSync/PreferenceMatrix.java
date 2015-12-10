@@ -25,10 +25,7 @@ After completing all 3 stages we'll have a matrix with each row having only 1 no
 
 */
 
-import java.awt.List;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 public class PreferenceMatrix
 {

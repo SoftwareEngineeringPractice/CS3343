@@ -9,11 +9,11 @@ public class MainScreen implements DisplayScreen
 	@Override
 	public void screenDisplay()
 	{
-		try {
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader input = new BufferedReader(isr);
+		try
+		{
+			System.out.println();
 			System.out.print("Main Screen \n1.Student \n2.SRO \n3.Backend \n4.Exit \nInput: ");
-			int i = Integer.parseInt(input.readLine());
+			int i = getInt();
 			
 			switch(i)
 			{
@@ -35,20 +35,48 @@ public class MainScreen implements DisplayScreen
 		}
 		catch (ExWrongCommand e)
 		{
-			System.out.println(e.getMessage() + " Program Terminated");
+			System.out.print(e.getMessage() + "Program Terminated");
 		}
-		catch (NumberFormatException e) {
-			try {
+		catch (NumberFormatException e)
+		{
+			try
+			{
 				throw new ExNumberFormat();
-			} catch (ExNumberFormat e1) {
-				System.out.println(e1.getMessage());
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print(e1.getMessage());
 			}
 		}
 		catch (IOException e)
 		{
-			System.out.println("Wrong input.. Program Terminated");
+			System.out.print("Wrong input.. Program Terminated");
 		}
-
 	}
-
+	public int getInt()
+	{
+		int i = 0;
+		try
+		{
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			i = Integer.parseInt(input.readLine());
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
+				throw new ExNumberFormat();
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print(e1.getMessage());
+			}
+		}
+		catch (IOException e)
+		{
+			System.out.print("Wrong input.. Program Terminated");
+		}
+		return i;
+	}
 }

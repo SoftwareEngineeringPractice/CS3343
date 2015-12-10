@@ -12,24 +12,22 @@ public class SroScreen implements DisplayScreen
 		try
 		{
 			System.out.println();
+			System.out.print("SRO Screen\n");
 			System.out.print("1.Create Building \n2.Edit Building \n3.Assign \n4.Print Result \n5.Return the number of available rooms "
 					+ "\n6.Undo \n7.Redo \n8.Back to Main Screen \nInput: ");
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader input = new BufferedReader(isr);
-			int i = Integer.parseInt(input.readLine());
+			int i = getInt();
 			String[] cmdInput;
-			System.out.println("SRO Screen");
 			switch(i)
 			{
 				case 1:  
 					System.out.print("Enter details in the following order Hall name|capacity");
-					cmdInput = (input.readLine()).split("\\|");
+					cmdInput = (getString()).split("\\|");
 					(new CmdAddHall()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
 				case 2: 
 					System.out.print("Enter details in the following order HallID|New capacity"); 
-					cmdInput = (input.readLine()).split("\\|");
+					cmdInput = (getString()).split("\\|");
 					(new CmdEditHall()).execute(cmdInput);
 					(new SroScreen()).screenDisplay();
 					break;
@@ -65,8 +63,60 @@ public class SroScreen implements DisplayScreen
 		}
 		catch (ExWrongCommand e)
 		{
-			System.out.println(e.getMessage() + " Program restarted");
+			System.out.print(e.getMessage() + " Program restarted");
 			(new MainScreen()).screenDisplay();
 		}
+	}
+	public int getInt()
+	{
+		int i = 0;
+		try
+		{
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			i = Integer.parseInt(input.readLine());
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
+				throw new ExNumberFormat();
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print(e1.getMessage());
+			}
+		}
+		catch (IOException e)
+		{
+			System.out.print("Wrong input.. Program Terminated");
+		}
+		return i;
+	}
+	public String getString()
+	{
+		String i = "0";
+		try
+		{
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			i = input.readLine();
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
+				throw new ExNumberFormat();
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print(e1.getMessage());
+			}
+		}
+		catch (IOException e)
+		{
+			System.out.print("Wrong input.. Program Terminated");
+		}
+		return i;
 	}
 }

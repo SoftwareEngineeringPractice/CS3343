@@ -12,24 +12,21 @@ public class StudentScreen implements DisplayScreen
 		try
 		{
 			System.out.println();
-			System.out.println("Student Screen");
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader input = new BufferedReader(isr);
+			System.out.print("Student Screen\n");
 			System.out.print("1.Enter details \n2.Edit details \n3.Undo \n4.Redo \n5.Back to Main screen \nInput: ");
-			int i = Integer.parseInt(input.readLine());
+			int i = getInt();
 			String[] cmdInput;
 			switch(i)
 			{
 				case 1:  
 					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)");
-					String s= input.readLine();
-					cmdInput = s.split("\\|");
+					cmdInput = (getString()).split("\\|");
 					(new CmdAddPerson()).execute(cmdInput);
 					(new StudentScreen()).screenDisplay();
 					break;
 				case 2: 
 					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)"); 
-					cmdInput = (input.readLine()).split("\\|");
+					cmdInput = (getString()).split("\\|");
 					(new CmdEditPerson()).execute(cmdInput);
 					(new StudentScreen()).screenDisplay();
 					break;
@@ -50,8 +47,60 @@ public class StudentScreen implements DisplayScreen
 		}
 		catch (ExWrongCommand e)
 		{
-			System.out.println(e.getMessage() + " Program restarted");
+			System.out.print(e.getMessage() + " Program restarted");
 			(new MainScreen()).screenDisplay();
 		}
+	}
+	public int getInt()
+	{
+		int i = 0;
+		try
+		{
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			i = Integer.parseInt(input.readLine());
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
+				throw new ExNumberFormat();
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print(e1.getMessage());
+			}
+		}
+		catch (IOException e)
+		{
+			System.out.print("Wrong input.. Program Terminated");
+		}
+		return i;
+	}
+	public String getString()
+	{
+		String i = "0";
+		try
+		{
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader input = new BufferedReader(isr);
+			i = input.readLine();
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
+				throw new ExNumberFormat();
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print(e1.getMessage());
+			}
+		}
+		catch (IOException e)
+		{
+			System.out.print("Wrong input.. Program Terminated");
+		}
+		return i;
 	}
 }
