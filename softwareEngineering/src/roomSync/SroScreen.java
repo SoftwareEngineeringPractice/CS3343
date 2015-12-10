@@ -11,8 +11,7 @@ public class SroScreen implements DisplayScreen
 	{
 		try
 		{
-			System.out.println();
-			System.out.print("SRO Screen\n");
+			System.out.print("\nSRO Screen\n");
 			System.out.print("1.Create Building \n2.Edit Building \n3.Assign \n4.Print Result \n5.Return the number of available rooms "
 					+ "\n6.Undo \n7.Redo \n8.Back to Main Screen \nInput: ");
 			int i = getInt();

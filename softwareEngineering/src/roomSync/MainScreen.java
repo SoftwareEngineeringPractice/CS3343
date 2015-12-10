@@ -11,8 +11,7 @@ public class MainScreen implements DisplayScreen
 	{
 		try
 		{
-			System.out.println();
-			System.out.print("Main Screen \n1.Student \n2.SRO \n3.Backend \n4.Exit \nInput: ");
+			System.out.print("\nMain Screen \n1.Student \n2.SRO \n3.Backend \n4.Exit \nInput: ");
 			int i = getInt();
 			
 			switch(i)

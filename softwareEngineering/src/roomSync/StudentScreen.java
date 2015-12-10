@@ -11,8 +11,7 @@ public class StudentScreen implements DisplayScreen
 	{
 		try
 		{
-			System.out.println();
-			System.out.print("Student Screen\n");
+			System.out.print("\nStudent Screen\n");
 			System.out.print("1.Enter details \n2.Edit details \n3.Undo \n4.Redo \n5.Back to Main screen \nInput: ");
 			int i = getInt();
 			String[] cmdInput;

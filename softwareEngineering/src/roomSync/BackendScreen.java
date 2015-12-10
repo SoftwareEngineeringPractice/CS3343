@@ -11,12 +11,11 @@ public class BackendScreen implements DisplayScreen
 	{
 		try
 		{
-			System.out.println();
+			System.out.print("\nBackend Screen\n");
 			System.out.print("1.Create Building \n2.Edit Building \n3.Assign \n4.Print Result \n5.Return the number of available rooms "
 					+ "\n6.Input from text file \n7.undo \n8.redo \n9. Back to Main Screen \nInput: ");
 			int i = getInt();
 			String[] cmdInput;
-			System.out.println("Backend Screen");
 			switch(i)
 			{
 				case 1:  
@@ -35,7 +34,6 @@ public class BackendScreen implements DisplayScreen
 					break;
 				case 4 :
 					cmdInput = " | ".split("\\|");
-					
 					(new CmdPrintResult()).execute(cmdInput);
 					break;
 				case 5 :
