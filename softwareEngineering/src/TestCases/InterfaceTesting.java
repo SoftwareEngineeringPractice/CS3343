@@ -14,58 +14,12 @@ public class InterfaceTesting
 	@Test
     public void unitTest_1() throws Exception
     {
-    	class StubMainScreen extends MainScreen
-		{
-			//Overwrite the class functions
-    		@Override
-			public int getInt()
-			{
-    			return 5;
-			}
-		}
+		CmdAddPerson testAddPerson = new CmdAddPerson();
+		String input[] = {"Student0" , "1000" , "M" , "N,Y,N"};
+    	String expOuput = "\nPerson added Successfully\n";
     	setOutput();
-    	DisplayScreen stub = new StubMainScreen();
-    	stub.screenDisplay();
-    	String expOuput = "\nMain Screen \n" + 
-    					"1.Student \n" +
-						"2.SRO \n" +
-						"3.Backend \n" +
-						"4.Exit \n" +
-						"Input: " +
-						"Wrong input.. Program Terminated" +
-						"";
+    	testAddPerson.execute(input);
     	assertEquals(expOuput, getOutput());
-    }
-	@Test
-    public void unitTest_2() throws Exception
-    {
-    	class StubMainScreen extends MainScreen
-		{
-			//Overwrite the class functions
-    		public int getInt()
-			{
-    			return 1;
-			}
-		}
-    	setOutput();
-    	DisplayScreen stub = new StubMainScreen();
-    	stub.screenDisplay();   	
-    	String expOuput = "\nMain Screen \n" + 
-					"1.Student \n" +
-					"2.SRO \n" +
-					"3.Backend \n" +
-					"4.Exit \n" +
-					"Input: " +
-					"\nStudent Screen\n " +
-					"1.Enter details \n" +
-					"2.Edit details \n"
-    	 
-    	3.Undo 
-    	4.Redo 
-    	5.Back to Main screen 
-    	Input:" +
-					"";
-	assertEquals(expOuput, getOutput());
     }
 
     PrintStream oldPrintStream;

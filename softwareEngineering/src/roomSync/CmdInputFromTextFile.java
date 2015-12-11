@@ -10,7 +10,7 @@ public class CmdInputFromTextFile implements Command {
 		try
 		{
 			studentOffice.makePersons();
-			System.out.println("Input Succesful");
+			System.out.print("\nInput Succesful\n");
 		}
 		catch (IOException e)
 		{

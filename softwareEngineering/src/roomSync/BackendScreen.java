@@ -19,12 +19,12 @@ public class BackendScreen extends DisplayScreen
 			switch(i)
 			{
 				case 1:  
-					System.out.print("Enter details in the following order Hall name|capacity");
+					System.out.print("\nEnter details in the following order Hall name|capacity\n");
 					cmdInput = (getString()).split("\\|");
 					(new CmdAddHall()).execute(cmdInput);
 					break;
 				case 2: 
-					System.out.print("Enter details in the following order Hall name|capacity"); 
+					System.out.print("\nEnter details in the following order Hall name|capacity\n"); 
 					cmdInput = (getString()).split("\\|");
 					(new CmdEditHall()).execute(cmdInput);
 					break;

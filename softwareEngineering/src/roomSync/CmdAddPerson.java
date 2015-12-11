@@ -1,13 +1,15 @@
 package roomSync;
 
-public class CmdAddPerson extends RecordedCommand {
+public class CmdAddPerson extends RecordedCommand
+{
 	
 	private String [] person;
 
 	@Override
-	public void execute(String[] cmdParts) {
-		
-		try {
+	public void execute(String[] cmdParts)
+	{
+		try
+		{
 			if(cmdParts.length < 4)
 				throw new ExInsufficientCommandArgument();
 			
@@ -16,20 +18,26 @@ public class CmdAddPerson extends RecordedCommand {
 			person = cmdParts;
 			addUndoCommand(this);
 			clearRedoList();
-			System.out.println("Person added Successfully");
-		} catch (ExInsufficientCommandArgument e) {
+			System.out.print("\nPerson added Successfully\n");
+		}
+		catch (ExInsufficientCommandArgument e)
+		{
 			System.out.println(e.getMessage());
 		}
 
 	}
 
 	@Override
-	public void undoMe() {
-		try {
+	public void undoMe()
+	{
+		try
+		{
 			StudentOffice studentOffice = StudentOffice.getOffice();
 			studentOffice.removePerson(new Person(person[0], person[1], person[2], person[3]));
 			addRedoCommand(this);
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			System.out.println("Error adding person");
 		}
 		
@@ -37,11 +45,14 @@ public class CmdAddPerson extends RecordedCommand {
 
 	@Override
 	public void redoMe() {
-		try {
+		try
+		{
 			StudentOffice studentOffice = StudentOffice.getOffice();
 			studentOffice.addPerson(new Person(person[0], person[1], person[2], person[3]));
 			addUndoCommand(this);
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			System.out.println("Error adding person");
 		}
 		

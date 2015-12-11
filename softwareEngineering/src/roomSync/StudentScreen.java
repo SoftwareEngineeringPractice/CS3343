@@ -17,13 +17,13 @@ public class StudentScreen extends DisplayScreen
 			switch(i)
 			{
 				case 1:  
-					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)");
+					System.out.print("\nEnter details in the following order name|id|sex|Smoker, Alcoholic, Night Owl (Y /n for attributes)\n");
 					cmdInput = (getString()).split("\\|");
 					(new CmdAddPerson()).execute(cmdInput);
 					StudentScreen.screenDisplay();
 					break;
 				case 2: 
-					System.out.print("Enter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)"); 
+					System.out.print("\nEnter details in the following order name|id|sex|Smoker,alcoholic,night owl(Y /n for attributes)\n"); 
 					cmdInput = (getString()).split("\\|");
 					(new CmdEditPerson()).execute(cmdInput);
 					StudentScreen.screenDisplay();
