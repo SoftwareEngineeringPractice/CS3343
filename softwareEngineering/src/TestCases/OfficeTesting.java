@@ -28,7 +28,7 @@ public class OfficeTesting {
 	
 	
 	@Test
-	public void testPreferences(){
+	public void preferenceMadeAsExpected(){
 		officeInstance.clearPersonList();
 		officeInstance.makePersons("./Student Test Cases/1am.txt");
 		
@@ -149,8 +149,6 @@ public class OfficeTesting {
 		expectedResult.add(new Person("Student7","1007","M","YYY"));
 		expectedResult.add(new Person("Student8","1008","M","YYY"));
 		
-		
-		
 		office.pairStudents();
 		office.setEligiblePeople();
 		
@@ -158,6 +156,135 @@ public class OfficeTesting {
 		
 		assertEquals(expectedResult,actualResult);
 			
+	}
+	
+	@Test
+	public void checkMaleAreNotAllotedWithFemales(){
+		StudentOffice officeInstance = StudentOffice.getOffice();
+		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
+		sro.createHall("Hall1",20);
+		Office office = Office.getOffice();
+		office.setEligiblePeople();
+		office.pairStudents();
+		
+		int deviation = 0;
+		
+		ArrayList<Hall> hall  = sro.getHalls();
+		for(Hall h:hall){
+			ArrayList<Room> rooms = h.getRoom();
+			for(Room r:rooms){
+				ArrayList<Person> p = r.getRoomMates();
+				if(r.getState() instanceof ROccupied){
+					ArrayList<Person> roomates = r.getRoomMates();
+					//Room occupied by different genders
+					if(roomates.get(0).getSex() != roomates.get(1).getSex())
+						deviation++;
+				}
+					
+			}
+
+		}
+
+		assertEquals(0,deviation);
+	}
+	
+
+	@Test
+	public void rejectedStateCheck()
+	{
+		
+		officeInstance.makePersons("./Student Test Cases/1am.txt");
+		
+		sro.createHall("Hall1",20);
+		office.setEligiblePeople();
+		officeInstance.makePreferences(office.getEligibleMaleList());
+		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
+		
+		Person A = new Person("A","1038","M","YYY");
+		Person B = new Person("B","1039","M","YYY");
+		Person C = new Person("C","1040","M","YYY");
+		Person D = new Person("D","1041","M","YYY");
+		
+		p.removeSymmetrically(B,D);
+		
+		CState actualState = p.findCell(B, D).getStatus();
+		
+		assertTrue(actualState instanceof  CStateRejected);
+	
+	}
+	
+	@Test
+	public void proposalStateCheck()
+	{
+		
+		officeInstance.makePersons("./Student Test Cases/1am.txt");
+		
+		sro.createHall("Hall1",20);
+		office.setEligiblePeople();
+		officeInstance.makePreferences(office.getEligibleMaleList());
+		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
+		
+		Person A = new Person("A","1038","M","YYY");
+		Person B = new Person("B","1039","M","YYY");
+		Person C = new Person("C","1040","M","YYY");
+		Person D = new Person("D","1041","M","YYY");
+		//Row of A
+		p.proposeToFav(1);
+		p.displayMatrix();
+		
+		CState actualState = p.findCell(B,C).getStatus();
+		
+		assertTrue(actualState instanceof  CStateProposalMade);
+	
+	}
+
+	@Test
+	public void acceptedStateCheck()
+	{
+		
+		officeInstance.makePersons("./Student Test Cases/1am.txt");
+		
+		sro.createHall("Hall1",20);
+		office.setEligiblePeople();
+		officeInstance.makePreferences(office.getEligibleMaleList());
+		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
+		
+		Person A = new Person("A","1038","M","YYY");
+		Person B = new Person("B","1039","M","YYY");
+		Person C = new Person("C","1040","M","YYY");
+		Person D = new Person("D","1041","M","YYY");
+		//Row of A
+		p.proposeToFav(1);
+		p.displayMatrix();
+		
+		CState actualState = p.findCell(C,B).getStatus();
+		
+		assertTrue(actualState instanceof  CStateAccepted);
+	
+	}
+	
+	@Test
+	public void availableStateCheck()
+	{
+		
+		officeInstance.makePersons("./Student Test Cases/1am.txt");
+		
+		sro.createHall("Hall1",20);
+		office.setEligiblePeople();
+		officeInstance.makePreferences(office.getEligibleMaleList());
+		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
+		
+		Person A = new Person("A","1038","M","YYY");
+		Person B = new Person("B","1039","M","YYY");
+		Person C = new Person("C","1040","M","YYY");
+		Person D = new Person("D","1041","M","YYY");
+		//Row of A
+		p.displayMatrix();
+		
+		CState actualState = p.findCell(C,B).getStatus();
+		
+		assertTrue(actualState instanceof  CStateAvailable);
+	
 	}
 	
 	@After

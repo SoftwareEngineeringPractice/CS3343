@@ -2,5 +2,5 @@ package roomSync;
 
 public interface RState
 {
-	public String getState();	
+	public String getString();	
 }
