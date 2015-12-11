@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Test_Stage2_PropToFav_FormCyC_RemoveSym_FindCell {
+public class Stage2IntegrationTesting {
 
 	SRO sro;
 	StudentOffice officeInstance;

@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class Testing_RemoveSym_FindCell {
+public class RemoveSymmetricallyIntegrationTesting {
 	
 	SRO sro;
 	StudentOffice officeInstance;

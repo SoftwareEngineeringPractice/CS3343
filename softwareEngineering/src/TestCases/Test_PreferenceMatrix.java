@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class test1PANDA {
+public class Test_PreferenceMatrix {
 
 	StudentOffice studentOfficeInstance;
 	Office office;
