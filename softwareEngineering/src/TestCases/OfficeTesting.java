@@ -36,7 +36,6 @@ public class OfficeTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -62,10 +61,8 @@ public class OfficeTesting {
 				  { new CellSubject(J), new CellPreference(C), new CellPreference(G), new CellPreference(A), new CellPreference(B), new CellPreference(H),new CellPreference(I),new CellPreference(F),new CellPreference(D),new CellPreference(E)}
 				  
 		};
-		System.out.println("---");
 		PreferenceMatrix e = new PreferenceMatrix(expected);
-		//e.displayMatrix();//[2]	   
-
+		
 		
 		assertArrayEquals(p.getMatrix(),expected);
 		
@@ -79,7 +76,6 @@ public class OfficeTesting {
 		sro.createHall("Hall1",4);
 		office.setEligiblePeople();
 		
-		//office.pairStudents();
 		ArrayList<Person> eligibleMale = office.getEligibleMaleList();
 		
 		ArrayList<Person> expectedMaleEligibleList = new ArrayList<>();
@@ -92,12 +88,10 @@ public class OfficeTesting {
 	@Test
 	public void testEligibleStudentsFemale() {
 		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
-		officeInstance.printPersons();
 		officeInstance.makePreferences();
 		sro.createHall("Hall1",4);
 		office.setEligiblePeople();
 		
-		//office.pairStudents();
 		ArrayList<Person> eligibleMale = office.getEligibleFemaleList();
 		
 		ArrayList<Person> expectedMaleEligibleList = new ArrayList<>();
@@ -107,37 +101,34 @@ public class OfficeTesting {
 }
 
 	@Test
-	public void test2() {
-		System.out.println("test2");
+	public void areAllotedPairsAsExpected() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
 		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
-		officeInstance.printPersons();
 		officeInstance.makePreferences();
-		officeInstance.printPreferenceList();
 		sro.createHall("Hall1",20);
-		System.out.println(sro.getAvailableNoOfRooms());
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		
-		HashMap<Person,Person> expectedResult = new HashMap<>();
-		expectedResult.put(new Person("Student7","1007","M","YYY"),new Person("Student8","1008","M","YYY"));
-		expectedResult.put(new Person("Student3","1003","M","YYY"),new Person("Student4","1004","M","YYY"));
-		expectedResult.put(new Person("Student0","1000","F","YYY"),new Person("Student9","1009","F","YYY"));
-		expectedResult.put(new Person("Student1","1001","F","YYY"),new Person("Student2","1002","F","YYY"));
-		expectedResult.put(new Person("Student5","1005","F","YYY"),new Person("Student6","1006","F","YYY"));
+		ArrayList<Pair> expectedResult = new ArrayList<>();
+		
+		expectedResult.add(new Pair(new Person("Student7","1007","M","YYY"),new Person("Student8","1008","M","YYY")));
+		expectedResult.add(new Pair(new Person("Student3","1003","M","YYY"),new Person("Student4","1004","M","YYY")));
+		expectedResult.add(new Pair(new Person("Student0","1000","F","YYY"),new Person("Student9","1009","F","YYY")));
+		expectedResult.add(new Pair(new Person("Student1","1001","F","YYY"),new Person("Student2","1002","F","YYY")));
+		expectedResult.add(new Pair(new Person("Student5","1005","F","YYY"),new Person("Student6","1006","F","YYY")));
+		
+		
 		
 		office.pairStudents();
-		HashMap<Person,Person> actualResult = new HashMap<>();
+		ArrayList<Pair> actualResult = new ArrayList<>();
 		
 		ArrayList<Hall> hall  = sro.getHalls();
 		for(Hall h:hall){
 			ArrayList<Room> rooms = h.getRoom();
 			for(Room r:rooms){
 				ArrayList<Person> p = r.getRoomMates();
-				if(r.getState() instanceof ROccupied){
-					actualResult.put(p.get(0),p.get(1));
-					System.out.println("PANDA"+p.get(0).getName() + "," + p.get(1).getName());
-				}
+				if(r.getState() instanceof ROccupied)
+					actualResult.add(new Pair(p.get(0),p.get(1)));
 			}
 
 		}
@@ -145,20 +136,27 @@ public class OfficeTesting {
 
 	}
 
-	//@Test
-	public void test3() {
+	@Test
+	public void unAllotedPeopleCheck() {
 		StudentOffice officeInstance = StudentOffice.getOffice();
-		officeInstance.makePersons("./Student Test Cases/mixed1.txt");
-		officeInstance.printPersons();
-		officeInstance.makePreferences();
-		SRO sro = SRO.getInstance();
-		sro.createHall("Hall1",233);
-		System.out.println(sro.getAvailableNoOfRooms());
+		officeInstance.makePersons("./Student Test Cases/mixed2.txt");
+		sro.createHall("Hall1",4);
 		Office office = Office.getOffice();
 		office.setEligiblePeople();
 		
-		office.pairStudents();
+		ArrayList<Person> expectedResult = new ArrayList<>();
 		
+		expectedResult.add(new Person("Student7","1007","M","YYY"));
+		expectedResult.add(new Person("Student8","1008","M","YYY"));
+		
+		
+		
+		office.pairStudents();
+		office.setEligiblePeople();
+		
+		ArrayList<Person> actualResult = office.getEligibleMaleList();
+		
+		assertEquals(expectedResult,actualResult);
 			
 	}
 	
