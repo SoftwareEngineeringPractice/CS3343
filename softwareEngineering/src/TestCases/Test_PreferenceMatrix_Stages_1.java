@@ -159,8 +159,7 @@ public class Test_PreferenceMatrix_Stages_1 {
 		
 		
 		};
-		System.out.println("======\nThis is SHRANKHLA's test [Stage2_4]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
-		PreferenceMatrix p = new PreferenceMatrix(preferenceList);
+			PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 		
 		p.Stage1();
 		p.Stage2();

@@ -35,7 +35,7 @@ public class findCellTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
+		
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -46,8 +46,6 @@ public class findCellTesting {
 		
 		Cell ExpectedCell = new CellPreference(B,new CStateAvailable());
 		
-		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -69,7 +67,7 @@ public class findCellTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
+	
 		
 		
 		Person C = new Person("C","1040","M","YYY");
@@ -77,14 +75,13 @@ public class findCellTesting {
 		
 		Cell actualCell = p.findCell(C, D);
 		
-	//	System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
+	
 		
 		
 		
 		Cell ExpectedCell = new CellPreference(D,new CStateAvailable());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -104,7 +101,7 @@ public class findCellTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
+		
 		
 		
 		Person A = new Person("A","1038","M","YYY");
@@ -114,15 +111,12 @@ public class findCellTesting {
 		
 		Cell actualCell = p.findCell(A, D);
 		
-	//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
-		
+	
 		
 		
 		Cell ExpectedCell = new CellPreference(D,new CStateAvailable());
 		
-		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
-		
+	
 	assertEquals(actualCell,ExpectedCell);
 	
 	}

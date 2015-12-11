@@ -36,7 +36,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
+		
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -50,7 +50,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		Cell ExpectedCell = new CellPreference(B,new CStateRejected());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
+		
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -74,7 +74,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
+
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -88,7 +88,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		Cell ExpectedCell = new CellPreference(D,new CStateRejected());
 		
 		
-	//	System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
+
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -112,7 +112,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
+		
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -126,7 +126,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		Cell ExpectedCell = new CellPreference(C,new CStateRejected());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
+	
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -149,7 +149,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		office.setEligiblePeople();
 		officeInstance.makePreferences(office.getEligibleMaleList());
 		PreferenceMatrix p = new PreferenceMatrix(office.getEligibleMaleList());
-		//p.displayMatrix();
+	
 		
 		Person A = new Person("A","1038","M","YYY");
 		Person B = new Person("B","1039","M","YYY");
@@ -163,7 +163,7 @@ public class RemoveSymmetricallyIntegrationTesting {
 		Cell ExpectedCell = new CellPreference(D,new CStateRejected());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
+		
 		
 		assertEquals(actualCell,ExpectedCell);
 	

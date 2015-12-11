@@ -76,19 +76,7 @@ public class StageTesting {
 				CState proposalMade = new CStateProposalMade();
 				CState rejected = new CStateRejected();
 				
-				//you will make this matrix once you see the output from p.displayMatrix() <-- actual output (cheating) [de-comment p.displayMatrix()]
-				//Don't make the matrix yet. Look at the actual output!
 				
-				/*
-				 * Interpreting the actual output that's displayed on the console
-				 * 
-				 * 1) (N) --> CStateAvailable (No changes required)
-				 * 2) (A) --> CStateAccepted  (I have done constructor overloading [look below], when you make the expected array[the one below] add "accepted" as the second argument)
-				 * 3) (P) --> CStateProposalMade (I have done constructor overloading [look below], when you make the expected array[the one below] add "proposalMade" as the second argument)
-				 * 4) (R) --> CStateRejected (I have done constructor overloading [look below], when you make the expected array[the one below] add "rejected" as the second argument)
-				 *
-				 *
-				 *accepted, proposalMade and rejected are define above*/
 				 
 				Cell[][] expected = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(J,proposalMade), new CellPreference(D,accepted), new CellPreference(F,rejected), new CellPreference(B,rejected), new CellPreference(H,rejected),new CellPreference(E,rejected),new CellPreference(M,rejected),new CellPreference(K,rejected),new CellPreference(G,rejected),new CellPreference(C,rejected),new CellPreference(I,rejected),new CellPreference(L,proposalMade) },
@@ -108,8 +96,7 @@ public class StageTesting {
 				
 				
 				};
-				//System.out.println("======\nThis is SHRANKHLA's test [Stage3_4]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
-				PreferenceMatrix p = new PreferenceMatrix(preferenceList);
+					PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 				
 				p.Stage1();
 				p.Stage2();
@@ -119,7 +106,7 @@ public class StageTesting {
 				
 				e.proposeToFav(1);
 				
-				//e.displayMatrix();
+
 				
 				Cell[][] expected1 = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -142,7 +129,7 @@ public class StageTesting {
 				
 				m.formCycle(1);
 				
-				//m.displayMatrix();
+				
 				
 				Cell[][] expected2 = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -171,7 +158,6 @@ public class StageTesting {
 				Cell ExpectedCell = new CellPreference(J,new CStateRejected());
 				
 				
-				//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
 				
 				assertEquals(actualCell,ExpectedCell);
 			
@@ -232,20 +218,7 @@ public class StageTesting {
 				CState proposalMade = new CStateProposalMade();
 				CState rejected = new CStateRejected();
 				
-				//you will make this matrix once you see the output from p.displayMatrix() <-- actual output (cheating) [de-comment p.displayMatrix()]
-				//Don't make the matrix yet. Look at the actual output!
 				
-				/*
-				 * Interpreting the actual output that's displayed on the console
-				 * 
-				 * 1) (N) --> CStateAvailable (No changes required)
-				 * 2) (A) --> CStateAccepted  (I have done constructor overloading [look below], when you make the expected array[the one below] add "accepted" as the second argument)
-				 * 3) (P) --> CStateProposalMade (I have done constructor overloading [look below], when you make the expected array[the one below] add "proposalMade" as the second argument)
-				 * 4) (R) --> CStateRejected (I have done constructor overloading [look below], when you make the expected array[the one below] add "rejected" as the second argument)
-				 *
-				 *
-				 *accepted, proposalMade and rejected are define above*/
-				 
 				Cell[][] expected = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(J,proposalMade), new CellPreference(D,accepted), new CellPreference(F,rejected), new CellPreference(B,rejected), new CellPreference(H,rejected),new CellPreference(E,rejected),new CellPreference(M,rejected),new CellPreference(K,rejected),new CellPreference(G,rejected),new CellPreference(C,rejected),new CellPreference(I,rejected),new CellPreference(L,proposalMade) },
 						  { new CellSubject(B), new CellPreference(F,proposalMade), new CellPreference(K,rejected), new CellPreference(A,rejected), new CellPreference(C,rejected), new CellPreference(E,accepted),new CellPreference(M,rejected),new CellPreference(H,rejected),new CellPreference(L,proposalMade),new CellPreference(D,rejected),new CellPreference(I,rejected),new CellPreference(J,rejected),new CellPreference(G,rejected) },
@@ -264,7 +237,6 @@ public class StageTesting {
 				
 				
 				};
-				//System.out.println("======\nThis is SHRANKHLA's test [Stage3_4]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
 				PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 				
 				p.Stage1();
@@ -275,7 +247,7 @@ public class StageTesting {
 				
 				e.proposeToFav(1);
 				
-				//e.displayMatrix();
+				
 				
 				Cell[][] expected1 = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -298,7 +270,7 @@ public class StageTesting {
 				
 				m.formCycle(1);
 				
-				//m.displayMatrix();
+				
 				
 				Cell[][] expected2 = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -327,8 +299,7 @@ public class StageTesting {
 				Cell ExpectedCell = new CellPreference(E,new CStateRejected());
 				
 				
-				//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
-				
+			
 				assertEquals(actualCell,ExpectedCell);
 			
 				
@@ -387,19 +358,7 @@ public class StageTesting {
 				CState proposalMade = new CStateProposalMade();
 				CState rejected = new CStateRejected();
 				
-				//you will make this matrix once you see the output from p.displayMatrix() <-- actual output (cheating) [de-comment p.displayMatrix()]
-				//Don't make the matrix yet. Look at the actual output!
 				
-				/*
-				 * Interpreting the actual output that's displayed on the console
-				 * 
-				 * 1) (N) --> CStateAvailable (No changes required)
-				 * 2) (A) --> CStateAccepted  (I have done constructor overloading [look below], when you make the expected array[the one below] add "accepted" as the second argument)
-				 * 3) (P) --> CStateProposalMade (I have done constructor overloading [look below], when you make the expected array[the one below] add "proposalMade" as the second argument)
-				 * 4) (R) --> CStateRejected (I have done constructor overloading [look below], when you make the expected array[the one below] add "rejected" as the second argument)
-				 *
-				 *
-				 *accepted, proposalMade and rejected are define above*/
 				 
 				Cell[][] expected = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(J,proposalMade), new CellPreference(D,accepted), new CellPreference(F,rejected), new CellPreference(B,rejected), new CellPreference(H,rejected),new CellPreference(E,rejected),new CellPreference(M,rejected),new CellPreference(K,rejected),new CellPreference(G,rejected),new CellPreference(C,rejected),new CellPreference(I,rejected),new CellPreference(L,proposalMade) },
@@ -419,7 +378,6 @@ public class StageTesting {
 				
 				
 				};
-				//System.out.println("======\nThis is SHRANKHLA's test [Stage3_4]\nAs said before if there is still an issue matching the states, match the states in [1] and [2] (commented below in code)");
 				PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 				
 				p.Stage1();
@@ -430,7 +388,7 @@ public class StageTesting {
 				
 				e.proposeToFav(1);
 				
-				//e.displayMatrix();
+			
 				
 				Cell[][] expected1 = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -453,7 +411,7 @@ public class StageTesting {
 				
 				m.formCycle(1);
 				
-				//m.displayMatrix();
+				
 				
 				Cell[][] expected2 = new Cell[][]{
 						  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -481,9 +439,7 @@ public class StageTesting {
 				
 				Cell ExpectedCell = new CellPreference(H,new CStateRejected());
 				
-				
-				//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
-				
+			
 				assertEquals(actualCell,ExpectedCell);
 			
 				

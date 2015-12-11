@@ -83,7 +83,7 @@ public class Stage2IntegrationTesting {
 		
 		e.proposeToFav(1);
 		
-		//e.displayMatrix();
+		
 		
 		Cell[][] expected1 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -106,7 +106,7 @@ public class Stage2IntegrationTesting {
 		
 		m.formCycle(1);
 		
-		//m.displayMatrix();
+		
 		
 		Cell[][] expected2 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -135,7 +135,6 @@ public class Stage2IntegrationTesting {
 		Cell ExpectedCell = new CellPreference(J,new CStateRejected());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -204,7 +203,7 @@ public class Stage2IntegrationTesting {
 		
 		e.proposeToFav(1);
 		
-		//e.displayMatrix();
+		
 		
 		Cell[][] expected1 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -227,7 +226,7 @@ public class Stage2IntegrationTesting {
 		
 		m.formCycle(1);
 		
-		//m.displayMatrix();
+	
 		
 		Cell[][] expected2 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -256,7 +255,6 @@ public class Stage2IntegrationTesting {
 		Cell ExpectedCell = new CellPreference(D,new CStateRejected());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -327,7 +325,7 @@ public class Stage2IntegrationTesting {
 		
 		e.proposeToFav(1);
 		
-		//e.displayMatrix();
+		
 		
 		Cell[][] expected1 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -350,7 +348,7 @@ public class Stage2IntegrationTesting {
 		
 		m.formCycle(1);
 		
-		//m.displayMatrix();
+		
 		
 		Cell[][] expected2 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -379,7 +377,6 @@ public class Stage2IntegrationTesting {
 		Cell ExpectedCell = new CellPreference(F,new CStateRejected());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
 		
 		assertEquals(actualCell,ExpectedCell);
 	
@@ -450,7 +447,7 @@ public class Stage2IntegrationTesting {
 		
 		e.proposeToFav(1);
 		
-		//e.displayMatrix();
+		
 		
 		Cell[][] expected1 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,proposalMade), new CellPreference(E,accepted), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -473,7 +470,7 @@ public class Stage2IntegrationTesting {
 		
 		m.formCycle(1);
 		
-		//m.displayMatrix();
+	
 		
 		Cell[][] expected2 = new Cell[][]{
 				  { new CellSubject(A), new CellPreference(B,rejected), new CellPreference(E,rejected), new CellPreference(F,rejected), new CellPreference(D,rejected), new CellPreference(C,rejected),new CellPreference(H,rejected),new CellPreference(I,rejected),new CellPreference(G,rejected),new CellPreference(J,rejected) },
@@ -502,7 +499,7 @@ public class Stage2IntegrationTesting {
 		Cell ExpectedCell = new CellPreference(J,new CStateRejected());
 		
 		
-		//System.out.println(actualCell.getName()+" HI "+ actualCell.getStatusString());
+		
 		
 		assertEquals(actualCell,ExpectedCell);
 	

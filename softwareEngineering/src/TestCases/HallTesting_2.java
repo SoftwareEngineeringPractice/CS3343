@@ -61,7 +61,7 @@ public class HallTesting_2 {
 		sro.createHall("Hall1",capacityHall1);
 		sro.editHall(new Hall("Hall3",capacityHall3));
 		
-		System.out.println(sro.getAvailableNoOfRooms());
+		
 		
 		assertEquals(  sro.getAvailableNoOfRooms(),(capacityHall1+capacityHall3)  );
 	}
@@ -76,7 +76,7 @@ public class HallTesting_2 {
 		
 		sro.removeHall(new Hall("Hall1",10));
 		
-		System.out.println(sro.getAvailableNoOfRooms());
+		
 		
 		assertEquals(  sro.getAvailableNoOfRooms(),(capacityHall2)  );
 		
