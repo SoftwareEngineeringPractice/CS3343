@@ -55,7 +55,6 @@ public class Office
 		
 		//just to generate error
 		
-		System.out.println("M"+maleRooms+" " +"F"+femaleRooms);
 		setEligibleMale(maleRooms);
 		setEligibleFemale(femaleRooms);
 	}
@@ -134,9 +133,6 @@ public class Office
 		}
 		
 		
-		System.out.println("remaining"+sro.getAvailableNoOfRooms());
-		sro.getallStudents();
-		studentOffice.printPersons();
 		
 	}
 	
@@ -336,11 +332,9 @@ public class Office
 			{
 				noOfBatches++;
 			}
-			System.out.println("noOfBatches:"+noOfBatches);
 			for(int i=0; i< noOfBatches; i++ )
 			{
 				ArrayList<Person> batch = new ArrayList<>();
-				System.out.println("f:"+maxBatchSize*(i)+"t:"+(maxBatchSize*(i+1)-1));
 				for(int j = maxBatchSize*(i); j < (maxBatchSize*(i+1)) && j<eligiblePersonList.size(); j++)
 				{
 					batch.add(eligiblePersonList.get(j));

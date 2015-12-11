@@ -42,17 +42,17 @@ public class HallTesting_1 {
 		
 		
 		
-		int capacityHall11 = 30;
+		int capacityHall1 = 30;
 		int capacityHall6 = 60;
 		
-		sro.createHall("Hall11",capacityHall11);
+		sro.createHall("Hall1",capacityHall1);
 		sro.createHall("Hall6",capacityHall6);
 		
 		//Update Hall capacity
-		int newCapcityHall11 = capacityHall11 + 20; 
-		sro.editHall(new Hall("Hall11",newCapcityHall11));
+		int newCapcityHall1 = capacityHall1 + 20; 
+		sro.editHall(new Hall("Hall1",newCapcityHall1));
 		
-		int expectedCapacity = newCapcityHall11 + capacityHall6;
+		int expectedCapacity = newCapcityHall1 + capacityHall6;
 		int actualCapacity   = sro.getAvailableNoOfRooms();
 		
 		
