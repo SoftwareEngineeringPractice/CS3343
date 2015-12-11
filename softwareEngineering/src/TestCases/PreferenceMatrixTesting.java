@@ -22,7 +22,7 @@ import roomSync.PreferenceMatrix;
 import roomSync.SRO;
 import roomSync.StudentOffice;
 
-public class Test_PreferenceMatrix {
+public class PreferenceMatrixTesting {
 	
 	SRO sro;
 	StudentOffice officeInstance;

@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class Test_Stage1_Stage2_Stage3 {
+public class StageTesting {
 	
 	
 

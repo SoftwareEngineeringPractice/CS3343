@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Test_SRO {
+public class SroTesting {
 	
 	
 	SRO sro;
