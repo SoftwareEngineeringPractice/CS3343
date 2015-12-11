@@ -8,11 +8,11 @@ public class CStateAccepted implements CState
 		state = "(A)";
 	}
 	
-	public CState getStatus()
+	/*public CState getStatus()
 	{
 		return this;
 	}
-
+*/
 	public String getString()
 	{
 		return state;

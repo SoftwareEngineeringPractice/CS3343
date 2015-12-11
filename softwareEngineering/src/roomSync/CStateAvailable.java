@@ -8,10 +8,10 @@ public class CStateAvailable implements CState
 		state = "(N)";
 	}
 	
-	public CState getStatus()
+	/*public CState getStatus()
 	{
 		return this;
-	}
+	}*/
 	
 	public String getString()
 	{

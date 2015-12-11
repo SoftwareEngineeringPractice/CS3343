@@ -1,4 +1,6 @@
 package TestCases;
+import java.util.ArrayList;
+
 import roomSync.*;
 import static org.junit.Assert.*;
 
@@ -173,6 +175,67 @@ public class HallTesting_1 {
 			
 	}
 
+	@Test
+	public void checkAvaibleState(){
+		
+	
+		
+		int capacityHall1 = 40;
+		
+		
+		sro.createHall("Hall1",capacityHall1);
+		Person A = new Person("A","2345","M","YYY");
+		Person B = new Person("B","2567","M","YYY");
+		Person C = new Person("C","2341","M","YYY");
+		Person D = new Person("D","2561","M","YYY");
+		Person E = new Person("E","22345","M","YYY");
+		Person F = new Person("F","22567","M","YYY");
+		Person G = new Person("G","22341","M","YYY");
+		Person H = new Person("H","22561","M","YYY");
+		sro.setRoomOccupants(A, B);
+		sro.setRoomOccupants(C, D);
+		sro.setRoomOccupants(E, F);
+		sro.setRoomOccupants(G, H);
+		ArrayList<Hall> halls = sro.getHalls();
+		
+		ArrayList<Room> rooms = halls.get(0).getRoom();
+		
+		String state = rooms.get(12).getState().getString();
+			assertTrue(state.equals("Available"));
+			
+	}
+
+	@Test
+	public void checkOccupiedState(){
+		
+	
+		
+		int capacityHall1 = 40;
+		
+		
+		sro.createHall("Hall1",capacityHall1);
+		Person A = new Person("A","2345","M","YYY");
+		Person B = new Person("B","2567","M","YYY");
+		Person C = new Person("C","2341","M","YYY");
+		Person D = new Person("D","2561","M","YYY");
+		Person E = new Person("E","22345","M","YYY");
+		Person F = new Person("F","22567","M","YYY");
+		Person G = new Person("G","22341","M","YYY");
+		Person H = new Person("H","22561","M","YYY");
+		sro.setRoomOccupants(A, B);
+		sro.setRoomOccupants(C, D);
+		sro.setRoomOccupants(E, F);
+		sro.setRoomOccupants(G, H);
+		ArrayList<Hall> halls = sro.getHalls();
+		
+		ArrayList<Room> rooms = halls.get(0).getRoom();
+		
+		String state = rooms.get(1).getState().getString();
+		assertTrue(state.equals("Occupied"));
+			
+	}
+	
+	
 	@After
 	public void TearDown()
 	{

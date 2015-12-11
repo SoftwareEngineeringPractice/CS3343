@@ -2,7 +2,7 @@ package roomSync;
 
 public class RAvailable implements RState
 {
-	public String getState()
+	public String getString()
 	{
 		return "Available";
 	}
