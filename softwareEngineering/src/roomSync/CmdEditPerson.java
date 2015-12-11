@@ -1,14 +1,16 @@
 package roomSync;
 
-public class CmdEditPerson extends RecordedCommand {
+public class CmdEditPerson extends RecordedCommand
+{
 
 	private String [] person;
 	String attri;
 
 	@Override
-	public void execute(String[] cmdParts) {
-		
-		try {
+	public void execute(String[] cmdParts)
+	{
+		try
+		{
 			if(cmdParts.length < 4)
 				throw new ExInsufficientCommandArgument();
 			
@@ -19,37 +21,46 @@ public class CmdEditPerson extends RecordedCommand {
 			person = cmdParts;
 			addUndoCommand(this);
 			clearRedoList();
-			System.out.println("Person added Successfully");
-		} catch (ExInsufficientCommandArgument e) {
+			System.out.print("\nPerson added Successfully\n");
+		}
+		catch (ExInsufficientCommandArgument e)
+		{
 			System.out.println(e.getMessage());
 		}
-
 	}
 
 	@Override
-	public void undoMe() {
-		try {
+	public void undoMe()
+	{
+		try
+		{
 			StudentOffice studentOffice = StudentOffice.getOffice();
 			studentOffice.removePerson(new Person(person[0], person[1], person[2], person[3]));
 			studentOffice.addPerson(new Person(person[0], person[1], person[2], attri));
 			addRedoCommand(this);
-		} catch (Exception e) {
+			System.out.print("\nUndo Successful\n");
+		}
+		catch (Exception e)
+		{
 			System.out.println("Error adding person");
 		}
 		
 	}
 
 	@Override
-	public void redoMe() {
-		try {
+	public void redoMe()
+	{
+		try
+		{
 			StudentOffice studentOffice = StudentOffice.getOffice();
 			studentOffice.removePerson(new Person(person[0], person[1], person[2], attri));	
 			studentOffice.addPerson(new Person(person[0], person[1], person[2], person[3]));
 			addUndoCommand(this);
-		} catch (Exception e) {
+			System.out.print("\nRedo Successful\n");
+		}
+		catch (Exception e)
+		{
 			System.out.println("Error adding person");
 		}
-		
 	}
-
 }

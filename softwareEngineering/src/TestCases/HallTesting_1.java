@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class HallTesting {
+public class HallTesting_1 {
 
 	SRO sro;
 	

@@ -1,7 +1,11 @@
 package roomSync;
 import java.util.*;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class StudentOffice
 {
@@ -24,20 +28,21 @@ public class StudentOffice
 	
 	
 	//Function to make Persons, input can look like "FirstName LastName|Student ID|Sex|Y,N,Y.." , Name | Student ID | Sex | Attributes in the right order
-	public void makePersons()
+	public void makePersons() throws IOException
 	{
-		Scanner in = new Scanner(System.in);
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Please input the file pathname for all Persons and their Attributes: ");
-		String filepathname = in.nextLine();
+		String filepathname = in.readLine();
 		System.out.println();
-		Scanner inFile = null;
+		BufferedReader inFile = null;
 		try
 		{
-			inFile = new Scanner(new File(filepathname));
+			inFile = new BufferedReader(new FileReader(filepathname));;
+		  
 				
-			while (inFile.hasNext())
+			while (inFile.ready())
 			{
-				String cmdLine = inFile.nextLine().trim();
+				String cmdLine = inFile.readLine().trim();
 				//Blank lines exist in data file as separators.  Skip them.
 				if (cmdLine.equals("")) continue;  
 				
@@ -47,8 +52,6 @@ public class StudentOffice
 				if(cmdParts.length == 4){
 					atr = cmdParts[3];
 				}
-				
-				
 				personList.add(new Person(cmdParts[0], cmdParts[1], cmdParts[2], atr));
 			}
 			
@@ -57,6 +60,7 @@ public class StudentOffice
 		catch (FileNotFoundException e)
 		{
 			System.out.println("Error! File not found!");
+			throw new IOException();
 		}
 		finally
 		{
@@ -64,7 +68,6 @@ public class StudentOffice
 			{
 				inFile.close();			
 			}
-			in.close();
 		}
 	}
 	

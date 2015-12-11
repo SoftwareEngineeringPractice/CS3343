@@ -7,6 +7,7 @@ public class Room
 
 	private RState roomStatus;
 	private String roomID;
+	@SuppressWarnings("unused")
 	private char roomGender;
 	private ArrayList<Person> roomMates=new ArrayList<>();
 	
