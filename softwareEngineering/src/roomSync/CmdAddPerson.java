@@ -22,9 +22,8 @@ public class CmdAddPerson extends RecordedCommand
 		}
 		catch (ExInsufficientCommandArgument e)
 		{
-			System.out.println(e.getMessage());
+			System.out.print("\n" + e.getMessage() + "\n");
 		}
-
 	}
 
 	@Override
@@ -35,10 +34,11 @@ public class CmdAddPerson extends RecordedCommand
 			StudentOffice studentOffice = StudentOffice.getOffice();
 			studentOffice.removePerson(new Person(person[0], person[1], person[2], person[3]));
 			addRedoCommand(this);
+			System.out.print("\nUndo Successful\n");
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error adding person");
+			System.out.print("\nError adding person\n");
 		}
 		
 	}
@@ -50,10 +50,11 @@ public class CmdAddPerson extends RecordedCommand
 			StudentOffice studentOffice = StudentOffice.getOffice();
 			studentOffice.addPerson(new Person(person[0], person[1], person[2], person[3]));
 			addUndoCommand(this);
+			System.out.print("\nRedo Successful\n");
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error adding person");
+			System.out.print("\nError adding person\n");
 		}
 		
 	}

@@ -45,9 +45,8 @@ public class StudentScreen extends DisplayScreen
 		}
 		catch (ExWrongCommand e)
 		{
-			System.out.print(e.getMessage() + " Program restarted");
+			System.out.print("\n" + e.getMessage() + " Program restarted\n");
 			MainScreen.screenDisplay();
 		}
 	}
-	
 }

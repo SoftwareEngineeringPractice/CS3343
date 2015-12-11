@@ -35,7 +35,7 @@ public class MainScreen extends DisplayScreen
 		}
 		catch (ExWrongCommand e)
 		{
-			System.out.print(e.getMessage() + "Program Terminated");
+			System.out.print("\n" + e.getMessage() + "Program Terminated\n");
 		}
 		catch (NumberFormatException e)
 		{
@@ -45,12 +45,12 @@ public class MainScreen extends DisplayScreen
 			}
 			catch (ExNumberFormat e1)
 			{
-				System.out.print(e1.getMessage());
+				System.out.print("\n" + e1.getMessage() + "\n");
 			}
 		}
 		catch (IOException e)
 		{
-			System.out.print("Wrong input.. Program Terminated");
+			System.out.print("\nWrong input.. Program Terminated\n");
 		}
 	}
 	

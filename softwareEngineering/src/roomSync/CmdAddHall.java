@@ -1,13 +1,15 @@
 package roomSync;
 
-public class CmdAddHall extends RecordedCommand {
+public class CmdAddHall extends RecordedCommand
+{
 
 	private String[] hall;
 	
 	@Override
-	public void execute(String[] cmdParts) {
-		try {
-			
+	public void execute(String[] cmdParts)
+	{
+		try
+		{
 			if(cmdParts.length < 2)
 				throw new ExInsufficientCommandArgument();
 			
@@ -16,46 +18,68 @@ public class CmdAddHall extends RecordedCommand {
 			hall = cmdParts;
 			addUndoCommand(this);
 			clearRedoList();
-			System.out.println("Hall added Successfully");
-		} catch (NumberFormatException e) {
-			try {
+			System.out.print("\nHall added Successfully\n");
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
 				throw new ExNumberFormat();
-			} catch (ExNumberFormat e1) {
-				System.out.println(e1.getMessage());
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print("\n" + e1.getMessage() + "\n");
 			}
 		}
-		catch (ExInsufficientCommandArgument e) {
-			System.out.println(e.getMessage());
+		catch (ExInsufficientCommandArgument e)
+		{
+			System.out.print("\n" + e.getMessage() + "\n");
 		}
 	}
 
 	@Override
-	public void undoMe() {
-		try {
+	public void undoMe()
+	{
+		try
+		{
 			SRO sro = SRO.getInstance();
-			Hall h = new Hall( hall[0],Integer.parseInt(hall[1]) );
+			Hall h = new Hall(hall[0],Integer.parseInt(hall[1]) );
 			sro.removeHall(h);
 			addRedoCommand(this);
-		} catch (NumberFormatException e) {
-			try {
+			System.out.print("\nUndo Successful\n");
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
 				throw new ExNumberFormat();
-			} catch (ExNumberFormat e1) {
-				System.out.println(e1.getMessage());
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print("\n" + e1.getMessage() + "\n");
 			}
 		}
 	}
 
 	@Override
-	public void redoMe() {
-		try {
+	public void redoMe()
+	{
+		try
+		{
 			SRO sro = SRO.getInstance();
 			sro.createHall(hall[0],Integer.parseInt(hall[1]));
 			addUndoCommand(this);
-		} catch (NumberFormatException e) {
-			try {
+			System.out.print("\nRedo Successful\n");
+		}
+		catch (NumberFormatException e)
+		{
+			try
+			{
 				throw new ExNumberFormat();
-			} catch (ExNumberFormat e1) {
-				System.out.println(e1.getMessage());
+			}
+			catch (ExNumberFormat e1)
+			{
+				System.out.print("\n" + e1.getMessage() + "\n");
 			}
 		}
 	}

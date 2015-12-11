@@ -2,8 +2,8 @@ package roomSync;
 
 import java.io.IOException;
 
-public class CmdInputFromTextFile implements Command {
-
+public class CmdInputFromTextFile implements Command
+{
 	@Override
 	public void execute(String[] cmdParts) {
 		StudentOffice studentOffice = StudentOffice.getOffice();
@@ -14,8 +14,7 @@ public class CmdInputFromTextFile implements Command {
 		}
 		catch (IOException e)
 		{
-			System.out.print("\nWrong input.. Program Restarting");
+			System.out.print("\nWrong input.. Program Restarting\n");
 		}
 	}
-
 }
