@@ -42,8 +42,7 @@ public class InterfaceTesting
     	class StubMainScreen extends MainScreen
 		{
 			//Overwrite the class functions
-    		@Override
-			public int getInt()
+    		public int getInt()
 			{
     			return 1;
 			}
