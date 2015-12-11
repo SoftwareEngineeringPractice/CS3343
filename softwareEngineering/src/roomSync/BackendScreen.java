@@ -13,18 +13,18 @@ public class BackendScreen extends DisplayScreen
 		{
 			System.out.print("\nBackend Screen\n");
 			System.out.print("1.Create Building \n2.Edit Building \n3.Assign \n4.Print Result \n5.Return the number of available rooms "
-					+ "\n6.Input from text file \n7.undo \n8.redo \n9. Back to Main Screen \nInput: ");
+					+ "\n6.Input from text file \n7.Undo \n8.Redo \n9. Back to Main Screen \nInput: ");
 			int i = getInt();
 			String[] cmdInput;
 			switch(i)
 			{
 				case 1:  
-					System.out.print("\nEnter details in the following order Hall name|capacity\n");
+					System.out.print("\nEnter details in the following order: Hall Name|Capacity\n");
 					cmdInput = (getString()).split("\\|");
 					(new CmdAddHall()).execute(cmdInput);
 					break;
 				case 2: 
-					System.out.print("\nEnter details in the following order Hall name|capacity\n"); 
+					System.out.print("\nEnter details in the following order: Hall Name|Capacity\n"); 
 					cmdInput = (getString()).split("\\|");
 					(new CmdEditHall()).execute(cmdInput);
 					break;

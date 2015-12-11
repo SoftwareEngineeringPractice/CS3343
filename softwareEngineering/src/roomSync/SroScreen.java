@@ -18,13 +18,13 @@ public class SroScreen extends DisplayScreen
 			switch(i)
 			{
 				case 1:  
-					System.out.print("Enter details in the following order Hall name|capacity");
+					System.out.print("\nEnter details in the following order Hall Name|Capacity\n");
 					cmdInput = (getString()).split("\\|");
 					(new CmdAddHall()).execute(cmdInput);
 					SroScreen.screenDisplay();
 					break;
 				case 2: 
-					System.out.print("Enter details in the following order HallID|New capacity"); 
+					System.out.print("\nEnter details in the following order Hall ID|New Capacity\n"); 
 					cmdInput = (getString()).split("\\|");
 					(new CmdEditHall()).execute(cmdInput);
 					SroScreen.screenDisplay();

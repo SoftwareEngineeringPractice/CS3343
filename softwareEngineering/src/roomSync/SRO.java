@@ -104,10 +104,7 @@ public class SRO
 	{
 		for(Hall h:hall)
 		{
-			
 			h.getHallResidents();
-			
-
 		}
 	}
 	
