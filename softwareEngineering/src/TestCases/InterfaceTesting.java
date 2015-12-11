@@ -7,6 +7,8 @@ import java.io.PrintStream;
 
 import roomSync.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class InterfaceTesting
@@ -165,9 +167,24 @@ public class InterfaceTesting
 	@Test
     public void AssignRoom_1() throws Exception
     {
-		String input[] ={};
+		CmdAddPerson testAddPerson = new CmdAddPerson();
+		String input[] = {"A","1001","M","Y,Y,N"};
+    	testAddPerson.execute(input);
+    	input = new String[]{"B","2001","M","N,Y,N"};
+    	testAddPerson.execute(input);
+    	input = new String[]{"C","3001","M","N,N,N"};
+    	testAddPerson.execute(input);
+    	input = new String[]{"D","4001","M","Y,Y,Y"};
+    	testAddPerson.execute(input);
+    	input = new String[]{"E","5001","M","N,Y,Y"};
+    	testAddPerson.execute(input);
+    	input = new String[]{"F","6001","M","N,Y,N"};
+    	testAddPerson.execute(input);
+    	SRO sro = SRO.getInstance();
+    	sro.createHall("Hall1",10);
 		CmdAssignRoom testAssignRoom = new CmdAssignRoom();
     	String expOuput = "\nRoom Assign Successful\n";
+		sro.clearHallList();
     	setOutput();
     	testAssignRoom.execute(input);
     	assertEquals(expOuput, getOutput());
