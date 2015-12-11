@@ -8,10 +8,10 @@ public class CStateRejected implements CState
 		state = "(R)";
 	}
 	
-	public CState getStatus()
+	/*public CState getStatus()
 	{
 		return this;
-	}
+	}*/
 	
 	public String getString()
 	{

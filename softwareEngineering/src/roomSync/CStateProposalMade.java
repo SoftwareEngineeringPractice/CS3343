@@ -8,10 +8,10 @@ public class CStateProposalMade implements CState
 		state = "(P)";
 	}
 	
-	public CState getStatus()
+	/*public CState getStatus()
 	{
 		return this;
-	}
+	}*/
 	
 	public String getString()
 	{
