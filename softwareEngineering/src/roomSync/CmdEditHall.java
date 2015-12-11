@@ -30,12 +30,12 @@ public class CmdEditHall extends RecordedCommand
 			}
 			catch (ExNumberFormat e1)
 			{
-				System.out.println(e1.getMessage());
+				System.out.print("\n" + e.getMessage() + "\n");
 			}
 		}
 		catch (ExInsufficientCommandArgument e)
 		{
-			System.out.println(e.getMessage());
+			System.out.print("\n" + e.getMessage() + "\n");
 		}
 	}
 
@@ -58,7 +58,7 @@ public class CmdEditHall extends RecordedCommand
 			}
 			catch (ExNumberFormat e1)
 			{
-				System.out.println(e1.getMessage());
+				System.out.print(e1.getMessage());
 			}
 		}
 	}
@@ -82,7 +82,7 @@ public class CmdEditHall extends RecordedCommand
 			}
 			catch (ExNumberFormat e1)
 			{
-				System.out.println(e1.getMessage());
+				System.out.print(e1.getMessage());
 			}
 		}
 	}

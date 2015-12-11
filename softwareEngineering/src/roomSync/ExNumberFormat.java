@@ -7,8 +7,4 @@ public class ExNumberFormat extends Exception
 	{ 
 		super("Wrong Number Input");
 	}
-	public ExNumberFormat(String message)
-	{
-		super(message);
-	}
 }

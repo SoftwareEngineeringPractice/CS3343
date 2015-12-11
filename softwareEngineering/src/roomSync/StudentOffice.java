@@ -111,9 +111,9 @@ public class StudentOffice
 	//print all people
 	public void printPersons()
 	{
-		System.out.println("List of all Persons:");
+		System.out.print("List of all Persons:\n");
 		for(Person person: personList)
-			System.out.println(person.toString());
+			System.out.print(person.toString());
 	}
 	//return list of Persons in the program
 	public ArrayList<Person> getPersonList()

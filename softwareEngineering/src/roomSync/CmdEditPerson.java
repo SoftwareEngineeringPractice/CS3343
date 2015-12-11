@@ -25,7 +25,7 @@ public class CmdEditPerson extends RecordedCommand
 		}
 		catch (ExInsufficientCommandArgument e)
 		{
-			System.out.println(e.getMessage());
+			System.out.print("\n" + e.getMessage() + "\n");
 		}
 	}
 
