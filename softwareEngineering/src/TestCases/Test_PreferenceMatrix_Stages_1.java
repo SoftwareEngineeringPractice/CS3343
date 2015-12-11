@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 
-public class Shrankhla_4 {
+public class Test_PreferenceMatrix_Stages_1 {
 
 	StudentOffice studentOfficeInstance;
 	Office office;
