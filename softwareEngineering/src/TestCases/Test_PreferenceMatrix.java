@@ -638,7 +638,8 @@ public class Test_PreferenceMatrix {
 		PreferenceMatrix p = new PreferenceMatrix(preferenceList);
 		Person result =p.getLastAvailablePreference(J);
 		
-		Person expected = new Person("A","1001","M","YYY");
+		
+		Person expected = new Person("A","1000","M","YYY");
 		
 		assertEquals(result,expected);
 	}
