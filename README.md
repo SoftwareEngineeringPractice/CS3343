@@ -1,2 +1,2 @@
-# CS3343_CR7
+# CS3343
 Software Project Practice
